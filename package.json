@@ -9,7 +9,11 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "babel-node .",
     "serve": "nodemon --exec node_modules/.bin/babel-node .",
-    "build": "babel src -d build --copy-files"
+    "build": "babel src -d build --copy-files",
+    "migrate": "npx sequelize-cli db:migrate",
+    "seed": "npx sequelize-cli db:seed:all",
+    "migrate-undo": "npx sequelize db:migrate:undo:all",
+    "seed-undo": "npx sequelize db:seed:undo:all"
   },
   "repository": {
     "type": "git",
@@ -26,8 +30,12 @@
   "homepage": "https://github.com/Bangkit-C2-PS424-Team/tourify-app#readme",
   "dependencies": {
     "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
+    "helmet": "^7.0.0",
+    "jsonwebtoken": "^9.0.0",
+    "morgan": "^1.10.0",
     "mysql2": "^3.3.1",
     "sequelize": "^6.31.1",
     "uuid": "^9.0.0"

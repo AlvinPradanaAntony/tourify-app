@@ -1,9 +1,14 @@
 import { Router } from 'express'
-import { postLogin } from '../controllers/auth/auth.controller'
+import { login, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
+import authenticatedMiddleware from '../middlewares/authenticated'
 
 export const loadAuthRouter = app => {
     const router = Router()
-    router.route('/login').get(postLogin)
+    router.route('/login').post(login)
+
+    router.use(authenticatedMiddleware)
+    router.route('/verify').get(verifyToken)
+    router.route('/refresh').post(refreshToken)
 
     app.use('/auth', router)
 }

@@ -1,6 +1,7 @@
 import path from "node:path"
 import http from "node:http"
 import express from "express"
+import bodyParser from "body-parser"
 import { executeLoader } from "./loader"
 import app1, { APP_VERSION as app1version } from './modules/v1/app'
 

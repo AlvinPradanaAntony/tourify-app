@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable('Users', {
+    await queryInterface.createTable('users', {
       id: {
         allowNull: false,
         primaryKey: true,
@@ -33,7 +33,8 @@ module.exports = {
         type: Sequelize.TEXT
       },
       role: {
-        type: Sequelize.ENUM
+        type: Sequelize.ENUM,
+        values: ['Visitor', 'Administrator']
       },
       createdAt: {
         allowNull: false,
@@ -46,6 +47,6 @@ module.exports = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Users');
+    await queryInterface.dropTable('users');
   }
 };

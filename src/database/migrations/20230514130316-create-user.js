@@ -9,32 +9,34 @@ module.exports = {
         type: Sequelize.UUID
       },
       name: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       email: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       username: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false,
+        unique: true
       },
       password: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: false
       },
       phone: {
-        type: Sequelize.STRING
-      },
-      longitude: {
-        type: Sequelize.STRING
-      },
-      latitude: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        allowNull: true
       },
       address: {
-        type: Sequelize.TEXT
+        type: Sequelize.TEXT,
+        allowNull: true
       },
       role: {
         type: Sequelize.ENUM,
-        values: ['Visitor', 'Administrator']
+        values: ['Visitor', 'Administrator'],
+        allowNull: false
       },
       createdAt: {
         allowNull: false,

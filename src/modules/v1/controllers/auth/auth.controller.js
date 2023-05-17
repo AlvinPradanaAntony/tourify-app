@@ -1,4 +1,5 @@
-import { compare } from 'bcrypt'
+import { v4 } from 'uuid'
+import { compare, genSalt, hash } from 'bcrypt'
 import { sign, decode } from 'jsonwebtoken'
 import { User } from './../../../../models'
 
@@ -23,52 +24,92 @@ export const verifyToken = async (req, res) => {
 }
 
 export const login = async (req, res) => {
-    const { username, password } = req.body
-
-    if(!username || !password) {
-        return res.status(422).json({
-            status: 'fail',
-            message: 'Username & Password required'
+    try {
+        const { username, password } = req.body
+    
+        if(!username || !password) {
+            return res.status(422).json({
+                status: 'fail',
+                message: 'Username & Password required'
+            })
+        }
+    
+        const user = await User.findOne({
+            where: { username }
         })
-    }
-
-    const user = await User.findOne({
-        where: { username }
-    })
-
-    if(user != null && (await compare(password, user.password))) {
-        const token = await generateJwtToken(user);
-        res.json({
-            status: 'success',
-            message: 'Login success',
-            data: { token }
-        })
-    } else {
-        res.status(400).json({
+    
+        if(user != null && (await compare(password, user.password))) {
+            const token = await generateJwtToken(user);
+            res.json({
+                status: 'success',
+                message: 'Login success',
+                data: { token }
+            })
+        } else {
+            res.status(422).json({
+                status: 'fail',
+                message: 'Wrong username / password'
+            })
+        }
+    } catch(err) {
+        res.status(500).json({
             status: 'fail',
-            message: 'Wrong username / password'
+            message: err.message
         })
     }
 }
 
 export const refreshToken = async (req, res) => {
-    const { exp: expiredTime, id: userId } = decode(
-        req.headers.authorization.split(' ')[1]
-    )
-
-    if(Date.now() >= expiredTime * 1000) {
-        return res.status(403).json({
+    try {
+        const { exp: expiredTime, id: userId } = decode(
+            req.headers.authorization.split(' ')[1]
+        )
+    
+        if(Date.now() >= expiredTime * 1000) {
+            return res.status(403).json({
+                status: 'fail',
+                message: 'Token is expired'
+            })
+        }
+    
+        const user = await User.findByPk(userId)
+        const newJwtToken = await generateJwtToken(user)
+    
+        return res.json({
+            status: 'success',
+            message: 'New token han been issued',
+            data: { token: newJwtToken }
+        })
+    } catch(err) {
+        res.status(500).json({
             status: 'fail',
-            message: 'Token is expired'
+            message: err.message
         })
     }
+}
 
-    const user = await User.findByPk(userId)
-    const newJwtToken = await generateJwtToken(user)
+export const register = async (req, res) => {
+    try {
+        const { name, username, email, password } = req.body
 
-    return res.json({
-        status: 'success',
-        message: 'New token han been issued',
-        data: { token: newJwtToken }
-    })
+        let hashPassword = await hash(password, (await genSalt(10)).toString())
+        await User.create({
+            id: v4(),
+            name: name,
+            username: username, 
+            email: email,
+            password: hashPassword,
+            role: 'Visitor'
+        })
+
+        res.json({
+            status: 'success',
+            message: 'Register account successfully'
+        })
+    } catch(err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message,
+        })
+    }
 }

@@ -24,8 +24,6 @@ module.exports = {
         username: 'michael77',
         password: await hash('1234', await genSalt()),
         phone: '0812345678',
-        longitude: '-991882737723',
-        latitude: '199283777',
         address: 'lorem ipsum dolor sit amet',
         role: 'Visitor',
         createdAt: new Date(),

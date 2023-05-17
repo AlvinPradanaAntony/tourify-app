@@ -36,19 +36,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
-    },
-    longitude: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    latitude: {
-      type: DataTypes.STRING,
-      allowNull: false,
+      allowNull: true,
     },
     address: {
       type: DataTypes.TEXT,
-      allowNull: false,
+      allowNull: true,
     },
     role: {
       type: DataTypes.ENUM,

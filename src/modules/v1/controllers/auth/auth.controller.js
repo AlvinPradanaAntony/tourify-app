@@ -2,6 +2,7 @@ import { v4 } from 'uuid'
 import { compare, genSalt, hash } from 'bcrypt'
 import { sign, decode } from 'jsonwebtoken'
 import { User } from './../../../../models'
+import { validateForm } from '../../utils/helper'
 
 const generateJwtToken = async user => {
     const jwtTokenPayload = {
@@ -25,12 +26,14 @@ export const verifyToken = async (req, res) => {
 
 export const login = async (req, res) => {
     try {
+        if(!validateForm(req, res)) return
         const { username, password } = req.body
     
         if(!username || !password) {
             return res.status(422).json({
                 status: 'fail',
-                message: 'Username & Password required'
+                message: 'Username & Password required ',
+                errors: result.array()
             })
         }
     
@@ -90,6 +93,7 @@ export const refreshToken = async (req, res) => {
 
 export const register = async (req, res) => {
     try {
+        if(!validateForm(req, res)) return
         const { name, username, email, password } = req.body
 
         let hashPassword = await hash(password, (await genSalt(10)).toString())

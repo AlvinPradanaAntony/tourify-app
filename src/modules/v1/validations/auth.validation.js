@@ -9,6 +9,6 @@ export const loginValidation = [
 export const registerValidation = [
     body('name').notEmpty().withMessage(validationMessage.required),
     body('username').notEmpty().withMessage(validationMessage.required),
-    body('email').notEmpty().isEmail().withMessage(validationMessage.required),
+    body('email').notEmpty().withMessage(validationMessage.required).isEmail().withMessage(validationMessage.email),
     body('password').notEmpty().withMessage(validationMessage.required)
 ]

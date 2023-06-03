@@ -1,4 +1,4 @@
-package com.dicoding.tourifyapp
+package com.devcode.tourifyapp
 
 import org.junit.Test
 

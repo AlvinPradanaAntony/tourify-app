@@ -12,9 +12,15 @@
         android:theme="@style/Theme.TourifyApp"
         tools:targetApi="31">
         <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.register.RegisterActivity"
             android:exported="false"
-            android:theme="@style/customTheme"/>
+            android:theme="@style/customTheme" />
         <activity
             android:name=".ui.login.LoginActivity"
             android:exported="false"

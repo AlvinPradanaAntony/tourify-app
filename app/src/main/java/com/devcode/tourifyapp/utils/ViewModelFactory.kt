@@ -5,8 +5,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.dicoding.tourifyapp.data.remote.repository.UserRepository
 import com.dicoding.tourifyapp.di.Injection
-import com.dicoding.tourifyapp.ui.screen.login.LoginViewModel
+/*import com.dicoding.tourifyapp.ui.screen.login.LoginViewModel*/
 
+/*
 class ViewModelFactory private constructor(
     private val userRepository: UserRepository
 ) : ViewModelProvider.NewInstanceFactory() {
@@ -29,4 +30,4 @@ class ViewModelFactory private constructor(
                 )
             }.also { instance = it }
     }
-}
+}*/

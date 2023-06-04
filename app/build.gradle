@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.dicoding.tourifyapp'
+    namespace 'com.devcode.tourifyapp'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.dicoding.tourifyapp"
+        applicationId "com.devcode.tourifyapp"
         minSdk 22
         targetSdk 33
         versionCode 1

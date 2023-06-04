@@ -1,0 +1,46 @@
+<resources>
+    <string name="app_name">TourifyApp</string>
+    <string name="title_logo">TourIFY</string>
+    <string name="logo_tourify">Logo Tourify</string>
+    <string name="abstract1">Abstract1</string>
+    <string name="make_your_dream_trip_come_true">Make Your Dream Trip Come True</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="template_description">C\'mon, he\'s not that bad. At least he\'s letting you borrow the car tomorrow night. Ho ho ho, look at it roll. Now we could watch Jackie Gleason while we eat. I guarantee it. Whoa, wait, Doc. Let\'s get him.</string>
+    <string name="headline">Headline</string>
+    <string name="skip">Skip</string>
+    <string name="next">Next</string>
+    <string name="finish">Get Started!</string>
+
+    <string name="headline_on_boarding1">Recommended Tourism</string>
+    <string name="caption_on_boarding1">We will recommend a suitable place for you according to your preferences.</string>
+
+    <string name="headline_on_boarding2">Explorer the new to find good place</string>
+    <string name="caption_on_boarding2">You can also explore the available tourist attractions to find a suitable place for a vacation.</string>
+    <string name="headline_on_login">Welcome to TourIFY</string>
+    <string name="caption_on_login">Stay signed in with your account to explore your destinations</string>
+    <string name="image_on_loginactivity">Image on LoginActivity</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_register">Register</string>
+    <string name="suggestion2register">Don’t Have an Account?</string>
+    <string name="register_now">Register Now!</string>
+    <string name="register">Register</string>
+    <string name="registerCaption">Create your account and start your journey with us</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="submit">Submit</string>
+
+    <string name="email_empty">Email Must Be Filled</string>
+    <string name="password_empty">Password Must Be Filled</string>
+    <string name="password_confirmation_empty">Password Confirmation Must Be Filled</string>
+    <string name="email_n_password_empty">Email and Password Must Be Filled</string>
+    <string name="full_name_empty">Full Name Must Be Filled</string>
+    <string name="email_invalid">Format Email is Invalid</string>
+    <string name="password_minimum_character">Password Must Be at Least 8 Characters</string>
+    <string name="password_not_match">Password entered is not the same</string>
+    <string name="account_already_registered">Your account is created and ready to use. Login and see what other people is up to!</string>
+    <string name="full_name">Full Name</string>
+</resources>

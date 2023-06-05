@@ -2,6 +2,7 @@ package com.devcode.tourifyapp.ui.login
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -11,6 +12,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.core.content.ContextCompat
+import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
@@ -75,6 +77,7 @@ class LoginActivity : AppCompatActivity() {
         showLoading(true)
         Toast.makeText(this, "Login Success", Toast.LENGTH_SHORT).show()
         showLoading(false)
+        startActivity(Intent(this, MainActivity::class.java))
         // ViewModel
     }
 

@@ -59,7 +59,7 @@ class OnBoardingActivity : AppCompatActivity() {
             }
         }
         binding.skipButton.setOnClickListener {
-            startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
+            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
             finish()
         }
     }

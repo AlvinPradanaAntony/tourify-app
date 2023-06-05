@@ -1,4 +1,4 @@
-package com.dicoding.tourifyapp.utils
+package com.devcode.tourifyapp.utils
 
 sealed class Result<out R> private constructor() {
     data class Success<out T>(val data: T) : Result<T>()

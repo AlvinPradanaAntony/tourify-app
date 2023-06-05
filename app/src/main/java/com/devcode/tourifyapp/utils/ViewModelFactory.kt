@@ -3,14 +3,11 @@ package com.devcode.tourifyapp.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.dicoding.tourifyapp.data.remote.repository.UserRepository
-import com.dicoding.tourifyapp.di.Injection
-/*import com.dicoding.tourifyapp.ui.screen.login.LoginViewModel*/
+import com.devcode.tourifyapp.data.remote.repository.UserRepository
+import com.devcode.tourifyapp.di.Injection
+import com.devcode.tourifyapp.ui.login.LoginViewModel
 
-/*
-class ViewModelFactory private constructor(
-    private val userRepository: UserRepository
-) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactory private constructor(private val userRepository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -30,4 +27,4 @@ class ViewModelFactory private constructor(
                 )
             }.also { instance = it }
     }
-}*/
+}

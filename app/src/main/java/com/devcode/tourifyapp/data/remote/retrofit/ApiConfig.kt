@@ -1,4 +1,4 @@
-package com.dicoding.tourifyapp.data.remote.retrofit
+package com.devcode.tourifyapp.data.remote.retrofit
 
 import android.util.Log
 import okhttp3.Interceptor

@@ -1,4 +1,4 @@
-package com.dicoding.tourifyapp.data.remote.response
+package com.devcode.tourifyapp.data.remote.response
 
 import com.google.gson.annotations.SerializedName
 

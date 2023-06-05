@@ -1,4 +1,4 @@
-package com.dicoding.tourifyapp.utils
+package com.devcode.tourifyapp.utils
 
 import android.util.Base64
 

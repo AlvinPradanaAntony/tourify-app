@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.ItemsOffersBinding
-import com.devcode.tourifyapp.databinding.ItemsRecommendationTravelBinding
 
 class TravelDataAdapterOffers(private val listData: ArrayList<TravelDataDummyResponse>): RecyclerView.Adapter<TravelDataAdapterOffers.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback

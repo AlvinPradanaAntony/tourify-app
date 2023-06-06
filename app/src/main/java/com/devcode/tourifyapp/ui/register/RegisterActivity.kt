@@ -2,14 +2,13 @@ package com.devcode.tourifyapp.ui.register
 
 import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.lifecycle.ViewModelProvider
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivityRegisterBinding
 import com.devcode.tourifyapp.ui.login.LoginActivity

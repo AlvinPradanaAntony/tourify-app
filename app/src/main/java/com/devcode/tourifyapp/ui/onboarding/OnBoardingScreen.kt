@@ -1,11 +1,10 @@
 package com.devcode.tourifyapp.ui.onboarding
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import androidx.fragment.app.Fragment
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.FragmentOnBoardingScreenBinding
 
@@ -16,7 +15,7 @@ class OnBoardingScreen : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentOnBoardingScreenBinding.inflate(inflater, container, false)
         return binding.root
     }

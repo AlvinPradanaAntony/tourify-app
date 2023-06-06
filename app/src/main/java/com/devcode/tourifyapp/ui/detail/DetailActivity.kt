@@ -1,8 +1,7 @@
 package com.devcode.tourifyapp.ui.detail
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.devcode.tourifyapp.R
+import androidx.appcompat.app.AppCompatActivity
 import com.devcode.tourifyapp.databinding.ActivityDetailBinding
 
 class DetailActivity : AppCompatActivity() {

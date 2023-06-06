@@ -1,6 +1,5 @@
 package com.devcode.tourifyapp.data.remote.repository
 
-import androidx.lifecycle.LiveData
 import com.devcode.tourifyapp.data.remote.response.DummyData
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 

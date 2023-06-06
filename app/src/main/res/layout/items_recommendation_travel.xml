@@ -32,10 +32,12 @@
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_place"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
+            android:outlineAmbientShadowColor="@color/shadowColor"
+            android:outlineSpotShadowColor="@color/shadowColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="18dp"
@@ -47,6 +49,7 @@
                 android:layout_height="24dp"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:layout_gravity="center"
                 android:contentDescription="@string/favourite_button"
                 android:focusable="true"
                 android:src="@drawable/ic_favourite_border"/>

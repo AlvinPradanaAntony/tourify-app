@@ -56,4 +56,5 @@
     <string name="recommended">Recommended</string>
     <string name="special_for_you">Special For You</string>
     <string name="favourite_button">Favourite Button</string>
+    <string name="placeholder_image_onboarding">Placeholder Image OnBoarding</string>
 </resources>

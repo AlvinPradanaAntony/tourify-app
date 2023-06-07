@@ -149,6 +149,18 @@
                 motion:motionTarget="@+id/progressBar"
                 motion:framePosition="100"
                 android:alpha="0" />
+            <KeyAttribute
+                motion:motionTarget="@+id/txt_slogan"
+                motion:framePosition="14"
+                android:translationY="0dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/txt_slogan"
+                motion:framePosition="23"
+                android:translationY="-39dp" />
+            <KeyAttribute
+                motion:motionTarget="@+id/txt_slogan"
+                motion:framePosition="100"
+                android:translationY="-39dp" />
         </KeyFrameSet>
     </Transition>
 
@@ -193,13 +205,11 @@
             android:layout_marginTop="8dp"/>
         <Constraint
             android:layout_height="wrap_content"
-            motion:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:id="@+id/txt_slogan"
-            motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toTopOf="parent"
-            motion:layout_constraintBottom_toBottomOf="parent"
-            motion:layout_constraintVertical_bias="0.5700">
+            motion:layout_constraintTop_toBottomOf="@+id/title_logo"
+            motion:layout_constraintEnd_toEndOf="@+id/title_logo"
+            motion:layout_constraintStart_toStartOf="@+id/title_logo">
             <CustomAttribute
                 motion:attributeName="textColor"
                 motion:customColorValue="#FFFFFF" />
@@ -250,7 +260,10 @@
         <Constraint
             android:id="@+id/txt_slogan"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            motion:layout_constraintTop_toBottomOf="@+id/title_logo"
+            motion:layout_constraintEnd_toEndOf="@+id/title_logo"
+            motion:layout_constraintStart_toStartOf="@+id/title_logo">
             <CustomAttribute
                 motion:attributeName="textColor"
                 motion:customColorValue="#06093D" />
@@ -258,7 +271,11 @@
         <Constraint
             android:id="@+id/title_logo"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"/>
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@+id/logo_app"/>
         <Constraint
             motion:layout_constraintEnd_toEndOf="parent"
             android:id="@+id/progressBar"

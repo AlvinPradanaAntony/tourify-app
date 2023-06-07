@@ -105,6 +105,15 @@
             app:layout_constraintTop_toTopOf="parent"
             app:queryBackground="@null" />
 
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager_carousel"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search"/>
+
         <TextView
             android:id="@+id/tv_recomended"
             android:layout_width="0dp"
@@ -118,7 +127,7 @@
             android:layout_marginTop="22dp"
             app:layout_constraintEnd_toEndOf="@+id/search"
             app:layout_constraintStart_toStartOf="@+id/search"
-            app:layout_constraintTop_toBottomOf="@+id/search" />
+            app:layout_constraintTop_toBottomOf="@+id/viewpager_carousel" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rv_recommendation"

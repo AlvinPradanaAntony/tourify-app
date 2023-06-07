@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
+import com.devcode.tourifyapp.adapter.OnBoardingPagerAdapter
 import com.devcode.tourifyapp.databinding.ActivityOnboardingBinding
 import com.devcode.tourifyapp.ui.login.LoginActivity
 

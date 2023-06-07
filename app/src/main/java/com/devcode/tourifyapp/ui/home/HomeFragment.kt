@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.devcode.tourifyapp.adapter.TravelDataAdapterOffers
-import com.devcode.tourifyapp.adapter.TravelDataAdapterRecommendation
+import com.devcode.tourifyapp.adapter.TravelDataOffersAdapter
+import com.devcode.tourifyapp.adapter.TravelDataRecommendationsAdapter
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.FragmentHomeBinding
 import com.devcode.tourifyapp.ui.detail.DetailActivity
@@ -20,8 +20,8 @@ class HomeFragment : Fragment() {
     private val binding get() =  _binding!!
     private lateinit var mainViewModel: HomeViewModel
     private val list = ArrayList<TravelDataDummyResponse>()
-    private val adapter: TravelDataAdapterRecommendation by lazy {TravelDataAdapterRecommendation(list) }
-    private val adapter2: TravelDataAdapterOffers by lazy {TravelDataAdapterOffers(list)}
+    private val adapter: TravelDataRecommendationsAdapter by lazy {TravelDataRecommendationsAdapter(list) }
+    private val adapter2: TravelDataOffersAdapter by lazy {TravelDataOffersAdapter(list)}
     private lateinit var factory: ViewModelFactoryForDummy
 
     override fun onCreateView(
@@ -45,7 +45,7 @@ class HomeFragment : Fragment() {
         binding.rvRecommendation.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvRecommendation.setHasFixedSize(true)
         binding.rvRecommendation.adapter = adapter
-        adapter.setOnItemClickCallback(object : TravelDataAdapterRecommendation.OnItemClickCallback {
+        adapter.setOnItemClickCallback(object : TravelDataRecommendationsAdapter.OnItemClickCallback {
             override fun onItemClicked(data: TravelDataDummyResponse) {
                 val intent = Intent(requireActivity(), DetailActivity::class.java)
                 startActivity(intent)
@@ -57,7 +57,7 @@ class HomeFragment : Fragment() {
         binding.rvSpecialOffers.layoutManager = LinearLayoutManager(requireActivity(), LinearLayoutManager.HORIZONTAL, false)
         binding.rvSpecialOffers.setHasFixedSize(true)
         binding.rvSpecialOffers.adapter = adapter2
-        adapter2.setOnItemClickCallback(object : TravelDataAdapterOffers.OnItemClickCallback {
+        adapter2.setOnItemClickCallback(object : TravelDataOffersAdapter.OnItemClickCallback {
             override fun onItemClicked(data: TravelDataDummyResponse) {
                 val intent = Intent(requireActivity(), DetailActivity::class.java)
                 startActivity(intent)

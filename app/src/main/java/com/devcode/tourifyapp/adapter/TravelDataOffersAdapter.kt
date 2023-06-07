@@ -7,19 +7,19 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
-import com.devcode.tourifyapp.databinding.ItemsRecommendationTravelBinding
+import com.devcode.tourifyapp.databinding.ItemsOffersBinding
 
-class TravelDataAdapterRecommendation(private val listData: ArrayList<TravelDataDummyResponse>): RecyclerView.Adapter<TravelDataAdapterRecommendation.ViewHolder>() {
+class TravelDataOffersAdapter(private val listData: ArrayList<TravelDataDummyResponse>): RecyclerView.Adapter<TravelDataOffersAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
-    class ViewHolder(var binding: ItemsRecommendationTravelBinding) : RecyclerView.ViewHolder(binding.root)
+    class ViewHolder(var binding: ItemsOffersBinding) : RecyclerView.ViewHolder(binding.root)
 
     fun setOnItemClickCallback(onItemClickCallback: OnItemClickCallback) {
         this.onItemClickCallback = onItemClickCallback
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemsRecommendationTravelBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemsOffersBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ViewHolder(binding)
     }
 

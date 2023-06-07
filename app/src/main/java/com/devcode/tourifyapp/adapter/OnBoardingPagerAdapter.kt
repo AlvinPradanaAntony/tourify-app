@@ -1,4 +1,4 @@
-package com.devcode.tourifyapp
+package com.devcode.tourifyapp.adapter
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

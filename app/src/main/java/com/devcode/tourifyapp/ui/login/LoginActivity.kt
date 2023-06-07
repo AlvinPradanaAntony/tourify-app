@@ -14,6 +14,7 @@ import androidx.core.content.ContextCompat
 import androidx.core.content.ContextCompat.getSystemService
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
+import com.devcode.tourifyapp.data.model.UserPreferencesModel
 import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
 import com.devcode.tourifyapp.utils.Result
@@ -58,44 +59,47 @@ class LoginActivity : AppCompatActivity() {
                     show()
                 }
             } else {
-                if (email.isEmpty()) {
-                    binding.edLoginEmail.error = resources.getString(R.string.email_empty)
-                    binding.edLoginEmail.requestFocus()
-                } else if (password.isEmpty()) {
-                    binding.edLoginPassword.error = resources.getString(R.string.password_empty)
-                    binding.edLoginPassword.requestFocus()
-                } else if (!isValidEmail(email)) {
-                    binding.edLoginEmail.error = resources.getString(R.string.email_invalid)
-                    binding.edLoginEmail.requestFocus()
-                } else if (password.length < 8) {
-                    binding.edLoginPassword.error =
-                        resources.getString(R.string.password_minimum_character)
-                    binding.edLoginPassword.requestFocus()
-                } else {
+//                if (email.isEmpty()) {
+//                    binding.edLoginEmail.error = resources.getString(R.string.email_empty)
+//                    binding.edLoginEmail.requestFocus()
+//                } else if (password.isEmpty()) {
+//                    binding.edLoginPassword.error = resources.getString(R.string.password_empty)
+//                    binding.edLoginPassword.requestFocus()
+//                } else if (!isValidEmail(email)) {
+//                    binding.edLoginEmail.error = resources.getString(R.string.email_invalid)
+//                    binding.edLoginEmail.requestFocus()
+//                } else if (password.length < 8) {
+//                    binding.edLoginPassword.error =
+//                        resources.getString(R.string.password_minimum_character)
+//                    binding.edLoginPassword.requestFocus()
+//                } else {
                     binding.edLoginEmail.clearFocus()
                     binding.edLoginPassword.clearFocus()
                     hideKeyboard()
                     login(email, password)
-                }
+//                }
             }
         }
     }
 
     private fun login(email: String, password: String) {
-//        viewModel.doLogin(email, password).observe(this) { response ->
-//            if (response != null) {
-//                when (response) {
-//                    Result.Loading -> showLoading(true)
-//                    is Result.Success -> {
-//                        showLoading(false);
-//                        Toast.makeText(this, "Login Success, ${response.data.name}", Toast.LENGTH_SHORT).show()
-//                    }
-//                    is Result.Error -> TODO()
-//                }
-//            }
-//        }
+        viewModel.doLogin(email, password).observe(this) { response ->
+            if (response != null) {
+                when (response) {
+                    Result.Loading -> showLoading(true)
+                    is Result.Success -> {
+                        showLoading(false);
+                        Toast.makeText(this, "Login Success, ${response.data.name}", Toast.LENGTH_SHORT).show()
+                        viewModel.saveUserPreference(UserPreferencesModel(response.data.name, "initoken"))
+                        startActivity(Intent(this, MainActivity::class.java))
+                        finish()
+                    }
+                    is Result.Error -> TODO()
+                }
+            }
+        }
 //        showLoading(false)
-        startActivity(Intent(this, MainActivity::class.java))
+//        startActivity(Intent(this, MainActivity::class.java))
         // ViewModel
     }
 

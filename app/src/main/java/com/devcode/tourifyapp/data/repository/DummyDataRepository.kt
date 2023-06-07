@@ -1,4 +1,4 @@
-package com.devcode.tourifyapp.data.remote.repository
+package com.devcode.tourifyapp.data.repository
 
 import com.devcode.tourifyapp.data.remote.response.DummyData
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse

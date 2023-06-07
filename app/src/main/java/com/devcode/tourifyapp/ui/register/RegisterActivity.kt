@@ -6,26 +6,36 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
+import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.content.ContextCompat.getSystemService
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivityRegisterBinding
 import com.devcode.tourifyapp.ui.login.LoginActivity
+import com.devcode.tourifyapp.utils.Result
+import com.devcode.tourifyapp.utils.ViewModelFactory
 import com.google.android.material.snackbar.Snackbar
 
 class RegisterActivity : AppCompatActivity() {
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var viewModel: RegisterViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setupViewModel()
         setupView()
         setupAction()
     }
 
     private fun setupViewModel() {
-       // Inisialisasi ViewModel
+        val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
+        val viewModels: RegisterViewModel by viewModels { factory }
+        viewModel = viewModels
     }
 
     private fun setupView() {
@@ -80,15 +90,25 @@ class RegisterActivity : AppCompatActivity() {
                     binding.edRegisterEmail.clearFocus()
                     binding.edRegisterPassword.clearFocus()
                     hideKeyboard()
-                    register(fullName, emailRegister, passwordRegister)
+//                    register(fullName, emailRegister, passwordRegister)
                 }
             }
         }
     }
 
     private fun register(name:String, email: String, password: String) {
-        showLoading(true)
-        // ViewModel
+        viewModel.doRegister(name, email, "tourify", password).observe(this) { response ->
+            if (response != null) {
+                when (response) {
+                    Result.Loading -> showLoading(true)
+                    is Result.Success -> {
+                        showLoading(false);
+                        Toast.makeText(this, "Register Success, ${response.data.message}", Toast.LENGTH_SHORT).show()
+                    }
+                    is Result.Error -> TODO()
+                }
+            }
+        }
     }
 
     private fun hideKeyboard() {

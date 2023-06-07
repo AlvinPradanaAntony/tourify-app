@@ -3,7 +3,7 @@ package com.devcode.tourifyapp.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.devcode.tourifyapp.data.remote.repository.DummyDataRepository
+import com.devcode.tourifyapp.data.repository.DummyDataRepository
 import com.devcode.tourifyapp.di.Injection
 import com.devcode.tourifyapp.ui.home.HomeViewModel
 

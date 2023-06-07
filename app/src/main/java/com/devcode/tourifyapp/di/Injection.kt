@@ -1,7 +1,7 @@
 package com.devcode.tourifyapp.di
 
-import com.devcode.tourifyapp.data.remote.repository.DummyDataRepository
-import com.devcode.tourifyapp.data.remote.repository.UserRepository
+import com.devcode.tourifyapp.data.repository.DummyDataRepository
+import com.devcode.tourifyapp.data.repository.UserRepository
 import com.devcode.tourifyapp.data.remote.retrofit.ApiConfig
 import com.devcode.tourifyapp.utils.Decoder
 

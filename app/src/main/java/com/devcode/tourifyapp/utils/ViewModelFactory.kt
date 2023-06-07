@@ -3,9 +3,10 @@ package com.devcode.tourifyapp.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.devcode.tourifyapp.data.remote.repository.UserRepository
+import com.devcode.tourifyapp.data.repository.UserRepository
 import com.devcode.tourifyapp.di.Injection
 import com.devcode.tourifyapp.ui.login.LoginViewModel
+import com.devcode.tourifyapp.ui.register.RegisterViewModel
 
 class ViewModelFactory private constructor(private val userRepository: UserRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -13,6 +14,8 @@ class ViewModelFactory private constructor(private val userRepository: UserRepos
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(userRepository) as T
+        } else if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
+            return RegisterViewModel(userRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }

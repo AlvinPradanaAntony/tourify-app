@@ -1,8 +1,9 @@
-package com.devcode.tourifyapp.data.remote.repository
+package com.devcode.tourifyapp.data.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.liveData
 import com.devcode.tourifyapp.data.model.LoginDataResponse
+import com.devcode.tourifyapp.data.model.RegisterResponse
 import com.devcode.tourifyapp.data.remote.retrofit.ApiService
 import com.devcode.tourifyapp.utils.Decoder
 import com.devcode.tourifyapp.utils.Result
@@ -20,6 +21,16 @@ class UserRepository(
             val decoded = decoder.decodeJwt(response.data.token)
             val dataLogin = Gson().fromJson(decoded, LoginDataResponse::class.java)
             emit(Result.Success(dataLogin))
+        } catch (e: java.lang.Exception) {
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
+    fun doRegister(name: String, email: String, username: String, password: String) : LiveData<Result<RegisterResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiService.doRegister(name, email, username, password)
+            emit(Result.Success(response))
         } catch (e: java.lang.Exception) {
             emit(Result.Error(e.message.toString()))
         }

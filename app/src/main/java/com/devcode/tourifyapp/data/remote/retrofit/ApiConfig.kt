@@ -30,7 +30,7 @@ object ApiConfig {
             .addInterceptor(loggingInterceptor)
             .build()
         val retrofit = Retrofit.Builder()
-            .baseUrl("http://34.123.118.241:3000/v1/auth/")
+            .baseUrl("https://api.thisiswasyrof.works/v1/auth/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

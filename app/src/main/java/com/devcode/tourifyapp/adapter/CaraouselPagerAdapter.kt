@@ -10,7 +10,9 @@ import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ItemsCarouselBinding
 
 
-class CaraouselPagerAdapter(private val listData:  MutableList<String>) : RecyclerView.Adapter<CaraouselPagerAdapter.ViewHolder>() {
+class CaraouselPagerAdapter(private val context: Context) : RecyclerView.Adapter<CaraouselPagerAdapter.ViewHolder>() {
+
+    private var list = mutableListOf<String>()
     private lateinit var onItemClickCallback: CaraouselPagerAdapter.OnItemClickCallback
 
     fun setOnItemClickCallback(onItemClickCallback: CaraouselPagerAdapter.OnItemClickCallback) {
@@ -19,25 +21,25 @@ class CaraouselPagerAdapter(private val listData:  MutableList<String>) : Recycl
     class ViewHolder(val binding: ItemsCarouselBinding) : RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val binding = ItemsCarouselBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemsCarouselBinding.inflate(LayoutInflater.from(context), parent, false)
         return ViewHolder(binding)
     }
 
-    override fun getItemCount() = listData.size
+    override fun getItemCount() = list.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val img = R.drawable.bg_post_image
+        val img = list[position]
         Glide.with(holder.itemView.context)
             .load(img)
-            .placeholder(R.drawable.ic_placeholder_photo)
-            .error(R.drawable.ic_placeholder_photo)
-            .into(holder.binding.ivPlace)
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
+            .into(holder.binding.ivSlider)
     }
 
     @SuppressLint("NotifyDataSetChanged")
     fun setData(dataTravel: List<String>) {
-        listData.clear()
-        listData.addAll(dataTravel)
+        this.list.clear()
+        this.list.addAll(dataTravel)
         notifyDataSetChanged()
     }
     interface OnItemClickCallback {

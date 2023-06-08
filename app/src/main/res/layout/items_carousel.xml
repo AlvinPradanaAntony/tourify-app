@@ -13,7 +13,7 @@
         android:background="@drawable/bg_post_image">
 
         <ImageView
-            android:id="@+id/iv_place"
+            android:id="@+id/iv_slider"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:foreground="@drawable/bg_bottom_gradient_shadow"
@@ -52,5 +52,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.cardview.widget.CardView>
+

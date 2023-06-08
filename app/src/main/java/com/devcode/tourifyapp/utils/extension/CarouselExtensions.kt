@@ -24,6 +24,12 @@ fun ViewPager2.autoScroll(lifecycleScope: LifecycleCoroutineScope, interval: Lon
     }
 }
 
+fun ViewPager2.scrollToMiddle() {
+    val numberOfItems = adapter?.itemCount ?: 0
+    val middleItem = if (numberOfItems > 0) numberOfItems / 2 else 0
+    setCurrentItem(middleItem, false)
+}
+
 fun ViewPager2.setCarouselEffects(){
     offscreenPageLimit = 1
 

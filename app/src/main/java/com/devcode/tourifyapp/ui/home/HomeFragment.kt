@@ -2,6 +2,7 @@ package com.devcode.tourifyapp.ui.home
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,22 +21,17 @@ import com.devcode.tourifyapp.ui.detail.DetailActivity
 import com.devcode.tourifyapp.utils.HorizontalMarginItemDecoration
 import com.devcode.tourifyapp.utils.ViewModelFactoryForDummy
 import com.devcode.tourifyapp.utils.extension.autoScroll
-import com.devcode.tourifyapp.utils.extension.scrollToMiddle
 import com.devcode.tourifyapp.utils.extension.setCarouselEffects
 
 class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
     private lateinit var mainViewModel: HomeViewModel
+    private lateinit var viewPager: ViewPager2
     private lateinit var carouselAdapter: CaraouselPagerAdapter
     private lateinit var itemDecoration: HorizontalMarginItemDecoration
-    private var listCarousel = mutableListOf<String>()
     private val list = ArrayList<TravelDataDummyResponse>()
-    private val adapter: TravelDataRecommendationsAdapter by lazy {
-        TravelDataRecommendationsAdapter(
-            list
-        )
-    }
+    private val adapter: TravelDataRecommendationsAdapter by lazy { TravelDataRecommendationsAdapter(list) }
     private val adapter2: TravelDataOffersAdapter by lazy { TravelDataOffersAdapter(list) }
     private lateinit var factory: ViewModelFactoryForDummy
 
@@ -50,10 +46,8 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         setupCarouselSlider()
-        setupData()
-        setupAdapter()
+
         recyclerViewRecommendation()
         recyclerViewSpecial()
         setupViewModel()
@@ -61,31 +55,28 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupCarouselSlider() {
-        carouselAdapter = CaraouselPagerAdapter(requireActivity())
+        viewPager = binding.viewpagerCarousel
+        carouselAdapter = CaraouselPagerAdapter(list, viewPager)
         itemDecoration = HorizontalMarginItemDecoration(
             requireActivity(),
             R.dimen.viewpager_current_item_horizontal_margin
         )
-        binding.viewpagerCarousel.apply {
+
+        viewPager.apply {
             orientation = ViewPager2.ORIENTATION_HORIZONTAL
             adapter = carouselAdapter
-            scrollToMiddle()
             setCarouselEffects()
             addItemDecoration(itemDecoration)
+            post{
+                val length = carouselAdapter.itemCount
+                val middlePosition = length / 2
+                Log.d("middlePosition", middlePosition.toString())
+                setCurrentItem(middlePosition, true)
+            }
+
             autoScroll(lifecycleScope, INTERVAL_TIME)
         }
-    }
-
-    private fun setupAdapter() {
-        carouselAdapter.setData(listCarousel)
-        carouselAdapter.notifyDataSetChanged()
-    }
-
-    private fun setupData() {
-        listCarousel.add("https://cdn.pixabay.com/photo/2020/12/10/09/22/beach-front-5819728_960_720.jpg")
-        listCarousel.add("https://cdn.pixabay.com/photo/2020/09/03/13/56/pine-5541335_960_720.jpg")
-        listCarousel.add("https://cdn.pixabay.com/photo/2021/03/04/15/29/river-6068374_960_720.jpg")
-        listCarousel.add("https://cdn.pixabay.com/photo/2021/03/29/08/22/peach-flower-6133330_960_720.jpg")
+        carouselAdapter.setData(list)
     }
 
     private fun recyclerViewRecommendation() {
@@ -124,7 +115,6 @@ class HomeFragment : Fragment() {
         val dataList = mainViewModel.getAllData()
         adapter.setData(dataList)
     }
-
 
     companion object {
         private const val INTERVAL_TIME = 5000L

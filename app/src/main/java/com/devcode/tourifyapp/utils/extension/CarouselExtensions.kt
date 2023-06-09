@@ -14,7 +14,6 @@ suspend fun ViewPager2.scrollIndefinitely(interval: Long) {
     val nextItem = if (currentItem == lastIndex) 0 else currentItem + 1
 
     setCurrentItem(nextItem, true)
-
     scrollIndefinitely(interval)
 }
 
@@ -22,12 +21,6 @@ fun ViewPager2.autoScroll(lifecycleScope: LifecycleCoroutineScope, interval: Lon
     lifecycleScope.launchWhenResumed {
         scrollIndefinitely(interval)
     }
-}
-
-fun ViewPager2.scrollToMiddle() {
-    val numberOfItems = adapter?.itemCount ?: 0
-    val middleItem = if (numberOfItems > 0) numberOfItems / 2 else 0
-    setCurrentItem(middleItem, false)
 }
 
 fun ViewPager2.setCarouselEffects(){

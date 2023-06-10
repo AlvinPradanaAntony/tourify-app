@@ -4,8 +4,8 @@ import { Router } from 'express'
 import { login, register, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
 import { getAllUsers, createUsers, showUsers, updateUsers, deleteUsers } from '../controllers/user/user.controller'
 import { getAllTourCategory, storeTourCategory, showTourCategory, updateTourCategory, deleteTourCategory } from '../controllers/tour_category/tour_category.controller'
-import { getAllTourDestination, storeTourDestination } from '../controllers/tourist_destination/tourist_destination.controller'
-import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestination, storeRating } from '../controllers/rating/rating.controller'
+import { deleteTourDestination, getAllTourDestination, showTourDestination, storeTourDestination, updateTourDestination } from '../controllers/tourist_destination/tourist_destination.controller'
+import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestination, storeRating, getAllRating } from '../controllers/rating/rating.controller'
 
 // validations
 import { loginValidation, registerValidation } from '../validations/auth.validation'
@@ -59,6 +59,10 @@ export const loadTouristDestinationRouter = app => {
     router.route('/')
             .get(getAllTourDestination)
             .post(storeTourDestination)
+    router.route('/:id')
+            .get(showTourDestination)
+            .post(updateTourDestination)
+            .delete(deleteTourDestination)
     
     app.use('/tourist-destination', router)
 }
@@ -68,7 +72,9 @@ export const loadRatingRouter = app => {
     router.use(authenticatedMiddleware)
     router.route('/with-user-and-tour-destination').get(getRatingWhereUserAndTouristDestination)
     router.route('/with-tour-destination').get(getRatingWhereTouristDestination)
-    router.route('/').post(storeRating)
+    router.route('/')
+            .get(getAllRating)
+            .post(storeRating)
 
     app.use('/ratings', router)
 }

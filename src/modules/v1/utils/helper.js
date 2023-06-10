@@ -11,9 +11,7 @@ export const uploadImage = (file) => new Promise((resolve, reject) => {
         resumable: false
     })
     blobStream.on('finish', () => {
-        const publicUrl = format(
-            `https://storage.googleapis.com/${bucket.name}/${blob.name}`
-        )
+        const publicUrl = `https://storage.googleapis.com/${bucket.name}/${blob.name}`
         resolve(publicUrl)
     })
     .on('error', () => {

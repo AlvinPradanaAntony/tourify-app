@@ -2,7 +2,7 @@ import { Router } from 'express'
 
 // controllers
 import { login, register, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
-import { getAllUsers, createUsers, showUsers } from '../controllers/user/user.controller'
+import { getAllUsers, createUsers, showUsers, updateUsers, deleteUsers } from '../controllers/user/user.controller'
 import { getAllTourCategory, storeTourCategory, showTourCategory, updateTourCategory, deleteTourCategory } from '../controllers/tour_category/tour_category.controller'
 import { test } from '../controllers/tourist_destination/tourist_destination.controller'
 
@@ -32,6 +32,8 @@ export const loadUserRouter = app => {
             .post(createUsers)
     router.route('/:id')
             .get(showUsers)
+            .post(updateUsers)
+            .delete(deleteUsers)
 
     app.use('/users', router)
 }

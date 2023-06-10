@@ -32,7 +32,7 @@ export const createUsers = async (req, res) => {
         }
 
         let hashPassword = await hash(password, (await genSalt(10)).toString())
-        const imgUrl = await uploadImage(req.picture)
+        const imgUrl = await uploadImage(req.file)
         const user = await User.create({
             id: v4(),
             name: name,

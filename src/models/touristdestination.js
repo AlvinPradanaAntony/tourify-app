@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       TouristDestination.belongsTo(models.TourCategory, {
-        foreignKey: 'tour_cactegory_id',
+        foreignKey: 'tour_category_id',
         onDelete: 'CASCADE',
         onUpdate: 'RESTRICT'
       })

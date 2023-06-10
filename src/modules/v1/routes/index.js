@@ -4,7 +4,7 @@ import { Router } from 'express'
 import { login, register, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
 import { getAllUsers, createUsers, showUsers, updateUsers, deleteUsers } from '../controllers/user/user.controller'
 import { getAllTourCategory, storeTourCategory, showTourCategory, updateTourCategory, deleteTourCategory } from '../controllers/tour_category/tour_category.controller'
-import { test } from '../controllers/tourist_destination/tourist_destination.controller'
+import { getAllTourDestination, storeTourDestination } from '../controllers/tourist_destination/tourist_destination.controller'
 import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestination, storeRating } from '../controllers/rating/rating.controller'
 
 // validations
@@ -55,8 +55,10 @@ export const loadTourCategoryRouter = app => {
 
 export const loadTouristDestinationRouter = app => {
     const router = Router()
+    router.use(authenticatedMiddleware)
     router.route('/')
-            .get(test)
+            .get(getAllTourDestination)
+            .post(storeTourDestination)
     
     app.use('/tourist-destination', router)
 }

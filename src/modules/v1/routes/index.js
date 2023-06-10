@@ -100,4 +100,6 @@ export const loadMasterRouter = app => {
     const router = Router()
     router.route('/get-tour-destination').get(getAllTourDestination)
     router.route('/get-ratings').get(getAllRating)
+
+    app.use('/master', router)
 }

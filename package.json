@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Bangkit-C2-PS424-Team/tourify-app#readme",
   "dependencies": {
+    "@google-cloud/storage": "^6.11.0",
     "@tensorflow/tfjs": "^4.7.0",
     "bcrypt": "^5.1.0",
     "cors": "^2.8.5",

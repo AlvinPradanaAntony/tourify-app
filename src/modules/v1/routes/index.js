@@ -1,4 +1,5 @@
 import { Router } from 'express'
+import multer from 'multer'
 
 // controllers
 import { login, register, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
@@ -10,8 +11,23 @@ import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestinati
 // validations
 import { loginValidation, registerValidation } from '../validations/auth.validation'
 
+// middleware
 import authenticatedMiddleware from '../middlewares/authenticated'
-import { body } from 'express-validator'
+import imgUploadMiddleware from '../middlewares/upload-image'
+
+const multerMid = multer({
+    storage: multer.memoryStorage(),
+    fileFilter: function (req, file, callback) {
+        const ext = path.extname(file.originalname);
+        if (ext !== '.jpg' && ext !== '.png' && ext !== '.jpeg') {
+            return callback(new Error('Only Image Files are supported'))
+        }
+        callback(null, true)
+    },
+    limits: {
+        fileSize: 2 * 1024 * 1024
+    }
+})
 
 export const loadAuthRouter = app => {
     const router = Router()
@@ -30,10 +46,10 @@ export const loadUserRouter = app => {
     router.use(authenticatedMiddleware)
     router.route('/')
             .get(getAllUsers)
-            .post(createUsers)
+            .post(imgUploadMiddleware(multerMid.single('picture')), createUsers)
     router.route('/:id')
             .get(showUsers)
-            .post(updateUsers)
+            .post(imgUploadMiddleware(multerMid.single('picture')), updateUsers)
             .delete(deleteUsers)
 
     app.use('/users', router)

@@ -1,7 +1,7 @@
 import { v4 } from "uuid"
 import { compare, genSalt, hash } from 'bcrypt'
 import { User } from './../../../../models'
-import { validateForm } from "../../utils/helper"
+import { uploadImage, validateForm } from "../../utils/helper"
 
 export const getAllUsers = async (req, res) => {
     try {
@@ -32,6 +32,7 @@ export const createUsers = async (req, res) => {
         }
 
         let hashPassword = await hash(password, (await genSalt(10)).toString())
+        const imgUrl = await uploadImage(req.picture)
         const user = await User.create({
             id: v4(),
             name: name,
@@ -40,6 +41,7 @@ export const createUsers = async (req, res) => {
             password: hashPassword,
             phone: phone,
             address: address,
+            picture: imgUrl,
             role: role
         })
 

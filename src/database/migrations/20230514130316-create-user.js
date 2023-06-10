@@ -33,6 +33,10 @@ module.exports = {
         type: Sequelize.TEXT,
         allowNull: true
       },
+      picture: {
+        type: Sequelize.STRING,
+        allowNull: true
+      },
       role: {
         type: Sequelize.ENUM,
         values: ['Visitor', 'Administrator'],

@@ -6,22 +6,21 @@ Backend apps for Tourify App
 
 Note : Required NodeJS version : >= 18.0.0
 
-- Install yarn
-  ```bash
-  npm i -g yarn
-  ```
-
-* Check yarn version
-  ```bash
-  yarn -v
-  ```
 * Install dependencies
   ```bash
-  yarn
+  npm install
   ```
 * Copy .env.example to .env
   ```bash
   cp .env.example .env
+  ```
+* Migrate all tables
+  ```bash
+  npm run migrate
+  ```
+* Seed all data
+  ```bash
+  npm run seed
   ```
 
 ## 🔥 Firing Up Server
@@ -29,7 +28,7 @@ Note : Required NodeJS version : >= 18.0.0
 - Development Mode
 
   ```bash
-  yarn serve
+  npm run serve
   ```
 
 - Production Mode

@@ -5,6 +5,7 @@ import { login, register, refreshToken, verifyToken } from '../controllers/auth/
 import { getAllUsers, createUsers, showUsers, updateUsers, deleteUsers } from '../controllers/user/user.controller'
 import { getAllTourCategory, storeTourCategory, showTourCategory, updateTourCategory, deleteTourCategory } from '../controllers/tour_category/tour_category.controller'
 import { test } from '../controllers/tourist_destination/tourist_destination.controller'
+import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestination, storeRating } from '../controllers/rating/rating.controller'
 
 // validations
 import { loginValidation, registerValidation } from '../validations/auth.validation'
@@ -54,8 +55,18 @@ export const loadTourCategoryRouter = app => {
 
 export const loadTouristDestinationRouter = app => {
     const router = Router()
-    router.route('/:input')
+    router.route('/')
             .get(test)
     
     app.use('/tourist-destination', router)
+}
+
+export const loadRatingRouter = app => {
+    const router = Router()
+    router.use(authenticatedMiddleware)
+    router.route('/with-user-and-tour-destination').get(getRatingWhereUserAndTouristDestination)
+    router.route('/with-tour-destination').get(getRatingWhereTouristDestination)
+    router.route('/').post(storeRating)
+
+    app.use('/ratings', router)
 }

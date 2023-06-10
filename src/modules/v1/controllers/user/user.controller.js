@@ -79,12 +79,22 @@ export const updateUsers = async (req, res) => {
     try {
         if(!validateForm(req, res)) return
         const { name, username, email, phone, address, role } = req.body
+        
+        var imgUrl
+        if(req.file) {
+            imgUrl = await uploadImage(req.file)
+        } else {
+            const user = await User.findByPk(req.params.id)
+            imgUrl = user.picture
+        }
+
         await User.update({
             name: name,
             email: email,
             username: username,
             phone: phone,
             address: address,
+            picture: imgUrl,
             role: role
         }, {
             where: { id: req.params.id }

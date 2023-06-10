@@ -65,24 +65,18 @@ export const getRatingWhereTouristDestination = async (req, res) => {
 export const storeRating = async (req, res) => {
     try {
         if(!validateForm(req, res)) return
-        var data = req.body.data.map((val, key) => {
-            const { user_id, tourist_destination_id, score, review } = val
-
-            return {
-                id: v4(),
-                user_id: user_id,
-                tourist_destination_id: tourist_destination_id,
-                score: score,
-                review: review,
-                updatedAt: new Date(),
-                createdAt: new Date()
-            }
+        const rating = await Rating.create({
+            id: v4(),
+            user_id: req.body.user_id,
+            tourist_destination_id: req.body.tourist_destination_id,
+            score: req.body.score,
+            review: req.body.review
         })
 
-        await Rating.bulkCreate(data)
         res.status(200).json({
             status: 'success',
             message: 'Successfully creating data',
+            data: rating
         })
     } catch(err) {
         res.status(500).json({

@@ -2,7 +2,7 @@ import { Sequelize } from "sequelize";
 import dbOptions from './../config/database'
 
 const {
-     databse: dbName,
+     database: dbName,
      username,
      password,
      host,
@@ -16,10 +16,13 @@ export let isConnected = false
 
 export async function connect() {
     try {
-        sequelize = new Sequelize(dbName, username, password, {
-            dialect,
-            host,
-            port
+        sequelize = new Sequelize({
+            host: host,
+            port: port,
+            username: username,
+            password: password,
+            database: dbName,
+            dialect: dialect
         })
         await sequelize.authenticate()
         isConnected = false

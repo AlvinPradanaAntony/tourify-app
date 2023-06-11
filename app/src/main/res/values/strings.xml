@@ -57,4 +57,9 @@
     <string name="special_for_you">Special For You</string>
     <string name="favourite_button">Favourite Button</string>
     <string name="placeholder_image_onboarding">Placeholder Image OnBoarding</string>
+
+    <string name="tab_text_1">Overview</string>
+    <string name="tab_text_2">Feedback</string>
+    <string name="tmp_description">Name Place is one of the world’s new holiday destinations in Bali. Located on the southeast of the island of Bali.</string>
+    <string name="field_feedback">Write your feedback....</string>
 </resources>

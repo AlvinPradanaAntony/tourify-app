@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.devcode.tourifyapp.data.repository.DummyDataRepository
 import com.devcode.tourifyapp.di.Injection
 import com.devcode.tourifyapp.ui.home.HomeViewModel
+import com.devcode.tourifyapp.ui.tabfragment.FeedbackViewModel
 
 class ViewModelFactoryForDummy private constructor(private val dummyDataRepository: DummyDataRepository) : ViewModelProvider.NewInstanceFactory() {
 
@@ -14,6 +15,9 @@ class ViewModelFactoryForDummy private constructor(private val dummyDataReposito
         return when {
             modelClass.isAssignableFrom(HomeViewModel::class.java) -> {
                 HomeViewModel(dummyDataRepository) as T
+            }
+            modelClass.isAssignableFrom(FeedbackViewModel::class.java) -> {
+                FeedbackViewModel(dummyDataRepository) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }

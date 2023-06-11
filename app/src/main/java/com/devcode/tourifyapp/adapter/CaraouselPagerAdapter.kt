@@ -40,7 +40,7 @@ class CaraouselPagerAdapter(private val listData: ArrayList<TravelDataDummyRespo
             .placeholder(R.drawable.ic_launcher_background)
             .error(R.drawable.ic_launcher_background)
             .into(holder.binding.ivSlider)
-        if (position == listData.size-1){
+        if (position == listData.size - 1) {
             viewPager2.post(runnable)
         }
     }

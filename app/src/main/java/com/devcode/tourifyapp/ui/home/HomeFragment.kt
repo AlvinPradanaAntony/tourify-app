@@ -28,11 +28,13 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var mainViewModel: HomeViewModel
     private lateinit var viewPager: ViewPager2
-    private lateinit var carouselAdapter: CaraouselPagerAdapter
+
     private lateinit var itemDecoration: HorizontalMarginItemDecoration
     private val list = ArrayList<TravelDataDummyResponse>()
+    private val carouselList = ArrayList<TravelDataDummyResponse>()
     private val adapter: TravelDataRecommendationsAdapter by lazy { TravelDataRecommendationsAdapter(list) }
     private val adapter2: TravelDataOffersAdapter by lazy { TravelDataOffersAdapter(list) }
+    private val carouselAdapter: CaraouselPagerAdapter by lazy { CaraouselPagerAdapter(carouselList, viewPager) }
     private lateinit var factory: ViewModelFactoryForDummy
 
     override fun onCreateView(
@@ -47,16 +49,15 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupCarouselSlider()
-
         recyclerViewRecommendation()
         recyclerViewSpecial()
         setupViewModel()
         listDataTravel()
+        listDataCarousel()
     }
 
     private fun setupCarouselSlider() {
         viewPager = binding.viewpagerCarousel
-        carouselAdapter = CaraouselPagerAdapter(list, viewPager)
         itemDecoration = HorizontalMarginItemDecoration(
             requireActivity(),
             R.dimen.viewpager_current_item_horizontal_margin
@@ -73,10 +74,8 @@ class HomeFragment : Fragment() {
                 Log.d("middlePosition", middlePosition.toString())
                 setCurrentItem(middlePosition, true)
             }
-
             autoScroll(lifecycleScope, INTERVAL_TIME)
         }
-        carouselAdapter.setData(list)
     }
 
     private fun recyclerViewRecommendation() {
@@ -114,6 +113,11 @@ class HomeFragment : Fragment() {
     private fun listDataTravel() {
         val dataList = mainViewModel.getAllData()
         adapter.setData(dataList)
+    }
+
+    private fun listDataCarousel() {
+        val dataList = mainViewModel.getAllData()
+        carouselAdapter.setData(dataList)
     }
 
     companion object {

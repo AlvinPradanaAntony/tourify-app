@@ -30,5 +30,35 @@ object DummyData {
             "Monumen Tugu Pahlawan merupakan salah satu tempat wisata yang ada di Kota Surabaya. Monumen ini berada di Jalan Pahlawan, Kelurahan Embong Kaliasin, Kecamatan Genteng, Kota Surabaya. Monumen ini merupakan salah satu tempat wisata yang ada di Kota Surabaya. Monumen ini berada di Jalan Pahlawan, Kelurahan Embong Kaliasin, Kecamatan Genteng, Kota Surabaya.",
         )
     )
+    val dummyDataReviews = listOf(
+        ReviewsResponse(
+            1,
+            393,
+            5.0,
+            "I had an incredible experience at the XYZ tourist attraction! The breathtaking views and immersive atmosphere made it a truly memorable visit.",
+            "2021-08-01T00:00:00.000Z",
+            "John Doe",
+            "https://i.pravatar.cc/150?img=1"
+        ),
+        ReviewsResponse(
+            6,
+            393,
+            2.0,
+            "Visiting XYZ was a highlight of my trip! The well-preserved landmarks and knowledgeable guides added so much depth to the experience.",
+            "2021-08-01T00:00:00.000Z",
+            "Username 2",
+            "https://i.pravatar.cc/150?img=2"
+        ),
+        ReviewsResponse(
+            8,
+            393,
+            4.5,
+            "XYZ exceeded my expectations in every way. The friendly staff, stunning architecture, and fascinating history make it a must-visit destination.",
+            "2021-08-01T00:00:00.000Z",
+            "Username 3",
+            "https://i.pravatar.cc/150?img=3"
+        ),
+
+    )
 }
 

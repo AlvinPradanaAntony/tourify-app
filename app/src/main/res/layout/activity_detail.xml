@@ -91,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:tabGravity="fill"
+                android:background="@drawable/tab_bg"
                 app:tabIndicatorColor="@null"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="fixed"
@@ -155,5 +156,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="@drawable/ic_arrow_back"
         app:titleTextColor="@color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

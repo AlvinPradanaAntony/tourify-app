@@ -6,7 +6,7 @@ import path from 'path'
 import { login, register, refreshToken, verifyToken } from '../controllers/auth/auth.controller'
 import { getAllUsers, createUsers, showUsers, updateUsers, deleteUsers } from '../controllers/user/user.controller'
 import { getAllTourCategory, storeTourCategory, showTourCategory, updateTourCategory, deleteTourCategory } from '../controllers/tour_category/tour_category.controller'
-import { deleteTourDestination, getAllTourDestination, showTourDestination, storeTourDestination, updateTourDestination } from '../controllers/tourist_destination/tourist_destination.controller'
+import { deleteTourDestination, getAllTourDestination, searchByName, showTourDestination, storeTourDestination, updateTourDestination } from '../controllers/tourist_destination/tourist_destination.controller'
 import { getRatingWhereUserAndTouristDestination, getRatingWhereTouristDestination, storeRating, getAllRating } from '../controllers/rating/rating.controller'
 
 // validations
@@ -80,6 +80,7 @@ export const loadTouristDestinationRouter = app => {
             .get(showTourDestination)
             .post(updateTourDestination)
             .delete(deleteTourDestination)
+    router.route('/search/:search').get(searchByName)
     
     app.use('/tourist-destination', router)
 }

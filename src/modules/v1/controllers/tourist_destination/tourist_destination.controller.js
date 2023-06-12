@@ -1,7 +1,7 @@
 import { v4 } from 'uuid'
 import { TouristDestination, TourCategory, User, Rating } from "./../../../../models"
 import { validateForm } from '../../utils/helper'
-import { Sequelize } from 'sequelize'
+import { Sequelize, Op } from 'sequelize'
 
 export const getAllTourDestination = async (req, res) => {
     try {
@@ -9,11 +9,11 @@ export const getAllTourDestination = async (req, res) => {
             include: [
                 { model: TourCategory },
                 { model: User },
-                { model: Rating }
+                { model: Rating, attributes: [] }
             ],
             attributes: {
                 include: [
-                    [Sequelize.fn('AVG', Sequelize.col('ratings.score')), 'rating_score']
+                    [Sequelize.fn('AVG', Sequelize.col('Ratings.score')), 'rating_score']
                 ]
             }
         })
@@ -129,6 +129,29 @@ export const deleteTourDestination = async (req, res) => {
         res.status(200).json({
             status: 'success',
             message: 'Successfully deleting data'
+        })
+    } catch(err) {
+        res.status(500).json({
+            status: 'fail',
+            message: err.message
+        })
+    }
+}
+
+export const searchByName = async (req, res) => {
+    try {
+        const tourDestination = await TouristDestination.findAll({
+            where: {
+                name: {
+                    [Op.like]: `%${ req.params.search }%`
+                }
+            }
+        })
+
+        res.status(200).json({
+            status: 'success',
+            message: 'Successfully searching data',
+            data: tourDestination
         })
     } catch(err) {
         res.status(500).json({

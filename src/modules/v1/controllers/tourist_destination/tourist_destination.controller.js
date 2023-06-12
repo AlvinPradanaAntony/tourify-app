@@ -70,7 +70,21 @@ export const storeTourDestination = async (req, res) => {
 
 export const showTourDestination = async (req, res) => {
     try {
-        const tourDestination = await TouristDestination.findByPk(req.params.id)
+        const tourDestination = await TouristDestination.findOne({
+            where: {
+                id: req.params.id
+            },
+            includes: [
+                { model: TourCategory },
+                { model: User },
+                { model: Rating, attributes: [] }
+            ],
+            attributes: {
+                include: [
+                    [Sequelize.fn('AVG', Sequelize.col('Ratings.score')), 'rating_score']
+                ]
+            }
+        })
         
         res.status(200).json({
             status: 'success',

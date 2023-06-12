@@ -74,7 +74,7 @@ export const showTourDestination = async (req, res) => {
             where: {
                 id: req.params.id
             },
-            includes: [
+            include: [
                 { model: TourCategory },
                 { model: User },
                 { model: Rating, attributes: [] }

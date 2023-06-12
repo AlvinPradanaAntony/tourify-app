@@ -21,6 +21,12 @@ module.exports = (sequelize, DataTypes) => {
         onDelete: 'CASCADE',
         onUpdate: 'RESTRICT'
       })
+
+      TouristDestination.hasMany(models.Rating, {
+        foreignKey: 'tourist_destination_id',
+        onDelete: 'CASCADE',
+        onUpdate: 'RESTRICT'
+      })
     }
   }
   TouristDestination.init({

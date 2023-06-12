@@ -1,14 +1,21 @@
 import { v4 } from 'uuid'
-import { TouristDestination, TourCategory, User } from "./../../../../models"
+import { TouristDestination, TourCategory, User, Rating } from "./../../../../models"
 import { validateForm } from '../../utils/helper'
+import { Sequelize } from 'sequelize'
 
 export const getAllTourDestination = async (req, res) => {
     try {
         const tourDestination = await TouristDestination.findAll({
             include: [
                 { model: TourCategory },
-                { model: User }
-            ]
+                { model: User },
+                { model: Rating }
+            ],
+            attributes: {
+                include: [
+                    [Sequelize.fn('AVG', Sequelize.col('ratings.score')), 'rating_score']
+                ]
+            }
         })
 
         res.status(200).json({

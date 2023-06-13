@@ -1,29 +1,91 @@
 package com.devcode.tourifyapp.ui.detail
 
-import android.os.Build
 import android.os.Bundle
-import android.view.ViewGroup
-import android.view.WindowInsets
-import android.view.WindowManager
+import android.util.Log
 import android.widget.FrameLayout
-import android.widget.LinearLayout
+import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager2.widget.ViewPager2
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.ContentPagerOnDetailAdapter
+import com.devcode.tourifyapp.data.local.entity.DestinationEntity
+import com.devcode.tourifyapp.data.remote.response.DataDestination
 import com.devcode.tourifyapp.databinding.ActivityDetailBinding
+import com.devcode.tourifyapp.utils.Result
+import com.devcode.tourifyapp.utils.ViewModelFactory
 import com.google.android.material.tabs.TabLayoutMediator
 
 class DetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDetailBinding
+    private lateinit var viewModel: DetailViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val id = intent.getStringExtra("id").toString()
+
+        setupViewModel()
         setupView()
         tabLayout()
+        getDataDestination(id)
+    }
+
+    private fun getDataDestination(id: String) {
+        viewModel.getDetailDestination(id).observe(this) { response ->
+            if (response != null) {
+                when (response) {
+                    Result.Loading -> Log.e("TAG", "getDataDestination: Loading..." )
+                    is Result.Success -> {
+                        Log.e("TAG", "getDataDestination: ${response.data.data}" )
+                        setDataDestination(response.data.data)
+                    }
+                    is Result.Error -> TODO()
+                }
+            }
+        }
+    }
+
+    private fun setDataDestination(data: DataDestination) {
+        checkFavorite(data.id, data)
+            binding.apply {
+                tvPostTitle.text = data.name
+            }
+    }
+
+    private fun checkFavorite(id: String, data: DataDestination) {
+            viewModel.checkFavorite(id)
+            viewModel.isExists.observe(this){
+                if (it != null) {
+                    binding.apply {
+                        btnFavourite.apply {
+                            setImageResource(R.drawable.ic_favourite)
+                            setOnClickListener {
+                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.checkFavorite(id)
+                            }
+                        }
+
+                    }
+                } else {
+                    binding.apply {
+                        btnFavourite.apply {
+                            setImageResource(R.drawable.ic_favourite_border)
+                            setOnClickListener {
+                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.checkFavorite(id)
+                            }
+                        }
+                    }
+                }
+            }
+    }
+
+    private fun setupViewModel() {
+        val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
+        val viewModels: DetailViewModel by viewModels { factory }
+        viewModel = viewModels
     }
 
     override fun onSupportNavigateUp(): Boolean {

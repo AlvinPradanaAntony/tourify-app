@@ -66,11 +66,12 @@ class SplashScreen : AppCompatActivity() {
 
             override fun onTransitionCompleted(p0: MotionLayout?, p1: Int) {
                 viewModel.getUserPreferences().observe(this@SplashScreen) { result ->
-                    if (result.token.isEmpty()) {
+                    if (result.token == "") {
                         startActivity(Intent(this@SplashScreen, OnBoardingActivity::class.java))
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                         finish()
                     } else {
+                        viewModel.setToken(result.token)
                         startActivity(Intent(this@SplashScreen, MainActivity::class.java))
                         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
                         finish()

@@ -1,7 +1,7 @@
 package com.devcode.tourifyapp.ui.screen.login
 
 import androidx.lifecycle.ViewModel
-import com.devcode.tourifyapp.data.remote.repository.UserRepository
+import com.devcode.tourifyapp.data.repository.UserRepository
 
 class LoginViewModel(
     private val userRepository: UserRepository

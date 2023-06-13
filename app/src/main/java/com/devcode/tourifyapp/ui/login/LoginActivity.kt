@@ -11,7 +11,6 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.data.model.UserPreferencesModel
@@ -19,7 +18,6 @@ import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
 import com.devcode.tourifyapp.utils.Result
 import com.devcode.tourifyapp.utils.ViewModelFactory
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -90,7 +88,7 @@ class LoginActivity : AppCompatActivity() {
                     is Result.Success -> {
                         showLoading(false);
                         Toast.makeText(this, "Login Success, ${response.data.name}", Toast.LENGTH_SHORT).show()
-                        viewModel.saveUserPreference(UserPreferencesModel(response.data.name, "initoken"))
+                        viewModel.saveUserPreference(response.data)
                         startActivity(Intent(this, MainActivity::class.java))
                         finish()
                     }

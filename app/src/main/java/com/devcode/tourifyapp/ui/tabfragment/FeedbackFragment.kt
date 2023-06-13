@@ -13,6 +13,7 @@ import com.devcode.tourifyapp.adapter.TravelDataRecommendationsAdapter
 import com.devcode.tourifyapp.data.remote.response.ReviewsResponse
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.FragmentFeedbackBinding
+import com.devcode.tourifyapp.ui.customView.CustomDialog
 import com.devcode.tourifyapp.ui.detail.DetailActivity
 import com.devcode.tourifyapp.ui.home.HomeViewModel
 import com.devcode.tourifyapp.utils.ViewModelFactoryForDummy
@@ -38,12 +39,20 @@ class FeedbackFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         recyclerViewReviews()
         setupViewModel()
+        setupAction()
         listDataReviews()
     }
 
     private fun setupViewModel() {
         factory = ViewModelFactoryForDummy.getInstance(requireActivity())
         feedbackViewModel = ViewModelProvider(requireActivity(), factory)[FeedbackViewModel::class.java]
+    }
+
+    private fun setupAction(){
+        binding.favButtonFeedback.setOnClickListener {
+            val dialog = CustomDialog()
+            dialog.show(childFragmentManager, "dialog")
+        }
     }
 
     private fun recyclerViewReviews() {

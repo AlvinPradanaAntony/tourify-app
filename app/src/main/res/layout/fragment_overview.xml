@@ -19,22 +19,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
+                android:paddingBottom="12dp"
                 android:fontFamily="@font/fo_nunito_sans_reguler"
                 android:text="@string/tmp_description"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="16sp" />
 
-            <ImageView
-                android:id="@+id/iv_post_image"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/tv_description"
-                android:scaleType="centerCrop"
-                android:src="@drawable/img_sample" />
             <View
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_below="@id/iv_post_image"/>
+                android:layout_below="@id/tv_description"/>
         </RelativeLayout>
     </ScrollView>
 
@@ -183,7 +177,7 @@
                 android:id="@+id/tv_item3_txt2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Days"
+                android:text="@string/days"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_item3_txt1"
@@ -206,7 +200,7 @@
             android:layout_height="0dp"
             android:layout_marginEnd="8dp"
             android:background="@drawable/style_button2"
-            android:text="Check on Map"
+            android:text="@string/check_on_map"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/btn_favourite"

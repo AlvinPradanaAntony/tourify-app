@@ -6,6 +6,7 @@ import android.widget.FrameLayout
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.marginTop
 import androidx.viewpager2.widget.ViewPager2
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.ContentPagerOnDetailAdapter
@@ -94,7 +95,21 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
-        setSupportActionBar(binding.toolbarId)
+        val toolbar = binding.toolbarId
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
+            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+            val marginTop = resources.getDimensionPixelSize(R.dimen.toolbar_margin_top)
+            val toolbarLayoutParams = toolbar.layoutParams as ViewGroup.MarginLayoutParams
+            toolbarLayoutParams.topMargin = marginTop
+            toolbar.layoutParams = toolbarLayoutParams
+        } else {
+            window.setFlags(
+                WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN
+            )
+        }
+
+        setSupportActionBar(toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         supportActionBar?.setDisplayShowTitleEnabled(true)
         supportActionBar?.title = ""

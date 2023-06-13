@@ -91,6 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 app:tabGravity="fill"
+                android:background="@drawable/tab_bg"
                 app:tabIndicatorColor="@null"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="fixed"
@@ -109,44 +110,6 @@
 
     </LinearLayout>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:paddingHorizontal="32dp"
-        android:paddingVertical="12dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/btn_on_map"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:text="Check on Map"
-            android:textColor="@color/white"
-            android:layout_marginEnd="8dp"
-            android:background="@drawable/style_button2"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btn_favourite"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageButton
-            android:id="@+id/btn_favourite"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/style_button2"
-            android:padding="18dp"
-            android:src="@drawable/ic_favourite_border"
-            app:layout_constraintBottom_toBottomOf="@+id/btn_on_map"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/btn_on_map"
-            app:tint="@color/white" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarId"
         android:layout_width="match_parent"
@@ -155,5 +118,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
+        app:navigationIcon="@drawable/ic_arrow_back"
         app:titleTextColor="@color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

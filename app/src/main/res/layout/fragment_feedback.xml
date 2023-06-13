@@ -18,90 +18,32 @@
                 android:id="@+id/recyclerView_reviews"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:paddingBottom="36dp"
                 android:layout_alignParentTop="true"
                 tools:listitem="@layout/items_reviews" />
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@+id/recyclerView_reviews">
-
-                <TextView
-                    android:id="@+id/textView3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginHorizontal="32dp"
-                    android:fontFamily="@font/fo_nunito_sans_bold"
-                    android:text="Please take a moment to share your feedback and rate your visit."
-                    android:textColor="@color/textColorPrimary"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-
-                <LinearLayout
-                    android:id="@+id/linearLayout3"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/textView3">
-
-                    <RatingBar
-                        android:id="@+id/rating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:progressBackgroundTint="#54808080"
-                        android:progressTint="#EE8F39"
-                        android:scaleX="0.8"
-                        android:scaleY="0.8"
-                        android:secondaryProgressTint="#EE8F39"
-                        tools:rating="3.5" />
-
-                    <TextView
-                        android:id="@+id/tvRating"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        tools:text="0/5" />
-                </LinearLayout>
-
-                <com.devcode.tourifyapp.ui.customView.CustomEditText
-                    android:id="@+id/ed_add_description"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_margin="16dp"
-                    android:autofillHints=""
-                    android:gravity="top"
-                    android:hint="@string/field_feedback"
-                    android:inputType="textMultiLine"
-                    android:minHeight="85dp"
-                    android:paddingHorizontal="16dp"
-                    android:paddingTop="12dp"
-                    app:layout_constraintEnd_toEndOf="@+id/textView3"
-                    app:layout_constraintStart_toStartOf="@+id/textView3"
-                    app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
-
-                <com.devcode.tourifyapp.ui.customView.CustomButton
-                    android:id="@+id/btn_submit"
-                    android:layout_width="128dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="12dp"
-                    android:drawableEnd="@drawable/ic_send"
-                    android:fontFamily="@font/fo_nunito_sans_bold"
-                    android:text="Submit"
-                    android:textAllCaps="false"
-                    app:layout_constraintEnd_toEndOf="@+id/ed_add_description"
-                    app:layout_constraintTop_toBottomOf="@+id/ed_add_description" />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/btn_submit"/>
-            </androidx.constraintlayout.widget.ConstraintLayout>
         </RelativeLayout>
     </androidx.core.widget.NestedScrollView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fav_button_feedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="25dp"
+        android:clickable="true"
+        android:contentDescription="Add new review"
+        android:focusable="true"
+        app:maxImageSize="32dp"
+        android:src="@drawable/ic_feedback"
+        app:rippleColor="#8FFFFFFF"
+        app:tint="@color/white" />
+    <View
+        android:id="@+id/fade_background"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_gradient_white"
+        android:layout_alignParentBottom="true"
+        />
 </RelativeLayout>

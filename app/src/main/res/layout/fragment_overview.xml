@@ -9,6 +9,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -17,21 +18,41 @@
                 android:id="@+id/tv_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16sp"
+                android:layout_marginHorizontal="32dp"
+                android:paddingBottom="12dp"
                 android:fontFamily="@font/fo_nunito_sans_reguler"
-                android:textColor="@color/textColorCaption2"
                 android:text="@string/tmp_description"
-                android:layout_marginHorizontal="32dp"/>
+                android:textColor="@color/textColorCaption2"
+                android:textSize="16sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_below="@id/tv_description"/>
         </RelativeLayout>
     </ScrollView>
 
+    <View
+        android:id="@+id/fade_background"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_gradient_white"
+        android:layout_above="@+id/spacer_background"
+        />
+    <View
+        android:id="@+id/spacer_background"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/white"
+        android:layout_alignParentBottom="true"/>
+
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_item"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="12dp"
-        android:layout_marginBottom="85dp"
+        android:layout_above="@+id/container_btn"
         android:layout_marginHorizontal="32dp"
-        android:layout_alignParentBottom="true">
+        android:paddingVertical="12dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/item1"
@@ -156,13 +177,47 @@
                 android:id="@+id/tv_item3_txt2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Days"
+                android:text="@string/days"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_item3_txt1"
                 app:layout_constraintTop_toBottomOf="@+id/tv_item3_txt1" />
         </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp">
+
+        <Button
+            android:id="@+id/btn_on_map"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/style_button2"
+            android:text="@string/check_on_map"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_favourite"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btn_favourite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/style_button2"
+            android:padding="18dp"
+            android:src="@drawable/ic_favourite_border"
+            app:layout_constraintBottom_toBottomOf="@+id/btn_on_map"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/btn_on_map"
+            app:tint="@color/white" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

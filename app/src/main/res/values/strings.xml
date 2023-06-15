@@ -115,4 +115,14 @@
     <string name="tv_email">dev.tourify@gmail.com</string>
     <string name="tv_number">087757913486</string>
     <string name="tmp_version_app">Version 1.0.0</string>
+
+    <string name="style_maps">Style Maps</string>
+    <string name="normal">Normal</string>
+    <string name="satellite">Satellite</string>
+    <string name="terrain">Terrain</string>
+    <string name="hybrid">Hybrid</string>
+    <string name="error_message_location">Location unavailable</string>
+    <string name="error_message_catch">An error occurred when getting the location</string>
+    <string name="error_message_style">Style parsing failed</string>
+    <string name="error_message_style_catch">Can\'t find style. Error: </string>
 </resources>

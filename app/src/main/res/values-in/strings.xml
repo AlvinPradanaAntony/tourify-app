@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">TourifyApp</string>
 
@@ -116,4 +115,14 @@
     <string name="tv_email">dev.tourify@gmail.com</string>
     <string name="tv_number">087757913486</string>
     <string name="tmp_version_app">Version 1.0.0</string>
+
+    <string name="style_maps">Jenis Peta</string>
+    <string name="normal">Normal</string>
+    <string name="satellite">Satellite</string>
+    <string name="terrain">Terrain</string>
+    <string name="hybrid">Hybrid</string>
+    <string name="error_message_location">Lokasi tidak tersedia</string>
+    <string name="error_message_catch">Terjadi kesalahan saat mendapatkan lokasi</string>
+    <string name="error_message_style">Penguraian gaya gagal</string>
+    <string name="error_message_style_catch">Tidak dapat menemukan gaya. Kesalahan:</string>
 </resources>

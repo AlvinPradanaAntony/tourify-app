@@ -1,11 +1,13 @@
 package com.devcode.tourifyapp.ui.tabfragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.devcode.tourifyapp.databinding.FragmentOverviewBinding
+import com.devcode.tourifyapp.ui.map.MapsActivity
 
 
 class OverviewFragment : Fragment() {
@@ -19,5 +21,15 @@ class OverviewFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        setupAction()
+    }
+
+    private fun setupAction() {
+        binding.btnOnMap.setOnClickListener{
+            startActivity(Intent(requireActivity(), MapsActivity::class.java))
+        }
+    }
 }

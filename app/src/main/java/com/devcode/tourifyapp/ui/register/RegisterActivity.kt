@@ -44,6 +44,9 @@ class RegisterActivity : AppCompatActivity() {
     }
 
     private fun setupAction() {
+        binding.btnBack.setOnClickListener {
+            onBackPressed()
+        }
         binding.txtLogin.setOnClickListener {
             startActivity(Intent(this, LoginActivity::class.java))
             finishAffinity()

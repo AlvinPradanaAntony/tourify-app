@@ -10,6 +10,7 @@
         android:id="@+id/iv_post_image"
         android:layout_width="match_parent"
         android:layout_height="335dp"
+        android:contentDescription="@string/content_desc_photo_on_detail"
         android:foreground="@drawable/bg_bottom_gradient_shadow"
         android:scaleType="centerCrop"
         android:src="@drawable/klenteng"
@@ -37,7 +38,7 @@
             android:layout_marginTop="16dp"
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/fo_nunito_sans_extra_bold"
-            android:text="Name Place"
+            android:text="@string/name_place"
             android:textColor="@color/textColorPrimary"
             android:textSize="24sp" />
 
@@ -50,6 +51,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:contentDescription="@string/content_desc_icon_rating"
                 android:src="@drawable/star" />
 
             <TextView
@@ -58,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/fo_nunito_sans_light"
-                android:text="4.9"
+                android:text="@string/placeholder_value_rating"
                 android:textColor="@color/textColorCaption"
                 android:textSize="14sp" />
 
@@ -68,7 +70,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/fo_nunito_sans_light"
-                android:text="(100)"
+                android:text="@string/total_feedback"
                 android:textColor="@color/textColorCaption"
                 android:textSize="14sp" />
         </LinearLayout>
@@ -77,8 +79,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:clipToPadding="false"
-            android:paddingVertical="25dp"
-            android:paddingHorizontal="32dp">
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="25dp">
 
             <View
                 android:id="@+id/indicator"
@@ -90,17 +92,16 @@
                 android:id="@+id/tablayout_on_detail"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                app:tabGravity="fill"
                 android:background="@drawable/tab_bg"
+                app:tabGravity="fill"
                 app:tabIndicatorColor="@null"
                 app:tabIndicatorHeight="0dp"
                 app:tabMode="fixed"
                 app:tabRippleColor="@null"
+                app:tabSelectedTextAppearance="@style/TabLayoutTextAppearance.Selected"
                 app:tabSelectedTextColor="@color/white"
-                app:tabTextColor="@color/textColorCaption2"
                 app:tabTextAppearance="@style/TabLayoutTextAppearance"
-                app:tabSelectedTextAppearance="@style/TabLayoutTextAppearance.Selected" />
-
+                app:tabTextColor="@color/textColorCaption2" />
         </FrameLayout>
 
         <androidx.viewpager2.widget.ViewPager2
@@ -117,7 +118,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
         app:navigationIcon="@drawable/ic_arrow_back"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
         app:titleTextColor="@color/white" />
 </androidx.constraintlayout.widget.ConstraintLayout>

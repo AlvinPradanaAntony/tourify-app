@@ -19,8 +19,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
-                android:paddingBottom="12dp"
                 android:fontFamily="@font/fo_nunito_sans_reguler"
+                android:paddingBottom="12dp"
                 android:text="@string/tmp_description"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="16sp" />
@@ -28,7 +28,7 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="150dp"
-                android:layout_below="@id/tv_description"/>
+                android:layout_below="@id/tv_description" />
         </RelativeLayout>
     </ScrollView>
 
@@ -36,15 +36,15 @@
         android:id="@+id/fade_background"
         android:layout_width="match_parent"
         android:layout_height="125dp"
-        android:background="@drawable/bg_gradient_white"
         android:layout_above="@+id/spacer_background"
-        />
+        android:background="@drawable/bg_gradient_white" />
+
     <View
         android:id="@+id/spacer_background"
         android:layout_width="match_parent"
         android:layout_height="130dp"
-        android:background="@color/white"
-        android:layout_alignParentBottom="true"/>
+        android:layout_alignParentBottom="true"
+        android:background="@color/white" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_item"
@@ -69,6 +69,7 @@
                 android:id="@+id/iv_item1"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
+                android:contentDescription="@string/icon_item_1"
                 android:src="@drawable/ic_category"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_item1_txt1"
                 app:layout_constraintStart_toStartOf="parent"
@@ -80,7 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
-                android:text="Budaya"
+                android:text="@string/value_item_1"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item1"
@@ -90,7 +91,7 @@
                 android:id="@+id/tv_item1_txt2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Category"
+                android:text="@string/name_item_1"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_item1_txt1"
@@ -109,6 +110,7 @@
                 android:id="@+id/iv_item2"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
+                android:contentDescription="@string/icon_item_2"
                 android:rotation="90"
                 android:src="@drawable/ic_price_tag"
                 app:layout_constraintBottom_toBottomOf="@+id/tv_item2_txt1"
@@ -122,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
-                android:text="35.000"
+                android:text="@string/value_item_2"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item2"
@@ -132,7 +134,7 @@
                 android:id="@+id/tv_item2_txt2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="Price"
+                android:text="@string/name_item_2"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_item2_txt1"
@@ -155,8 +157,8 @@
                 android:id="@+id/iv_item3"
                 android:layout_width="18dp"
                 android:layout_height="18dp"
+                android:contentDescription="@string/icon_item_3"
                 android:src="@drawable/ic_date"
-
                 app:layout_constraintBottom_toBottomOf="@+id/tv_item3_txt1"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -167,7 +169,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
-                android:text="Mo - Fri"
+                android:text="@string/value_item_3"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item3"
@@ -177,7 +179,7 @@
                 android:id="@+id/tv_item3_txt2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:text="@string/days"
+                android:text="@string/name_item_3"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintStart_toStartOf="@+id/tv_item3_txt1"
@@ -212,12 +214,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/style_button2"
+            android:contentDescription="@string/button_favourite"
             android:padding="18dp"
             android:src="@drawable/ic_favourite_border"
             app:layout_constraintBottom_toBottomOf="@+id/btn_on_map"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/btn_on_map"
             app:tint="@color/white" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </RelativeLayout>

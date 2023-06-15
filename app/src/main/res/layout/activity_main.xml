@@ -15,6 +15,14 @@
         app:defaultNavHost="true"
         app:navGraph="@navigation/main_navigation" />
 
+    <View
+        android:id="@+id/fade_background"
+        android:layout_width="match_parent"
+        android:layout_height="125dp"
+        android:background="@drawable/bg_gradient_white"
+        android:layout_alignParentBottom="true"
+        />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/nav_view"
         style="@style/BottomNavigationViewStyle"
@@ -29,6 +37,7 @@
         android:outlineSpotShadowColor="@color/shadowColor"
         app:elevation="4dp"
         app:labelVisibilityMode="selected"
-        app:menu="@menu/bottom_nav_menu" />
+        app:menu="@menu/bottom_nav_menu"
+        tools:targetApi="p"/>
 
 </RelativeLayout>

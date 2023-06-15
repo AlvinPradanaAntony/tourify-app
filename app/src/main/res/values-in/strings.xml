@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TourifyApp</string>
+
+    <string name="title_logo">TourIFY</string>
+    <string name="logo_tourify">Logo Tourify</string>
+    <string name="abstract1">Abstract 1</string>
+    <string name="make_your_dream_trip_come_true">Make Your Dream Trip Come True</string>
+    <string name="template_description">C\'mon, he\'s not that bad. At least he\'s letting you borrow the car tomorrow night. Ho ho ho, look at it roll. Now we could watch Jackie Gleason while we eat. I guarantee it. Whoa, wait, Doc. Let\'s get him.</string>
+    <string name="headline">Headline</string>
+    <string name="skip">Lewati</string>
+    <string name="next">Selanjutnya</string>
+    <string name="finish">Memulai!</string>
+    <string name="on">On</string>
+    <string name="off">Off</string>
+
+    <string name="headline_on_boarding1">Rekomendasi Wisata</string>
+    <string name="caption_on_boarding1">Kami akan merekomendasikan tempat yang cocok untuk Anda sesuai dengan preferensi Anda.</string>
+
+    <string name="headline_on_boarding2">Jelajahi dunia untuk menemukan tempat yang bagus</string>
+    <string name="caption_on_boarding2">Anda juga dapat menjelajahi tempat wisata yang tersedia untuk menemukan tempat yang cocok untuk berlibur.</string>
+    <string name="headline_on_login">Selamat datang di TourIFY</string>
+    <string name="caption_on_login">Tetap masuk dengan akun Anda untuk menjelajahi destinasi Anda</string>
+    <string name="image_on_loginactivity">Gambar pada LoginActivity</string>
+
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Kata Sandi</string>
+    <string name="btn_login">Masuk</string>
+    <string name="btn_register">Daftar</string>
+    <string name="suggestion2register">Tidak punya akun?</string>
+    <string name="register_now">Daftar sekarang!</string>
+    <string name="register">Daftar</string>
+    <string name="registerCaption">Buat akun Anda dan mulailah perjalanan Anda bersama kami</string>
+    <string name="confirm_password">Konfirmasi kata sandi</string>
+    <string name="already_have_an_account">Sudah punya akun?</string>
+    <string name="submit">Kirim</string>
+
+    <string name="email_empty">Email harus diisi</string>
+    <string name="password_empty">Password harus diisi</string>
+    <string name="password_confirmation_empty">Konfirmasi kata sandi harus diisi</string>
+    <string name="email_n_password_empty">Email dan kata sandi tidak boleh kosong</string>
+    <string name="full_name_empty">Full Name Must Be Filled</string>
+    <string name="email_invalid">Format email tidak sesuai</string>
+    <string name="password_minimum_character">Min. kata sandi 8 karakter</string>
+    <string name="password_not_match">Kata sandi tidak sama</string>
+    <string name="account_already_registered">Akun Anda sudah dibuat dan siap digunakan. Masuk dan lihat apa yang sedang dilakukan orang lain!</string>
+    <string name="full_name">Nama lengkap</string>
+    <string name="title_activity_home">HomeActivity</string>
+
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="previous">Sebelumnya</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="notification">Notifikasi</string>
+    <string name="caption_on_dashboard">Ke mana Anda ingin pergi?</string>
+    <string name="recommended">Rekomendasi</string>
+    <string name="special_for_you">Special untuk kamu</string>
+    <string name="favourite_button">Favourite Button</string>
+    <string name="placeholder_image_onboarding">Placeholder Image OnBoarding</string>
+
+    <string name="tab_text_1">Deskripsi</string>
+    <string name="tab_text_2">Ulasan</string>
+    <string name="tmp_description">Name Place adalah salah satu tujuan liburan baru di Bali. Terletak di sebelah tenggara pulau Bali.</string>
+    <string name="field_feedback">Tuliskan ulasan kamu..</string>
+    <string name="check_on_map">Lihat peta</string>
+    <string name="name_item_3">Hari</string>
+    <string name="content_desc_photo_on_detail">Photo of the place</string>
+    <string name="name_place">Nama Tempat Wisata</string>
+    <string name="content_desc_icon_rating">Icon Rating</string>
+    <string name="placeholder_value_rating">4.9</string>
+    <string name="total_feedback">(100)</string>
+    <string name="content_desc_abstract">Abstrak 2</string>
+    <string name="title_on_register">Buat Akun</string>
+    <string name="button_back">Button Back</string>
+    <string name="title_feedback_dialog">Ulasan</string>
+    <string name="desc_feedback_dialog">Please take a moment to share your feedback and rate your visit.</string>
+    <string name="title_change_pw_dialog">Ganti Kata Sandi</string>
+    <string name="change">Ubah</string>
+    <string name="content_desc_add_review">Tambahkan ulasan</string>
+    <string name="username_account">C23-PS424</string>
+    <string name="icon_item_1">Icon Item 1</string>
+    <string name="name_item_1">Category</string>
+    <string name="value_item_1">Budaya</string>
+    <string name="icon_item_2">Icon Item 2</string>
+    <string name="value_item_2">35.000</string>
+    <string name="name_item_2">Harga</string>
+    <string name="icon_item_3">Icon Item 3</string>
+    <string name="value_item_3">Mo - Fri</string>
+    <string name="button_favourite">Button Favourite</string>
+    <string name="email_user_account">mail@mail.com</string>
+    <string name="content_dsc_icon_location">Icon Location</string>
+    <string name="location">Surabaya</string>
+    <string name="tv_account">Akun</string>
+    <string name="item_setting_1">Ganti Password</string>
+    <string name="desc_item_1">Mengubah kata sandi Anda saat ini</string>
+    <string name="tv_preferences">Preferensi</string>
+    <string name="item_setting_2">Tema Gelap</string>
+    <string name="desc_item_2">Mengubah tema saat ini</string>
+    <string name="item_setting_3">Bahasa</string>
+    <string name="desc_item_3">Mengubah bahasa utama</string>
+    <string name="item_setting_4">Info</string>
+    <string name="desc_item_4">Perikasa informasi terkait versi applikasi</string>
+    <string name="item_setting_5">Keluar</string>
+    <string name="desc_item_5">Keluar dari akun Anda saat ini</string>
+    <string name="icon_item_4">Icon Item 4</string>
+    <string name="content_desc_logo_app">Logo App</string>
+    <string name="desc_info_dialog">Aplikasi sistem rekomendasi destinasi wisata yang sesuai dengan kriteria masukan dari pengguna.</string>
+    <string name="tv_changelog">Daftar perubahan</string>
+    <string name="icon_check">Icon Check</string>
+    <string name="tv_changelog_1">Tampilkan 10 rekomendasi destinasi wisata terbaik di Surabaya</string>
+    <string name="tv_changelog_2">Memfilter berdasarkan peringkat tertinggi</string>
+    <string name="tv_changelog_3">Tunjukkan tempat tujuan wisata yang menarik</string>
+    <string name="tv_contact_us">Hubungi kami</string>
+    <string name="tv_email">dev.tourify@gmail.com</string>
+    <string name="tv_number">087757913486</string>
+    <string name="tmp_version_app">Version 1.0.0</string>
+</resources>

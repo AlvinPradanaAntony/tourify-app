@@ -25,6 +25,7 @@
             tools:ignore="ContentDescription" />
 
         <LinearLayout
+            android:id="@+id/linearLayout5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -36,105 +37,111 @@
                 android:id="@+id/tv_welcome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ellipsize="end"
                 android:layout_marginStart="12dp"
-                android:layout_marginBottom="4dp"
+                android:ellipsize="end"
+
                 android:fontFamily="@font/fo_nunito_sans_extra_bold"
                 android:gravity="start"
                 android:maxEms="9"
                 android:maxLines="1"
-                android:text="C23-PS424"
+                android:text="@string/username_account"
                 android:textColor="@color/textColorPrimary"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView"
-                android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginEnd="12dp"
-                android:backgroundTint="@color/orange_100"
-                app:cardBackgroundColor="@color/white"
-                app:cardCornerRadius="20dp"
-
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/tv_welcome"
-                app:layout_constraintTop_toBottomOf="@+id/tv_welcome">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="18dp"
-                        android:layout_height="18dp"
-                        android:layout_marginStart="6dp"
-                        android:src="@drawable/ic_location" />
-
-                    <TextView
-                        android:id="@+id/tv_user_name"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/fo_nunito_sans_extra_bold"
-                        android:gravity="start"
-                        android:outlineAmbientShadowColor="@color/shadowColor"
-                        android:outlineSpotShadowColor="@color/shadowColor"
-                        android:paddingVertical="2dp"
-                        android:paddingEnd="12dp"
-                        android:text="Surabaya"
-                        android:textColor="@color/orange_400"
-                        android:textSize="14sp" />
-                </LinearLayout>
-            </androidx.cardview.widget.CardView>
+                android:fontFamily="@font/fo_nunito_sans_light"
+                android:text="@string/email_user_account" />
         </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/orange_100"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="20dp"
+            app:cardElevation="3dp"
+            app:layout_constraintBottom_toBottomOf="@+id/iv_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/iv_avatar">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_marginStart="6dp"
+                    android:contentDescription="@string/content_dsc_icon_location"
+                    android:src="@drawable/ic_location" />
+
+                <TextView
+                    android:id="@+id/tv_user_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/fo_nunito_sans_extra_bold"
+                    android:gravity="start"
+                    android:paddingVertical="2dp"
+                    android:paddingEnd="12dp"
+                    android:text="@string/location"
+                    android:textColor="@color/orange_400"
+                    android:textSize="14sp"
+                    tools:ignore="RtlSymmetry" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <com.google.android.material.divider.MaterialDivider
         android:id="@+id/divider"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/account"
-        android:layout_marginHorizontal="32dp"/>
+        android:layout_marginHorizontal="32dp" />
 
     <TextView
         android:id="@+id/tv_section_account_settings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/divider"
-        android:layout_marginTop="18dp"
         android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/fo_nunito_sans_extra_bold"
+        android:text="@string/tv_account"
         android:textColor="@color/textColorPrimary"
-        android:textSize="16sp"
-        android:text="Account"
-        />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:id="@+id/container_item_account_section"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_below="@+id/tv_section_account_settings">
+        android:layout_below="@+id/tv_section_account_settings"
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:layout_marginHorizontal="32dp"
-            app:cardCornerRadius="12dp"
-           android:layout_marginVertical="12dp"
-            app:cardElevation="8dp"
+            android:layout_marginVertical="12dp"
             android:outlineAmbientShadowColor="@color/shadowColor"
             android:outlineSpotShadowColor="@color/shadowColor"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_item_change_password"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
@@ -145,6 +152,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
+                    android:contentDescription="@string/icon_item_1"
                     android:src="@drawable/ic_edit_profile"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -169,7 +177,7 @@
                         android:gravity="start"
                         android:maxEms="9"
                         android:maxLines="1"
-                        android:text="Edit Profile"
+                        android:text="@string/item_setting_1"
                         android:textColor="@color/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -180,7 +188,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/fo_nunito_sans_light"
-                        android:text="Change your current profile"/>
+                        android:text="@string/desc_item_1" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -191,36 +199,116 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/container_item_account_section"
-        android:layout_marginTop="18dp"
         android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="18dp"
         android:fontFamily="@font/fo_nunito_sans_extra_bold"
+        android:text="@string/tv_preferences"
         android:textColor="@color/textColorPrimary"
-        android:textSize="16sp"
-        android:text="Preferences"
-        />
+        android:textSize="16sp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="12dp"
-        android:layout_below="@+id/tv_section_preferences_settings">
+        android:layout_below="@+id/tv_section_preferences_settings"
+        android:orientation="vertical">
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:layout_marginHorizontal="32dp"
-            app:cardCornerRadius="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="8dp"
-            app:cardElevation="8dp"
             android:outlineAmbientShadowColor="@color/shadowColor"
             android:outlineSpotShadowColor="@color/shadowColor"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/iv_theme"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="18dp"
+                    android:contentDescription="@string/icon_item_2"
+                    android:src="@drawable/ic_dark_mode"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <LinearLayout
+                    android:id="@+id/linearLayout4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="@+id/iv_theme"
+                    app:layout_constraintStart_toEndOf="@+id/iv_theme"
+                    app:layout_constraintTop_toTopOf="@+id/iv_theme">
+
+                    <TextView
+                        android:id="@+id/tv_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginBottom="4dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/fo_nunito_sans_bold"
+                        android:gravity="start"
+                        android:maxEms="9"
+                        android:maxLines="1"
+                        android:text="@string/item_setting_2"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_description_theme"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:fontFamily="@font/fo_nunito_sans_light"
+                        android:text="@string/desc_item_2" />
+                </LinearLayout>
+
+                <com.google.android.material.switchmaterial.SwitchMaterial
+                    android:id="@+id/switch_theme"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="18dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Caption"
+                    android:textOff="@string/on"
+                    android:textOn="@string/off"
+                    app:layout_constraintBottom_toBottomOf="@+id/linearLayout4"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:layout_marginHorizontal="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:outlineAmbientShadowColor="@color/shadowColor"
+            android:outlineSpotShadowColor="@color/shadowColor"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_language"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
@@ -231,6 +319,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
+                    android:contentDescription="@string/icon_item_3"
                     android:src="@drawable/ic_language"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -255,7 +344,7 @@
                         android:gravity="start"
                         android:maxEms="9"
                         android:maxLines="1"
-                        android:text="Language"
+                        android:text="@string/item_setting_3"
                         android:textColor="@color/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -266,7 +355,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/fo_nunito_sans_light"
-                        android:text="Change your primary language"/>
+                        android:text="@string/desc_item_3" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -275,17 +364,19 @@
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:layout_marginHorizontal="32dp"
-            app:cardCornerRadius="12dp"
             android:layout_marginTop="12dp"
             android:layout_marginBottom="8dp"
-            app:cardElevation="8dp"
             android:outlineAmbientShadowColor="@color/shadowColor"
             android:outlineSpotShadowColor="@color/shadowColor"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p">
 
             <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/btn_item_info"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="?attr/selectableItemBackground"
@@ -320,7 +411,7 @@
                         android:gravity="start"
                         android:maxEms="9"
                         android:maxLines="1"
-                        android:text="Info"
+                        android:text="@string/item_setting_4"
                         android:textColor="@color/textColorPrimary"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -331,7 +422,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/fo_nunito_sans_light"
-                        android:text="Check information about version app"/>
+                        android:text="@string/desc_item_4" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>
@@ -340,15 +431,16 @@
             android:layout_width="match_parent"
             android:layout_height="68dp"
             android:layout_marginHorizontal="32dp"
-            app:cardCornerRadius="12dp"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="8dp"
-            app:cardElevation="8dp"
+            android:layout_marginBottom="28dp"
             android:outlineAmbientShadowColor="@color/shadowColor"
             android:outlineSpotShadowColor="@color/shadowColor"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            tools:targetApi="p">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -361,6 +453,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="18dp"
+                    android:contentDescription="@string/icon_item_4"
                     android:src="@drawable/ic_logout"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -385,7 +478,7 @@
                         android:gravity="start"
                         android:maxEms="9"
                         android:maxLines="1"
-                        android:text="Language"
+                        android:text="@string/item_setting_5"
                         android:textColor="@color/red_soft"
                         android:textSize="16sp"
                         android:textStyle="bold" />
@@ -396,7 +489,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
                         android:fontFamily="@font/fo_nunito_sans_light"
-                        android:text="Change your primary language"/>
+                        android:text="@string/desc_item_5" />
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.cardview.widget.CardView>

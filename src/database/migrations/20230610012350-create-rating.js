@@ -6,7 +6,8 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID
+        autoIncrement: true,
+        type: Sequelize.INTEGER
       },
       user_id: {
         type: Sequelize.UUID,
@@ -17,7 +18,7 @@ module.exports = {
         }
       },
       tourist_destination_id: {
-        type: Sequelize.UUID,
+        type: Sequelize.INTEGER,
         foreignKey: true,
         references: {
           model: 'tourist_destinations',

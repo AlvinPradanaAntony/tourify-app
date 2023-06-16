@@ -6,7 +6,8 @@ module.exports = {
       id: {
         allowNull: false,
         primaryKey: true,
-        type: Sequelize.UUID
+        autoIncrement: true,
+        type: Sequelize.INTEGER
       },
       tour_category_id: {
         type: Sequelize.UUID,

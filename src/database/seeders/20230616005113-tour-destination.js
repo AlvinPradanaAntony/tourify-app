@@ -43,7 +43,7 @@ module.exports = {
       'tourist_destinations',
       [
         {
-          "id": "0fd7735f-f280-4d34-b8b4-76f2d57ade1e",
+          "id": 1,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Kenjeran Park",
           "phone": "",
@@ -63,7 +63,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "19d26245-2984-4d53-a87c-efd93af1bfe3",
+          "id": 2,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Hiburan Rakyat",
           "phone": "",
@@ -83,7 +83,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "1c87a9ff-b824-4455-af4e-c1042fbadfcf",
+          "id": 3,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Surabaya Museum (Gedung Siola)",
           "phone": "",
@@ -103,7 +103,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "1ce04cd8-c74b-4531-b88a-def270d4509a",
+          "id": 4,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Air Mancur Menari",
           "phone": "",
@@ -123,7 +123,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "2027b8ef-062b-4722-b387-9f2695af07cd",
+          "id": 5,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Balai Kota Surabaya",
           "phone": "",
@@ -143,7 +143,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "2125612f-7704-4062-bc75-67918604fc86",
+          "id": 6,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Monumen Jalesveva Jayamahe",
           "phone": "",
@@ -163,7 +163,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "25122292-2f89-4187-b341-4d6964c83b10",
+          "id": 7,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Harmoni Keputih",
           "phone": "",
@@ -183,7 +183,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "299b9782-b70a-456a-9d39-0cad04c6e76b",
+          "id": 8,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Bungkul",
           "phone": "",
@@ -203,7 +203,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "3786c733-fadf-41fb-8268-5762cedc0197",
+          "id": 9,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Kelenteng Sanggar Agung",
           "phone": "",
@@ -223,7 +223,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "3bbf5b60-722a-49e8-b421-ce642bad51dd",
+          "id": 10,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Museum Kesehatan Dr. Adhyatma",
           "phone": "",
@@ -243,7 +243,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "4efad075-c3b8-448a-a4ae-a014868aadd4",
+          "id": 11,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "House of Sampoerna",
           "phone": "",
@@ -263,7 +263,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "63ed3fa6-731c-47cb-bea4-39a2195cea9a",
+          "id": 12,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Atlantis Land Surabaya",
           "phone": "",
@@ -283,7 +283,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "6411d777-15d4-41f9-95ad-54bbd42f9098",
+          "id": 13,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Pantai Ria Kenjeran",
           "phone": "",
@@ -303,7 +303,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "67b1bd6b-900a-470e-a430-55658ee41c64",
+          "id": 14,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Patung Buddha Empat Rupa",
           "phone": "",
@@ -323,7 +323,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "6c328d10-c614-46ca-84ee-6f2d09a884c9",
+          "id": 15,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Kebun Bibit Wonorejo",
           "phone": "",
@@ -343,7 +343,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "816f2845-8806-4575-bb0e-c88cb9a9ed3e",
+          "id": 16,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Buah Surabaya",
           "phone": "",
@@ -363,7 +363,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "9352af34-beec-4014-b648-903c57205daa",
+          "id": 17,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Flora Bratang Surabaya",
           "phone": "",
@@ -383,7 +383,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "9c3343fd-adbe-4e62-a402-4a14b39463b7",
+          "id": 18,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Jembatan Merah",
           "phone": "",
@@ -403,7 +403,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "a6bbc049-56ca-4cff-9d86-f7729141a511",
+          "id": 19,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Keraton Surabaya",
           "phone": "",
@@ -423,7 +423,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "acd10cbe-0b6d-4e83-aaba-23bfd4ace123",
+          "id": 20,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Mundu",
           "phone": "",
@@ -443,7 +443,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "aeb6b28a-58c4-4a3d-8728-584ed8c33def",
+          "id": 21,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Monumen Kapal Selam",
           "phone": "",
@@ -463,7 +463,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "b0abb98d-6b95-4846-9885-5f7962a4be88",
+          "id": 22,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Air Mancur Menari Kenjeran",
           "phone": "",
@@ -483,7 +483,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "ba901e87-48a8-4199-ba8c-e533b72a6892",
+          "id": 23,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Museum De Javasche Bank",
           "phone": "",
@@ -503,7 +503,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "bc0e1b80-6e34-4c5d-a087-0af7c139598b",
+          "id": 24,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Museum Mpu Tantular",
           "phone": "",
@@ -523,7 +523,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "bcd36928-b7d8-41fc-99ab-56da8fa3bcbb",
+          "id": 25,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Masjid Cheng Ho Surabaya",
           "phone": "",
@@ -543,7 +543,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "bef01cbf-422e-44ff-bca4-d14191403a43",
+          "id": 26,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Food Junction Grand Pakuwon",
           "phone": "",
@@ -563,7 +563,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "c260d494-30e5-43af-a1b8-a2e65908b453",
+          "id": 27,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Prestasi",
           "phone": "",
@@ -583,7 +583,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "cac1699b-9a44-40e2-9d4b-abe62467e387",
+          "id": 28,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Ciputra Waterpark",
           "phone": "",
@@ -603,7 +603,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "cc967c96-39fd-4f53-b82c-dc5a19c9c846",
+          "id": 29,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Monumen Bambu Runcing Surabaya",
           "phone": "",
@@ -623,7 +623,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "d06b14c7-89f0-4c8f-94db-87becd3e2750",
+          "id": 30,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Ekspresi Dan Perpustakaan",
           "phone": "",
@@ -643,7 +643,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "d1efa3f6-938d-4a26-ad36-89a5bfa071be",
+          "id": 31,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Surabaya North Quay",
           "phone": "",
@@ -663,7 +663,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "e010c778-c917-4a64-867f-db2a80c36828",
+          "id": 32,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Patung Sura dan Buaya",
           "phone": "",
@@ -683,7 +683,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "eafba499-e505-4d79-9054-560e5eff23cb",
+          "id": 33,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Pelangi",
           "phone": "",
@@ -703,7 +703,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "f790f12b-65ae-4f9f-a029-23c8eaaa6133",
+          "id": 34,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Barunawati",
           "phone": "",
@@ -723,7 +723,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "f901859d-e7ff-45f6-a72f-03cb0d1b4054",
+          "id": 35,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Hutan Bambu Keputih",
           "phone": "",
@@ -743,7 +743,7 @@ module.exports = {
           "updatedAt": new Date(),
         },
         {
-          "id": "f9eeedf0-058a-4579-b138-a4801d24ff8c",
+          "id": 36,
           "tour_category_id": tourCategories[getRandomInt(tourCategories.length)],
           "name": "Taman Kunang-Kunang",
           "phone": "",

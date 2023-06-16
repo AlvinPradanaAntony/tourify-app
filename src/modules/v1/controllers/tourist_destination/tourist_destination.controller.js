@@ -13,7 +13,7 @@ export const getAllTourDestination = async (req, res) => {
             ],
             attributes: {
                 include: [
-                    [Sequelize.fn('AVG', Sequelize.col('ratings.score')), 'rating_score']
+                    [Sequelize.fn('AVG', Sequelize.col('Ratings.score')), 'rating_score']
                 ]
             },
             group: ['Ratings.id']

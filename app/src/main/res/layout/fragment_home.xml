@@ -15,7 +15,7 @@
         <com.google.android.material.appbar.AppBarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/white"
+            android:background="?attr/colorPrimaryVariant"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             app:elevation="0dp">
@@ -24,7 +24,7 @@
                 android:id="@+id/topAppBar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
+                android:background="?attr/colorPrimaryVariant"
                 android:elevation="0dp"
                 android:paddingStart="32dp"
                 android:paddingEnd="32dp"
@@ -56,9 +56,8 @@
                         android:maxEms="9"
                         android:maxLines="1"
                         android:text="@string/username_account"
-                        android:textColor="@color/textColorPrimary"
+                        style="@style/TextViewStyle"
                         android:textSize="16sp"
-                        android:textStyle="bold"
                         app:layout_constraintStart_toEndOf="@id/iv_avatar"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -126,7 +125,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="start"
                 android:text="@string/recommended"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/search"
@@ -157,7 +156,7 @@
                 android:fontFamily="sans-serif"
                 android:gravity="start"
                 android:text="@string/special_for_you"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/search"

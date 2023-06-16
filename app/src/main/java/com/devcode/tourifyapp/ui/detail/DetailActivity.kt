@@ -1,7 +1,10 @@
 package com.devcode.tourifyapp.ui.detail
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
@@ -27,10 +30,10 @@ class DetailActivity : AppCompatActivity() {
 
         val id = intent.getStringExtra("id").toString()
 
-        setupViewModel()
+/*        setupViewModel()*/
         setupView()
         tabLayout()
-        getDataDestination(id)
+/*        getDataDestination(id)*/
     }
 
     private fun getDataDestination(id: String) {
@@ -56,7 +59,7 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun checkFavorite(id: String, data: DataDestination) {
-            viewModel.checkFavorite(id)
+          /*  viewModel.checkFavorite(id)
             viewModel.isExists.observe(this){
                 if (it != null) {
                     binding.apply {
@@ -80,7 +83,7 @@ class DetailActivity : AppCompatActivity() {
                         }
                     }
                 }
-            }
+            }*/
     }
 
     private fun setupViewModel() {

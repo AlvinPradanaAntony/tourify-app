@@ -12,6 +12,7 @@
         android:outlineAmbientShadowColor="@color/shadowColor"
         android:outlineSpotShadowColor="@color/shadowColor"
         app:cardCornerRadius="25dp"
+        style="@style/CardViewStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +58,7 @@
                 android:fontFamily="@font/fo_gilroy_black"
                 android:text="@string/title_feedback_dialog"
                 android:textAlignment="center"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="26sp" />
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -73,7 +74,7 @@
                     android:fontFamily="@font/fo_nunito_sans_reguler"
                     android:text="@string/desc_feedback_dialog"
                     android:textAlignment="center"
-                    android:textColor="@color/textColorCaption"
+                    android:textColor="@color/textColorCaption2"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
@@ -118,6 +119,7 @@
                     android:hint="@string/field_feedback"
                     android:inputType="textMultiLine"
                     android:minHeight="85dp"
+                    style="@style/EditTextstyle"
                     android:paddingHorizontal="16dp"
                     android:paddingTop="12dp"
                     app:layout_constraintEnd_toEndOf="@+id/textView3"

@@ -12,6 +12,7 @@
         android:outlineAmbientShadowColor="@color/shadowColor"
         android:outlineSpotShadowColor="@color/shadowColor"
         app:cardCornerRadius="25dp"
+        style="@style/CardViewStyle"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +67,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="32dp"
                 android:layout_marginTop="8dp"
+                android:textColor="@color/textColorCaption2"
                 android:fontFamily="@font/fo_nunito_sans_reguler"
                 android:text="@string/desc_info_dialog"
                 android:textAlignment="center"
@@ -79,7 +81,7 @@
                 android:layout_marginTop="28dp"
                 android:fontFamily="@font/fo_nunito_sans_extra_bold"
                 android:text="@string/tv_changelog"
-                android:textColor="@color/dark_purple"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@+id/description_app"
                 tools:layout_editor_absoluteX="32dp" />
@@ -116,6 +118,7 @@
                         android:layout_weight="1"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
+                        android:textColor="@color/textColorCaption2"
                         android:text="@string/tv_changelog_1"
                         android:textSize="14sp" />
 
@@ -143,6 +146,7 @@
                         android:layout_weight="1"
                         android:paddingLeft="16dp"
                         android:paddingRight="16dp"
+                        android:textColor="@color/textColorCaption2"
                         android:text="@string/tv_changelog_2"
                         android:textSize="14sp" />
                 </LinearLayout>
@@ -167,6 +171,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:textColor="@color/textColorCaption2"
                         android:paddingHorizontal="16dp"
                         android:text="@string/tv_changelog_3"
                         android:textSize="14sp" />
@@ -182,7 +187,7 @@
                 android:layout_marginTop="18dp"
                 android:fontFamily="@font/fo_nunito_sans_extra_bold"
                 android:text="@string/tv_contact_us"
-                android:textColor="@color/dark_purple"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 app:layout_constraintTop_toBottomOf="@+id/container_item_changelog"
                 tools:layout_editor_absoluteX="32dp" />
@@ -216,6 +221,7 @@
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:paddingHorizontal="16dp"
+                        android:textColor="@color/textColorCaption2"
                         android:text="@string/tv_email"
                         android:textSize="14sp" />
 
@@ -245,6 +251,7 @@
                         android:layout_weight="1"
                         android:paddingHorizontal="16dp"
                         android:text="@string/tv_number"
+                        android:textColor="@color/textColorCaption2"
                         android:textSize="14sp" />
                 </LinearLayout>
             </LinearLayout>

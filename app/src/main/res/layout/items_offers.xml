@@ -7,14 +7,15 @@
     android:layout_marginVertical="12dp"
     android:layout_marginStart="28dp"
     app:cardCornerRadius="16dp"
+    style="@style/CardViewStyle"
     android:outlineAmbientShadowColor="@color/shadowColor"
     android:outlineSpotShadowColor="@color/shadowColor"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    tools:targetApi="p">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:padding="8dp">
 
         <androidx.cardview.widget.CardView
@@ -44,9 +45,9 @@
             android:layout_marginBottom="2dp"
             android:fontFamily="sans-serif"
             android:gravity="start|bottom"
-            android:text="Place Name"
-            android:textColor="@color/textColorPrimary"
-            android:textSize="14sp"
+            android:text="@string/name_place"
+            style="@style/TextViewStyle"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@id/tv_place_detail"
             app:layout_constraintEnd_toEndOf="parent"
@@ -57,10 +58,9 @@
             android:id="@+id/tv_place_detail"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
             android:fontFamily="sans-serif"
             android:gravity="start|top"
-            android:text="Bandung"
+            android:text="@string/location"
             android:textColor="@color/textColorCaption2"
             android:textSize="14sp"
             app:layout_constraintBottom_toBottomOf="parent"

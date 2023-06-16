@@ -39,13 +39,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:ellipsize="end"
-
                 android:fontFamily="@font/fo_nunito_sans_extra_bold"
                 android:gravity="start"
                 android:maxEms="9"
                 android:maxLines="1"
                 android:text="@string/username_account"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -53,6 +52,7 @@
                 android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
+                android:textColor="@color/textColorCaption2"
                 android:fontFamily="@font/fo_nunito_sans_light"
                 android:text="@string/email_user_account" />
         </LinearLayout>
@@ -116,7 +116,7 @@
         android:layout_marginTop="18dp"
         android:fontFamily="@font/fo_nunito_sans_extra_bold"
         android:text="@string/tv_account"
-        android:textColor="@color/textColorPrimary"
+        style="@style/TextViewStyle"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -135,6 +135,7 @@
             android:outlineSpotShadowColor="@color/shadowColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
+            style="@style/CardViewStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -178,7 +179,7 @@
                         android:maxEms="9"
                         android:maxLines="1"
                         android:text="@string/item_setting_1"
-                        android:textColor="@color/textColorPrimary"
+                        style="@style/TextViewStyle"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -187,6 +188,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/textColorCaption2"
                         android:fontFamily="@font/fo_nunito_sans_light"
                         android:text="@string/desc_item_1" />
                 </LinearLayout>
@@ -203,7 +205,7 @@
         android:layout_marginTop="18dp"
         android:fontFamily="@font/fo_nunito_sans_extra_bold"
         android:text="@string/tv_preferences"
-        android:textColor="@color/textColorPrimary"
+        style="@style/TextViewStyle"
         android:textSize="16sp" />
 
     <LinearLayout
@@ -222,6 +224,7 @@
             android:outlineSpotShadowColor="@color/shadowColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
+            style="@style/CardViewStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -263,7 +266,7 @@
                         android:maxEms="9"
                         android:maxLines="1"
                         android:text="@string/item_setting_2"
-                        android:textColor="@color/textColorPrimary"
+                        style="@style/TextViewStyle"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -272,6 +275,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/textColorCaption2"
                         android:fontFamily="@font/fo_nunito_sans_light"
                         android:text="@string/desc_item_2" />
                 </LinearLayout>
@@ -302,6 +306,7 @@
             android:outlineSpotShadowColor="@color/shadowColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
+            style="@style/CardViewStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -345,7 +350,7 @@
                         android:maxEms="9"
                         android:maxLines="1"
                         android:text="@string/item_setting_3"
-                        android:textColor="@color/textColorPrimary"
+                        style="@style/TextViewStyle"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -354,6 +359,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/textColorCaption2"
                         android:fontFamily="@font/fo_nunito_sans_light"
                         android:text="@string/desc_item_3" />
                 </LinearLayout>
@@ -370,6 +376,7 @@
             android:outlineSpotShadowColor="@color/shadowColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
+            style="@style/CardViewStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -412,7 +419,7 @@
                         android:maxEms="9"
                         android:maxLines="1"
                         android:text="@string/item_setting_4"
-                        android:textColor="@color/textColorPrimary"
+                        style="@style/TextViewStyle"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -421,6 +428,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/textColorCaption2"
                         android:fontFamily="@font/fo_nunito_sans_light"
                         android:text="@string/desc_item_4" />
                 </LinearLayout>
@@ -437,6 +445,7 @@
             android:outlineSpotShadowColor="@color/shadowColor"
             app:cardCornerRadius="12dp"
             app:cardElevation="8dp"
+            style="@style/CardViewStyle"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -488,6 +497,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="12dp"
+                        android:textColor="@color/textColorCaption2"
                         android:fontFamily="@font/fo_nunito_sans_light"
                         android:text="@string/desc_item_5" />
                 </LinearLayout>

@@ -7,10 +7,10 @@
 
     <TextView
         android:id="@+id/textView4"
+        style="@style/TextViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:fontFamily="@font/fo_nunito_sans_extra_bold"
-        android:textColor="@color/textColorPrimary"
         android:text="@string/style_maps"
         android:textSize="18sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,11 +51,11 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/normal"
-                android:textColor="@color/textColorPrimary" />
+                android:text="@string/normal" />
         </LinearLayout>
 
         <LinearLayout
@@ -84,11 +84,11 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/satellite"
-                android:textColor="@color/textColorPrimary" />
+                android:text="@string/satellite" />
         </LinearLayout>
 
         <LinearLayout
@@ -117,11 +117,11 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/terrain"
-                android:textColor="@color/textColorPrimary" />
+                android:text="@string/terrain" />
         </LinearLayout>
 
         <LinearLayout
@@ -149,11 +149,11 @@
             </androidx.cardview.widget.CardView>
 
             <TextView
+                style="@style/TextViewStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="@string/hybrid"
-                android:textColor="@color/textColorPrimary" />
+                android:text="@string/hybrid" />
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

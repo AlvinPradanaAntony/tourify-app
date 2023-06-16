@@ -31,5 +31,8 @@ class OverviewFragment : Fragment() {
         binding.btnOnMap.setOnClickListener{
             startActivity(Intent(requireActivity(), MapsActivity::class.java))
         }
+        binding.btnFavourite.setOnClickListener{
+
+        }
     }
 }

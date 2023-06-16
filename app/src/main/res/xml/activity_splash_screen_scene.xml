@@ -131,7 +131,7 @@
                 motion:framePosition="65" >
                 <CustomAttribute
                     motion:attributeName="textColor"
-                    motion:customColorValue="#06093D" />
+                    motion:customColorValue="?attr/colorOnPrimary" />
             </KeyAttribute>
             <KeyAttribute
                 motion:motionTarget="@+id/progressBar"
@@ -266,7 +266,7 @@
             motion:layout_constraintStart_toStartOf="@+id/title_logo">
             <CustomAttribute
                 motion:attributeName="textColor"
-                motion:customColorValue="#06093D" />
+                motion:customColorValue="?attr/colorOnPrimary" />
         </Constraint>
         <Constraint
             android:id="@+id/title_logo"

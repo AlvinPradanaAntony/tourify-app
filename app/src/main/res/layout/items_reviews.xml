@@ -2,6 +2,7 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    style="@style/CardViewStyle"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="32dp"
@@ -9,7 +10,8 @@
     android:outlineAmbientShadowColor="@color/shadowColor"
     android:outlineSpotShadowColor="@color/shadowColor"
     app:cardCornerRadius="16dp"
-    app:cardElevation="4dp">
+    app:cardElevation="4dp"
+    tools:targetApi="p">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -34,10 +36,9 @@
             android:layout_marginStart="8dp"
             android:fontFamily="sans-serif"
             android:text="Username"
-            android:textColor="@color/textColorPrimary"
+            style="@style/TextViewStyle"
             android:textSize="16sp"
             android:textStyle="bold"
-
             app:layout_constraintEnd_toStartOf="@+id/linearLayout2"
             app:layout_constraintStart_toEndOf="@id/iv_photo"
             app:layout_constraintTop_toTopOf="parent" />

@@ -15,7 +15,7 @@ module.exports = {
     */
     function getRandomInt(max) {
       const rndInt = Math.floor(Math.random() * max) + 1;
-      return rndInt
+      return rndInt - 1
     }
 
     const tourDestination = [
@@ -68,7 +68,7 @@ module.exports = {
     for (var i = 0; i <= 5000; i++) {
       data.push({
         user_id: users[getRandomInt(users.length)],
-        tourist_destination_id: getRandomInt(tourDestination.length),
+        tourist_destination_id: (getRandomInt(tourDestination.length) + 1),
         score: getRandomInt(6),
         review: 'Lorem ipsum dolor sit amet',
         createdAt: new Date(),

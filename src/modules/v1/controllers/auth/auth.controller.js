@@ -1,3 +1,4 @@
+import { Op } from 'sequelize'
 import { v4 } from 'uuid'
 import { compare, genSalt, hash } from 'bcrypt'
 import { sign, decode } from 'jsonwebtoken'
@@ -38,7 +39,12 @@ export const login = async (req, res) => {
         }
     
         const user = await User.findOne({
-            where: { username }
+            where: {
+                [Op.or]: [
+                    { username },
+                    { email: username }
+                ]
+            }
         })
     
         if(user != null && (await compare(password, user.password))) {

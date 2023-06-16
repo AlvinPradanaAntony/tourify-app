@@ -10,7 +10,6 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.util.TypedValue
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
@@ -25,7 +24,6 @@ import com.devcode.tourifyapp.OnBoardingActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivitySplashScreenBinding
 import com.devcode.tourifyapp.databinding.FragmentSettingsBinding
-import com.devcode.tourifyapp.ui.home.HomeFragment
 import com.devcode.tourifyapp.ui.settings.SettingsViewModel
 import com.devcode.tourifyapp.utils.ThemesPreferences
 import com.devcode.tourifyapp.utils.ViewModelFactory
@@ -118,15 +116,24 @@ class SplashScreen : AppCompatActivity() {
         })
     }
 
+
     private fun customSpanTitleLogo() {
         val txtLogo = binding.titleLogo
         val spannableString = SpannableString(resources.getString(R.string.title_logo))
+
+        val typedValue = TypedValue()
+        val theme = this.theme
+        theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+
+        val color = typedValue.data
         spannableString.setSpan(
-            ForegroundColorSpan(Color.parseColor("#06093D")),
+            ForegroundColorSpan(color),
             0,
             4,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
+
+
         spannableString.setSpan(
             ForegroundColorSpan(Color.parseColor("#FA6643")),
             4,

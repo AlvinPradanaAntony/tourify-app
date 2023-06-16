@@ -10,3 +10,8 @@ data class TravelDataDummyResponse(
     val detail : String,
     val isFavorite: Boolean = false,
 ): Parcelable
+
+@Parcelize
+data class TravelBanner(
+    val image : Int,
+): Parcelable

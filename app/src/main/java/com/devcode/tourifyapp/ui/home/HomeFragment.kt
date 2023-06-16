@@ -15,7 +15,10 @@ import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.CaraouselPagerAdapter
 import com.devcode.tourifyapp.adapter.TravelDataOffersAdapter
 import com.devcode.tourifyapp.adapter.TravelDataRecommendationsAdapter
+
 import com.devcode.tourifyapp.data.remote.response.RecomItem
+import com.devcode.tourifyapp.data.remote.response.TravelBanner
+
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.FragmentHomeBinding
 import com.devcode.tourifyapp.ui.detail.DetailActivity
@@ -34,7 +37,7 @@ class HomeFragment : Fragment() {
     private lateinit var itemDecoration: HorizontalMarginItemDecoration
     private val list = ArrayList<TravelDataDummyResponse>()
     private val listRecom = ArrayList<RecomItem>()
-    private val carouselList = ArrayList<TravelDataDummyResponse>()
+    private val carouselList = ArrayList<TravelBanner>()
     private val adapter: TravelDataRecommendationsAdapter by lazy { TravelDataRecommendationsAdapter(
         listRecom
     ) }
@@ -137,7 +140,7 @@ class HomeFragment : Fragment() {
     }
 
     private fun listDataCarousel() {
-        val dataList = mainViewModel.getAllData()
+        val dataList = mainViewModel.getAllDataBanner()
         carouselAdapter.setData(dataList)
     }
 

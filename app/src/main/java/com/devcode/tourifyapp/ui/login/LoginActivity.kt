@@ -31,13 +31,7 @@ class LoginActivity : AppCompatActivity() {
         val viewModels: LoginViewModel by viewModels { factory }
         viewModel = viewModels
 
-        setupView()
         setupAction()
-    }
-
-    private fun setupView() {
-        window?.statusBarColor = ContextCompat.getColor(this@LoginActivity, R.color.white)
-        window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
     }
 
     private fun setupAction() {

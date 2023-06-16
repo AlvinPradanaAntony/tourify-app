@@ -3,16 +3,35 @@ package com.devcode.tourifyapp.data.remote.response
 import com.devcode.tourifyapp.R
 
 object DummyData {
+    val dummyBanner = listOf(
+        TravelBanner(
+            R.drawable.banner1
+        ),
+        TravelBanner(
+            R.drawable.banner2
+        ),
+        TravelBanner(
+            R.drawable.banner3
+        ),
+        TravelBanner(
+            R.drawable.banner4
+        ),
+        TravelBanner(
+            R.drawable.banner5
+        )
+    )
     val dummyDataTravel = listOf(
         TravelDataDummyResponse(
             R.drawable.klenteng,
             "Klenteng Sumber Agung",
-            "Klenteng Sumber Agung merupakan salah satu tempat wisata religi yang ada di Kota Batu. Klenteng ini berada di Jalan Sultan Agung, Kelurahan Songgokerto, Kecamatan Batu. Klenteng ini merupakan tempat ibadah umat Budha yang ada di Kota Batu. Klenteng ini juga merupakan salah satu tempat wisata religi yang ada di Kota Batu. Klenteng ini berada di Jalan Sultan Agung, Kelurahan Songgokerto, Kecamatan Batu. Klenteng ini merupakan tempat ibadah umat Budha yang ada di Kota Batu.",
+            "Klenteng Sumber Agung Panjeran adalah sebuah klenteng yang terletak di Jalan Panjeran, Surabaya. Klenteng ini merupakan salah satu tempat ibadah dan objek wisata religius yang menarik bagi pengunjung. Terletak di pusat kota, klenteng ini mudah diakses dengan kendaraan pribadi atau transportasi umum.\n" +
+                    "\n" +
+                    "Klenteng Sumber Agung Panjeran memiliki sejarah yang kaya. Dibangun pada abad ke-18, klenteng ini telah menjadi pusat spiritual bagi umat Konghucu di Surabaya selama berabad-abad. Arsitektur klenteng ini menggabungkan elemen-elemen tradisional Tiongkok dengan sentuhan lokal, menciptakan suasana yang khas dan memikat.",
         ),
         TravelDataDummyResponse(
-            R.drawable.img_sample,
-            "Some Place 1",
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae a consequat nisl nisl vitae ni sl. Nulla euismod, nisl vitae aliquam ultricies, nunc nisl ultricies nunc, vitae a consequat nisl nisl vitae ni sl.",
+            R.drawable.img_sample1,
+            "Taman Bungkul",
+            "Taman Bungkul adalah destinasi wisata populer di Surabaya, Indonesia. Terletak di pusat kota, taman ini mudah diakses dari berbagai tempat. Dengan suasana yang hijau dan sejuk, Taman Bungkul menawarkan lingkungan yang nyaman dan menarik. Pengunjung dapat menikmati keindahan pepohonan rindang, taman bunga yang indah, dan area rumput yang luas. Fasilitas rekreasi seperti jogging track, area bermain anak-anak, dan area piknik juga tersedia untuk dinikmati oleh pengunjung. Di food court, pengunjung dapat menikmati berbagai makanan dan minuman lezat. Taman Bungkul juga sering menjadi tuan rumah acara dan pertunjukan yang menarik, serta menyediakan fasilitas olahraga seperti lapangan basket dan lapangan sepak bola.\n Keamanan dan kebersihan dijaga dengan baik, dan terdapat petugas keamanan serta toilet umum yang bersih. Taman Bungkul adalah tempat yang ideal untuk bersantai, berolahraga, dan menikmati waktu bersama keluarga dan teman-teman.",
         ),
         TravelDataDummyResponse(
             R.drawable.img_sample2,
@@ -59,6 +78,6 @@ object DummyData {
             "https://i.pravatar.cc/150?img=3"
         ),
 
-    )
+        )
 }
 

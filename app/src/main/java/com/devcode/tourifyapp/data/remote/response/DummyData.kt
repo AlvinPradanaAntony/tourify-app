@@ -3,6 +3,23 @@ package com.devcode.tourifyapp.data.remote.response
 import com.devcode.tourifyapp.R
 
 object DummyData {
+    val dummyBanner = listOf(
+        TravelBanner(
+            R.drawable.banner1
+        ),
+        TravelBanner(
+            R.drawable.banner2
+        ),
+        TravelBanner(
+            R.drawable.banner3
+        ),
+        TravelBanner(
+            R.drawable.banner4
+        ),
+        TravelBanner(
+            R.drawable.banner5
+        )
+    )
     val dummyDataTravel = listOf(
         TravelDataDummyResponse(
             R.drawable.klenteng,

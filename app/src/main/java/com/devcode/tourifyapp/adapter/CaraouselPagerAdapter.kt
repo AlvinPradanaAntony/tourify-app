@@ -8,11 +8,12 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.devcode.tourifyapp.R
+import com.devcode.tourifyapp.data.remote.response.TravelBanner
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.ItemsCarouselBinding
 
 
-class CaraouselPagerAdapter(private val listData: ArrayList<TravelDataDummyResponse>, private val viewPager2 : ViewPager2) : RecyclerView.Adapter<CaraouselPagerAdapter.ViewHolder>() {
+class CaraouselPagerAdapter(private val listData: ArrayList<TravelBanner>, private val viewPager2 : ViewPager2) : RecyclerView.Adapter<CaraouselPagerAdapter.ViewHolder>() {
 
     @SuppressLint("NotifyDataSetChanged")
     private val runnable = Runnable {
@@ -46,9 +47,9 @@ class CaraouselPagerAdapter(private val listData: ArrayList<TravelDataDummyRespo
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(dataTravel: List<TravelDataDummyResponse>) {
+    fun setData(data: List<TravelBanner>) {
         listData.clear()
-        listData.addAll(dataTravel)
+        listData.addAll(data)
         notifyDataSetChanged()
     }
     interface OnItemClickCallback {

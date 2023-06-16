@@ -37,14 +37,15 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:layout_above="@+id/spacer_background"
-        android:background="@drawable/bg_gradient_white" />
+        android:background="@drawable/bg_gradient_white"
+        android:backgroundTint="?attr/colorPrimaryVariant"/>
 
     <View
         android:id="@+id/spacer_background"
         android:layout_width="match_parent"
         android:layout_height="130dp"
         android:layout_alignParentBottom="true"
-        android:background="@color/white" />
+        android:background="?attr/colorPrimaryVariant" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container_item"
@@ -82,7 +83,7 @@
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
                 android:text="@string/value_item_1"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item1"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -125,7 +126,7 @@
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
                 android:text="@string/value_item_2"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item2"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -170,7 +171,7 @@
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
                 android:text="@string/value_item_3"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="16sp"
                 app:layout_constraintStart_toEndOf="@+id/iv_item3"
                 app:layout_constraintTop_toTopOf="parent" />

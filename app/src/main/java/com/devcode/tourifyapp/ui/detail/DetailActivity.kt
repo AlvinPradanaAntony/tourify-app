@@ -29,9 +29,10 @@ class DetailActivity : AppCompatActivity() {
 
         val id = intent.getStringExtra("id").toString()
 
-        setupViewModel()
+/*        setupViewModel()*/
         setupView()
-        getDataDestination(id)
+        tabLayout()
+/*        getDataDestination(id)*/
     }
 
     private fun getDataDestination(id: String) {
@@ -53,12 +54,35 @@ class DetailActivity : AppCompatActivity() {
     private fun setDataDestination(data: DataDestination) {
             binding.apply {
                 tvPostTitle.text = data.name
-                Glide.with(this@DetailActivity)
-                    .load(data.picture)
-                    .placeholder(R.drawable.ic_placeholder_photo)
-                    .error(R.drawable.ic_placeholder_photo)
-                    .into(ivPostImage)
             }
+    }
+
+    private fun checkFavorite(id: String, data: DataDestination) {
+          /*  viewModel.checkFavorite(id)
+            viewModel.isExists.observe(this){
+                if (it != null) {
+                    binding.apply {
+                        btnFavourite.apply {
+                            setImageResource(R.drawable.ic_favourite)
+                            setOnClickListener {
+                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.checkFavorite(id)
+                            }
+                        }
+
+                    }
+                } else {
+                    binding.apply {
+                        btnFavourite.apply {
+                            setImageResource(R.drawable.ic_favourite_border)
+                            setOnClickListener {
+                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.checkFavorite(id)
+                            }
+                        }
+                    }
+                }
+            }*/
     }
 
     private fun setupViewModel() {

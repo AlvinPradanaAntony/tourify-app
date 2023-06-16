@@ -1,6 +1,7 @@
 package com.devcode.tourifyapp.ui.splashscreen
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Matrix
@@ -8,21 +9,31 @@ import android.os.Bundle
 import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
-import android.view.View
+import android.util.TypedValue
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
+import androidx.datastore.core.DataStore
+import androidx.datastore.preferences.core.Preferences
+import androidx.datastore.preferences.preferencesDataStore
+import androidx.lifecycle.ViewModelProvider
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.OnBoardingActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivitySplashScreenBinding
-import com.devcode.tourifyapp.ui.home.HomeFragment
+import com.devcode.tourifyapp.databinding.FragmentSettingsBinding
+import com.devcode.tourifyapp.ui.settings.SettingsViewModel
+import com.devcode.tourifyapp.utils.ThemesPreferences
 import com.devcode.tourifyapp.utils.ViewModelFactory
+import com.devcode.tourifyapp.utils.ViewModelFactoryForThemes
 
+private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "theme_setting")
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     private lateinit var binding : ActivitySplashScreenBinding
+    private lateinit var binding2 : FragmentSettingsBinding
     private lateinit var viewModel: SplashScreenViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,6 +50,25 @@ class SplashScreen : AppCompatActivity() {
         val factory: ViewModelFactory = ViewModelFactory.getInstance(this)
         val viewModels: SplashScreenViewModel by viewModels { factory }
         viewModel = viewModels
+
+        val pref =  ThemesPreferences.getInstance(dataStore)
+        val settingsViewModel = ViewModelProvider(this, ViewModelFactoryForThemes(pref)).get(
+            SettingsViewModel::class.java
+        )
+        binding2 = FragmentSettingsBinding.inflate(layoutInflater)
+        settingsViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+            if (isDarkModeActive) {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
+                binding2.switchTheme.isChecked = true
+            } else {
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+                binding2.switchTheme.isChecked = false
+            }
+        }
+    }
+
+    private fun setupView() {
+
     }
 
     private fun playAnimation() {
@@ -48,18 +78,20 @@ class SplashScreen : AppCompatActivity() {
 
             override fun onTransitionChange(motionLayout: MotionLayout?, startId: Int, endId: Int, progress: Float) {
                 if (progress >= 0.54f) {
+                    val typedValue = TypedValue()
                     val window = window
-                    window?.statusBarColor = ContextCompat.getColor(this@SplashScreen,
-                        R.color.white
-                    )
-                    window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+                    val colorAttr = com.google.android.material.R.attr.colorPrimaryVariant
+                    if (theme.resolveAttribute(colorAttr, typedValue, true)) {
+                        val color = typedValue.data
+                        // Menggunakan warna yang diambil dari atribut gaya colorPrimary
+                        window?.statusBarColor = color
+                    }
                     customSpanTitleLogo()
                 } else {
                     val window = window
                     window?.statusBarColor = ContextCompat.getColor(this@SplashScreen,
                         R.color.orange_400
                     )
-                    window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
                     binding.titleLogo.setTextColor(Color.parseColor("#FFFFFF"))
                 }
             }
@@ -84,15 +116,24 @@ class SplashScreen : AppCompatActivity() {
         })
     }
 
+
     private fun customSpanTitleLogo() {
         val txtLogo = binding.titleLogo
         val spannableString = SpannableString(resources.getString(R.string.title_logo))
+
+        val typedValue = TypedValue()
+        val theme = this.theme
+        theme.resolveAttribute(com.google.android.material.R.attr.colorOnPrimary, typedValue, true)
+
+        val color = typedValue.data
         spannableString.setSpan(
-            ForegroundColorSpan(Color.parseColor("#06093D")),
+            ForegroundColorSpan(color),
             0,
             4,
             Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
         )
+
+
         spannableString.setSpan(
             ForegroundColorSpan(Color.parseColor("#FA6643")),
             4,

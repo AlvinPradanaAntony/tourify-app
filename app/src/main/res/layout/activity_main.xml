@@ -20,6 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="125dp"
         android:background="@drawable/bg_gradient_white"
+        android:backgroundTint="?attr/colorPrimaryVariant"
         android:layout_alignParentBottom="true"
         />
 

@@ -3,10 +3,10 @@ package com.devcode.tourifyapp
 import android.content.Intent
 import android.os.Bundle
 import android.text.Html
+import android.util.TypedValue
 import android.view.View
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import androidx.viewpager2.widget.ViewPager2
 import com.devcode.tourifyapp.adapter.OnBoardingPagerAdapter
 import com.devcode.tourifyapp.databinding.ActivityOnboardingBinding
@@ -22,15 +22,10 @@ class OnBoardingActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityOnboardingBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setupView()
         setupViewPager()
         setupAction()
     }
 
-    private fun setupView() {
-        window?.statusBarColor = ContextCompat.getColor(this@OnBoardingActivity, R.color.white)
-        window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
-    }
 
     private fun setupViewPager() {
         sectionsPagerAdapter = OnBoardingPagerAdapter(this)
@@ -74,6 +69,7 @@ class OnBoardingActivity : AppCompatActivity() {
             binding.indicatorLayout.addView(indicators[i])
         }
     }
+
     private fun setUpIndicator(position: Int) {
         if (indicators.isNotEmpty()) {
             for (i in indicators.indices) {

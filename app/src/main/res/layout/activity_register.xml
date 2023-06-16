@@ -55,7 +55,7 @@
                 android:layout_marginTop="45dp"
                 android:fontFamily="@font/fo_gilroy_black"
                 android:text="@string/title_on_register"
-                android:textColor="#535454"
+                style="@style/TextViewStyle"
                 android:textSize="32sp"
                 app:layout_constraintStart_toStartOf="@+id/btn_back"
                 app:layout_constraintTop_toBottomOf="@+id/btn_back" />
@@ -67,7 +67,7 @@
                 android:layout_marginTop="8dp"
                 android:fontFamily="@font/fo_nunito_sans_reguler"
                 android:text="@string/registerCaption"
-                android:textColor="#A9A9A9"
+                android:textColor="@color/textColorCaption2"
                 android:textSize="18sp"
                 app:layout_constraintStart_toStartOf="@+id/textView"
                 app:layout_constraintTop_toBottomOf="@+id/textView" />

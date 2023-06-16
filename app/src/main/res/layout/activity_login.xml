@@ -44,7 +44,7 @@
                 android:focusableInTouchMode="true"
                 android:fontFamily="@font/fo_gilroy_black"
                 android:text="@string/headline_on_login"
-                android:textColor="@color/textColorPrimary"
+                style="@style/TextViewStyle"
                 android:textSize="22sp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
@@ -84,7 +84,7 @@
                 android:inputType="textEmailAddress"
                 android:minHeight="56dp"
                 android:paddingHorizontal="18dp"
-                android:textColor="@color/textColorCaption"
+                android:textColor="@color/textColorCaption2"
                 android:textColorHint="@color/textColorCaption2"
                 android:textSize="12sp"
                 app:layout_constraintEnd_toEndOf="parent"

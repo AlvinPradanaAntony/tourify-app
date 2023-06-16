@@ -32,6 +32,7 @@
 
         <TextView
             android:id="@+id/tv_post_title"
+            style="@style/TextViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="32dp"
@@ -39,7 +40,6 @@
             android:layout_marginBottom="4dp"
             android:fontFamily="@font/fo_nunito_sans_extra_bold"
             android:text="@string/name_place"
-            android:textColor="@color/textColorPrimary"
             android:textSize="24sp" />
 
         <LinearLayout
@@ -61,7 +61,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/fo_nunito_sans_light"
                 android:text="@string/placeholder_value_rating"
-                android:textColor="@color/textColorCaption"
+                android:textColor="@color/textColorCaption2"
                 android:textSize="14sp" />
 
             <TextView
@@ -71,7 +71,7 @@
                 android:layout_marginStart="4dp"
                 android:fontFamily="@font/fo_nunito_sans_light"
                 android:text="@string/total_feedback"
-                android:textColor="@color/textColorCaption"
+                android:textColor="@color/textColorCaption2"
                 android:textSize="14sp" />
         </LinearLayout>
 
@@ -120,5 +120,5 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navigationIcon="@drawable/ic_arrow_back"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Dark"
-        app:titleTextColor="@color/white" />
+        app:titleTextColor="?attr/colorPrimaryVariant" />
 </androidx.constraintlayout.widget.ConstraintLayout>

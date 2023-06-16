@@ -4,6 +4,7 @@ import android.os.Build
 import android.os.Bundle
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -23,8 +24,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setupView() {
-        window?.statusBarColor = ContextCompat.getColor(this@MainActivity, R.color.white)
-        window?.decorView?.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
             binding.navView.outlineAmbientShadowColor = getColor(R.color.shadowColor)
             binding.navView.outlineSpotShadowColor = getColor(R.color.shadowColor)

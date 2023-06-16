@@ -6,6 +6,7 @@
     android:layout_height="256dp"
     android:layout_marginVertical="12dp"
     android:layout_marginStart="14dp"
+    style="@style/CardViewStyle"
     app:cardCornerRadius="18dp"
     app:cardElevation="4dp">
 
@@ -36,19 +37,23 @@
             android:layout_height="32dp"
             android:layout_marginTop="12dp"
             android:layout_marginEnd="8dp"
+            style="@style/CardViewStyle"
             android:outlineAmbientShadowColor="@color/shadowColor"
             android:outlineSpotShadowColor="@color/shadowColor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:cardCornerRadius="18dp"
-            app:cardElevation="2dp">
+            app:cardElevation="2dp"
+            tools:targetApi="p">
 
             <ImageButton
                 android:id="@+id/btn_favourite"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:background="?attr/selectableItemBackgroundBorderless"
                 android:clickable="true"
+                android:layout_marginTop="1dp"
+                android:paddingStart="1dp"
                 android:layout_gravity="center"
                 android:contentDescription="@string/favourite_button"
                 android:focusable="true"

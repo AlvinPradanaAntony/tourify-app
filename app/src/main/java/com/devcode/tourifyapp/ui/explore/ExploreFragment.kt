@@ -14,6 +14,7 @@ import com.devcode.tourifyapp.adapter.TravelPlaceSearchAdapter
 import com.devcode.tourifyapp.databinding.FragmentExploreBinding
 import com.devcode.tourifyapp.utils.Result
 import com.devcode.tourifyapp.utils.ViewModelFactory
+import com.google.android.material.snackbar.Snackbar
 
 
 class ExploreFragment : Fragment() {
@@ -60,13 +61,16 @@ class ExploreFragment : Fragment() {
         viewModel.getAllDestination().observe(viewLifecycleOwner) { response ->
             if (response != null) {
                 when (response) {
-                    Result.Loading -> Log.e("Loading", "getDestination: Loading..." )
+                    Result.Loading -> showLoading(true)
                     is Result.Success -> {
-                        Log.e("TAG", "getDestination: ${response.data}")
+                        showLoading(false)
                         val adapter = TravelPlaceAdapter(response.data.data)
                         binding.rvList.adapter = adapter
                     }
-                    is Result.Error -> Log.e("Error", "getDestination: ${response.error}" )
+                    is Result.Error -> {
+                        showLoading(false)
+                        showSnackBar(response.error)
+                    }
                 }
             }
         }
@@ -76,13 +80,16 @@ class ExploreFragment : Fragment() {
         viewModel.searchDestination(name).observe(requireActivity()) { response ->
             if (response != null) {
                 when (response) {
-                    Result.Loading -> Log.e("Loading", "getDestination: Loading..." )
+                    Result.Loading -> showLoading(true)
                     is Result.Success -> {
-                        Log.e("TAG", "getDestination: ${response.data}")
+                        showLoading(false)
                         val adapter = TravelPlaceSearchAdapter(response.data.data)
                         binding.rvList.adapter = adapter
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> {
+                        showLoading(false)
+                        showSnackBar(response.error)
+                    }
                 }
             }
         }
@@ -103,6 +110,15 @@ class ExploreFragment : Fragment() {
         }
     }
 
+    private fun showLoading(isLoading: Boolean) {
+        binding.progressBar.visibility = if (isLoading) View.VISIBLE else View.GONE
+    }
+
+    private fun showSnackBar(value: String) {
+        Snackbar.make(
+            binding.rvList, value, Snackbar.LENGTH_SHORT
+        ).show()
+    }
 
     companion object {
 

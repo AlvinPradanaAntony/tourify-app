@@ -4,13 +4,13 @@ import com.google.gson.annotations.SerializedName
 
 data class DestinationResponse(
 
-    @field:SerializedName("data")
+	@field:SerializedName("data")
 	val data: List<DestinationItem>,
 
-    @field:SerializedName("message")
+	@field:SerializedName("message")
 	val message: String,
 
-    @field:SerializedName("status")
+	@field:SerializedName("status")
 	val status: String
 )
 
@@ -52,67 +52,67 @@ data class User(
 
 data class DestinationItem(
 
-    @field:SerializedName("day_open_start")
+	@field:SerializedName("day_open_start")
 	val dayOpenStart: String,
 
-    @field:SerializedName("address")
+	@field:SerializedName("address")
 	val address: String,
 
-    @field:SerializedName("User")
+	@field:SerializedName("User")
 	val user: User,
 
-    @field:SerializedName("latitude")
+	@field:SerializedName("latitude")
 	val latitude: String,
 
-    @field:SerializedName("description")
+	@field:SerializedName("description")
 	val description: String,
 
-    @field:SerializedName("time_open_start")
+	@field:SerializedName("time_open_start")
 	val timeOpenStart: String,
 
-    @field:SerializedName("TourCategory")
+	@field:SerializedName("TourCategory")
 	val tourCategory: TourCategory,
 
-    @field:SerializedName("picture")
+	@field:SerializedName("picture")
 	val picture: String,
 
-    @field:SerializedName("rating_score")
+	@field:SerializedName("rating_score")
 	val ratingScore: Int,
 
-    @field:SerializedName("day_open_end")
+	@field:SerializedName("day_open_end")
 	val dayOpenEnd: String,
 
-    @field:SerializedName("createdAt")
+	@field:SerializedName("createdAt")
 	val createdAt: String,
 
-    @field:SerializedName("tour_category_id")
+	@field:SerializedName("tour_category_id")
 	val tourCategoryId: String,
 
-    @field:SerializedName("time_open_end")
+	@field:SerializedName("time_open_end")
 	val timeOpenEnd: String,
 
-    @field:SerializedName("phone")
+	@field:SerializedName("phone")
 	val phone: String,
 
-    @field:SerializedName("user_id")
+	@field:SerializedName("user_id")
 	val userId: String,
 
-    @field:SerializedName("price")
+	@field:SerializedName("price")
 	val price: String,
 
-    @field:SerializedName("name")
+	@field:SerializedName("name")
 	val name: String,
 
-    @field:SerializedName("id")
-	val id: String,
+	@field:SerializedName("id")
+	val id: Int,
 
-    @field:SerializedName("email")
+	@field:SerializedName("email")
 	val email: String,
 
-    @field:SerializedName("longitude")
+	@field:SerializedName("longitude")
 	val longitude: String,
 
-    @field:SerializedName("updatedAt")
+	@field:SerializedName("updatedAt")
 	val updatedAt: String
 )
 

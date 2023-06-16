@@ -27,12 +27,12 @@ class DetailActivity : AppCompatActivity() {
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val id = intent.getStringExtra("id").toString()
+        val id = intent.getIntExtra("id", 0).toString()
 
-/*        setupViewModel()*/
+        setupViewModel()
         setupView()
-        tabLayout()
-/*        getDataDestination(id)*/
+        tabLayout(id)
+        getDataDestination(id)
     }
 
     private fun getDataDestination(id: String) {
@@ -43,9 +43,9 @@ class DetailActivity : AppCompatActivity() {
                     is Result.Success -> {
                         Log.e("TAG", "getDataDestination: ${response.data.data}" )
                         setDataDestination(response.data.data)
-                        tabLayout(response.data.data.id)
+                        tabLayout(response.data.data.id.toString())
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> Log.e("TAG", "getDataDestination: ${response.error}" )
                 }
             }
         }
@@ -54,35 +54,13 @@ class DetailActivity : AppCompatActivity() {
     private fun setDataDestination(data: DataDestination) {
             binding.apply {
                 tvPostTitle.text = data.name
+                rating.text = data.ratingScore.toString()
+                Glide.with(this@DetailActivity)
+                    .load(data.picture)
+                    .placeholder(R.drawable.ic_placeholder_photo)
+                    .error(R.drawable.ic_placeholder_photo)
+                    .into(ivPostImage)
             }
-    }
-
-    private fun checkFavorite(id: String, data: DataDestination) {
-          /*  viewModel.checkFavorite(id)
-            viewModel.isExists.observe(this){
-                if (it != null) {
-                    binding.apply {
-                        btnFavourite.apply {
-                            setImageResource(R.drawable.ic_favourite)
-                            setOnClickListener {
-                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.picture))
-                                viewModel.checkFavorite(id)
-                            }
-                        }
-
-                    }
-                } else {
-                    binding.apply {
-                        btnFavourite.apply {
-                            setImageResource(R.drawable.ic_favourite_border)
-                            setOnClickListener {
-                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.picture))
-                                viewModel.checkFavorite(id)
-                            }
-                        }
-                    }
-                }
-            }*/
     }
 
     private fun setupViewModel() {

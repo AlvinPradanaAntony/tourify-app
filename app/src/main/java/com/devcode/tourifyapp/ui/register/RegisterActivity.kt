@@ -93,22 +93,32 @@ class RegisterActivity : AppCompatActivity() {
                     binding.edRegisterEmail.clearFocus()
                     binding.edRegisterPassword.clearFocus()
                     hideKeyboard()
-//                    register(fullName, emailRegister, passwordRegister)
+                    register(fullName, emailRegister, passwordRegister)
                 }
             }
         }
     }
 
     private fun register(name:String, email: String, password: String) {
-        viewModel.doRegister(name, email, "tourify", password).observe(this) { response ->
+        viewModel.doRegister(name, email, name, password).observe(this) { response ->
             if (response != null) {
                 when (response) {
                     Result.Loading -> showLoading(true)
                     is Result.Success -> {
                         showLoading(false);
-                        Toast.makeText(this, "Register Success, ${response.data.message}", Toast.LENGTH_SHORT).show()
+                        showSnackBar(response.data.message)
+                        finish()
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> {
+                        showLoading(false);
+                        AlertDialog.Builder(this).apply {
+                            setTitle("Oops!")
+                            setMessage(response.error)
+                            setPositiveButton("OK") { _, _ -> }
+                            create()
+                            show()
+                        }
+                    }
                 }
             }
         }

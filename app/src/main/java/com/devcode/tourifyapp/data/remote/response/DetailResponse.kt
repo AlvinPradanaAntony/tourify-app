@@ -41,7 +41,7 @@ data class DataDestination(
 	val picture: String,
 
 	@field:SerializedName("rating_score")
-	val ratingScore: Int,
+	val ratingScore: Any,
 
 	@field:SerializedName("day_open_end")
 	val dayOpenEnd: String,
@@ -68,7 +68,7 @@ data class DataDestination(
 	val name: String,
 
 	@field:SerializedName("id")
-	val id: String,
+	val id: Int,
 
 	@field:SerializedName("email")
 	val email: String,

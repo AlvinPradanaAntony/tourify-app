@@ -12,8 +12,10 @@ import com.devcode.tourifyapp.data.repository.UserRepository
 import com.devcode.tourifyapp.data.remote.retrofit.ApiConfig
 import com.devcode.tourifyapp.data.repository.DestinationRepository
 import com.devcode.tourifyapp.utils.Decoder
+import com.devcode.tourifyapp.utils.ThemesPreferences
 
 private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "user_preferences")
+private val Context.dataStoreTheme: DataStore<Preferences> by preferencesDataStore(name = "theme_setting")
 object Injection {
 
     fun provideUserRepository(): UserRepository {
@@ -34,6 +36,11 @@ object Injection {
     fun provideDataStore(context: Context): UserPreference {
         val dataStore = context.dataStore
         return  UserPreference.getInstance(dataStore)
+    }
+
+    fun prvoideDataStoreTheme(context: Context): ThemesPreferences {
+        val dataStore = context.dataStoreTheme
+        return ThemesPreferences.getInstance(dataStore)
     }
 
     fun provideDummyDataRepository(): DummyDataRepository {

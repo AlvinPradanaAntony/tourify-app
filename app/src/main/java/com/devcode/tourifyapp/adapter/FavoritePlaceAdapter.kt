@@ -17,6 +17,7 @@ class FavoritePlaceAdapter(private var listDestination: List<DestinationEntity>)
         fun bind(data: DestinationEntity) {
             binding.apply {
                 tvPlaceName.text = data.name
+                tvPlaceDetail.text = data.address
                 Glide.with(itemView.context)
                     .load(data.picture)
                     .placeholder(R.drawable.ic_placeholder_photo)

@@ -6,7 +6,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.devcode.tourifyapp.data.local.entity.DestinationEntity
 
-@Database(entities = [DestinationEntity::class], version = 1, exportSchema = false)
+@Database(entities = [DestinationEntity::class], version = 3, exportSchema = false)
 abstract class DestinationDatabase : RoomDatabase() {
     abstract fun destinationDao(): DestinationDao
 
@@ -18,7 +18,8 @@ abstract class DestinationDatabase : RoomDatabase() {
                 instance ?: Room.databaseBuilder(
                     context.applicationContext,
                     DestinationDatabase::class.java, "Destination.db"
-                ).build()
+                ).fallbackToDestructiveMigration()
+                 .build()
             }
     }
 }

@@ -17,6 +17,7 @@ import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
 import com.devcode.tourifyapp.utils.Result
 import com.devcode.tourifyapp.utils.ViewModelFactory
+import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding
@@ -56,25 +57,25 @@ class LoginActivity : AppCompatActivity() {
                     show()
                 }
             } else {
-//                if (email.isEmpty()) {
-//                    binding.edLoginEmail.error = resources.getString(R.string.email_empty)
-//                    binding.edLoginEmail.requestFocus()
-//                } else if (password.isEmpty()) {
-//                    binding.edLoginPassword.error = resources.getString(R.string.password_empty)
-//                    binding.edLoginPassword.requestFocus()
-//                } else if (!isValidEmail(email)) {
-//                    binding.edLoginEmail.error = resources.getString(R.string.email_invalid)
-//                    binding.edLoginEmail.requestFocus()
-//                } else if (password.length < 8) {
-//                    binding.edLoginPassword.error =
-//                        resources.getString(R.string.password_minimum_character)
-//                    binding.edLoginPassword.requestFocus()
-//                } else {
+                if (email.isEmpty()) {
+                    binding.edLoginEmail.error = resources.getString(R.string.email_empty)
+                    binding.edLoginEmail.requestFocus()
+                } else if (password.isEmpty()) {
+                    binding.edLoginPassword.error = resources.getString(R.string.password_empty)
+                    binding.edLoginPassword.requestFocus()
+                } else if (!isValidEmail(email)) {
+                    binding.edLoginEmail.error = resources.getString(R.string.email_invalid)
+                    binding.edLoginEmail.requestFocus()
+                } else if (password.length < 8) {
+                    binding.edLoginPassword.error =
+                        resources.getString(R.string.password_minimum_character)
+                    binding.edLoginPassword.requestFocus()
+                } else {
                     binding.edLoginEmail.clearFocus()
                     binding.edLoginPassword.clearFocus()
                     hideKeyboard()
                     login(email, password)
-//                }
+                }
             }
         }
     }
@@ -86,7 +87,6 @@ class LoginActivity : AppCompatActivity() {
                     Result.Loading -> showLoading(true)
                     is Result.Success -> {
                         showLoading(false)
-                        Toast.makeText(this, "Login Success, ${response.data.name}", Toast.LENGTH_SHORT).show()
                         viewModel.saveUserPreference(response.data)
                         val i = Intent(this, MainActivity::class.java)
                         i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
@@ -94,13 +94,19 @@ class LoginActivity : AppCompatActivity() {
                         startActivity(i)
                         finish()
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> {
+                        showLoading(false)
+                        AlertDialog.Builder(this).apply {
+                            setTitle("Oops!")
+                            setMessage(response.error)
+                            setPositiveButton("OK") { _, _ -> }
+                            create()
+                            show()
+                        }
+                    }
                 }
             }
         }
-//        showLoading(false)
-//        startActivity(Intent(this, MainActivity::class.java))
-        // ViewModel
     }
 
     private fun isValidEmail(email: String): Boolean {

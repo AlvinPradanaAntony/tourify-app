@@ -46,7 +46,7 @@ class OverviewFragment : Fragment() {
                     is Result.Success -> {
                         setDataDestination(response.data.data)
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> Log.e("TAG", "getDataDestination: ${response.error}" )
                 }
             }
         }
@@ -81,7 +81,7 @@ class OverviewFragment : Fragment() {
                         btnFavourite.apply {
                             setImageResource(R.drawable.ic_favourite)
                             setOnClickListener {
-                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.address, data.picture))
                                 setImageResource(R.drawable.ic_favourite_border)
                             }
                         }
@@ -92,7 +92,7 @@ class OverviewFragment : Fragment() {
                         btnFavourite.apply {
                             setImageResource(R.drawable.ic_favourite_border)
                             setOnClickListener {
-                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.picture))
+                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.address, data.picture))
                                 setImageResource(R.drawable.ic_favourite)
                             }
                         }

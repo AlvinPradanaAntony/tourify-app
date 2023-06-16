@@ -59,6 +59,13 @@ class HomeFragment : Fragment() {
         setupViewModel()
         listDataTravel()
         listDataCarousel()
+        getDataUser()
+    }
+
+    private fun getDataUser() {
+        mainViewModel.getUserPreferences().observe(requireActivity()) {
+            binding.tvWelcome.text = it.name
+        }
     }
 
     private fun setupCarouselSlider() {
@@ -123,7 +130,7 @@ class HomeFragment : Fragment() {
                     is Result.Success -> {
                         adapter.setData(data.data.data)
                     }
-                    is Result.Error -> TODO()
+                    is Result.Error -> Log.e("TAG", "listDataTravel: ${data.error}" )
                 }
             }
         }

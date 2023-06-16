@@ -17,11 +17,14 @@ data class RecomItem(
 	val nama: String,
 
 	@field:SerializedName("harga")
-	val harga: Int,
+	val harga: String,
 
 	@field:SerializedName("rating")
-	val rating: Any,
+	val rating: Int,
 
 	@field:SerializedName("id")
-	val id: Int
+	val id: Int,
+
+	@field:SerializedName("picture")
+	val picture: String
 )

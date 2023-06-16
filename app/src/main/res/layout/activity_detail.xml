@@ -61,6 +61,7 @@
                 android:layout_marginStart="8dp"
                 android:fontFamily="@font/fo_nunito_sans_light"
                 android:text="@string/placeholder_value_rating"
+                android:maxLength="3"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="14sp" />
 

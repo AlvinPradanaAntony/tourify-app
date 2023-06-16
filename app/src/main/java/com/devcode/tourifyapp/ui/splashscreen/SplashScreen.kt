@@ -29,7 +29,6 @@ import com.devcode.tourifyapp.utils.ThemesPreferences
 import com.devcode.tourifyapp.utils.ViewModelFactory
 import com.devcode.tourifyapp.utils.ViewModelFactoryForThemes
 
-private val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "theme_setting")
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     private lateinit var binding : ActivitySplashScreenBinding
@@ -51,12 +50,8 @@ class SplashScreen : AppCompatActivity() {
         val viewModels: SplashScreenViewModel by viewModels { factory }
         viewModel = viewModels
 
-        val pref =  ThemesPreferences.getInstance(dataStore)
-        val settingsViewModel = ViewModelProvider(this, ViewModelFactoryForThemes(pref)).get(
-            SettingsViewModel::class.java
-        )
         binding2 = FragmentSettingsBinding.inflate(layoutInflater)
-        settingsViewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
+        viewModel.getThemeSettings().observe(this) { isDarkModeActive: Boolean ->
             if (isDarkModeActive) {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
                 binding2.switchTheme.isChecked = true

@@ -8,10 +8,13 @@ import androidx.room.PrimaryKey
 class DestinationEntity (
     @field:ColumnInfo(name = "id")
     @field:PrimaryKey
-    val id: String,
+    val id: Int,
 
     @field:ColumnInfo(name = "name")
     val name: String,
+
+    @field:ColumnInfo(name = "address")
+    val address: String,
 
     @field:ColumnInfo(name = "picture")
     val picture: String

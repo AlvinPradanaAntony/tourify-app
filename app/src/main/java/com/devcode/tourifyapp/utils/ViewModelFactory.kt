@@ -14,19 +14,21 @@ import com.devcode.tourifyapp.ui.favourite.FavoriteViewModel
 import com.devcode.tourifyapp.ui.home.HomeViewModel
 import com.devcode.tourifyapp.ui.login.LoginViewModel
 import com.devcode.tourifyapp.ui.register.RegisterViewModel
+import com.devcode.tourifyapp.ui.settings.SettingsViewModel
 import com.devcode.tourifyapp.ui.splashscreen.SplashScreenViewModel
 
 class ViewModelFactory private constructor(
     private val userRepository: UserRepository,
     private val destinationRepository: DestinationRepository,
     private val userPreference: UserPreference,
-    private val dummyDataRepository: DummyDataRepository
+    private val dummyDataRepository: DummyDataRepository,
+    private val themesPreferences: ThemesPreferences
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(SplashScreenViewModel::class.java)) {
-            return SplashScreenViewModel(userPreference, userRepository) as T
+            return SplashScreenViewModel(userPreference, userRepository, themesPreferences) as T
         } else if (modelClass.isAssignableFrom(LoginViewModel::class.java)) {
             return LoginViewModel(userRepository, userPreference) as T
         } else if (modelClass.isAssignableFrom(RegisterViewModel::class.java)) {
@@ -38,7 +40,9 @@ class ViewModelFactory private constructor(
         } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(destinationRepository) as T
         } else if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
-            return HomeViewModel(dummyDataRepository, destinationRepository) as T
+            return HomeViewModel(dummyDataRepository, destinationRepository, userPreference) as T
+        } else if (modelClass.isAssignableFrom(SettingsViewModel::class.java)) {
+            return SettingsViewModel(themesPreferences, userPreference) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
@@ -52,7 +56,8 @@ class ViewModelFactory private constructor(
                     Injection.provideUserRepository(),
                     Injection.provideDestinationRepository(context),
                     Injection.provideDataStore(context),
-                    Injection.provideDummyDataRepository()
+                    Injection.provideDummyDataRepository(),
+                    Injection.prvoideDataStoreTheme(context)
                 )
             }.also { instance = it }
     }

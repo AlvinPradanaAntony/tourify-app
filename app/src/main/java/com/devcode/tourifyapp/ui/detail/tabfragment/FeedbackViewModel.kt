@@ -1,4 +1,4 @@
-package com.devcode.tourifyapp.ui.tabfragment
+package com.devcode.tourifyapp.ui.detail.tabfragment
 
 import androidx.lifecycle.ViewModel
 import com.devcode.tourifyapp.data.remote.response.ReviewsResponse

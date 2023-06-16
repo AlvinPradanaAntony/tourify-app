@@ -15,11 +15,13 @@ import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.CaraouselPagerAdapter
 import com.devcode.tourifyapp.adapter.TravelDataOffersAdapter
 import com.devcode.tourifyapp.adapter.TravelDataRecommendationsAdapter
+import com.devcode.tourifyapp.data.remote.response.RecomItem
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.FragmentHomeBinding
 import com.devcode.tourifyapp.ui.detail.DetailActivity
 import com.devcode.tourifyapp.utils.HorizontalMarginItemDecoration
-import com.devcode.tourifyapp.utils.ViewModelFactoryForDummy
+import com.devcode.tourifyapp.utils.Result
+import com.devcode.tourifyapp.utils.ViewModelFactory
 import com.devcode.tourifyapp.utils.extension.autoScroll
 import com.devcode.tourifyapp.utils.extension.setCarouselEffects
 
@@ -31,11 +33,14 @@ class HomeFragment : Fragment() {
 
     private lateinit var itemDecoration: HorizontalMarginItemDecoration
     private val list = ArrayList<TravelDataDummyResponse>()
+    private val listRecom = ArrayList<RecomItem>()
     private val carouselList = ArrayList<TravelDataDummyResponse>()
-    private val adapter: TravelDataRecommendationsAdapter by lazy { TravelDataRecommendationsAdapter(list) }
+    private val adapter: TravelDataRecommendationsAdapter by lazy { TravelDataRecommendationsAdapter(
+        listRecom
+    ) }
     private val adapter2: TravelDataOffersAdapter by lazy { TravelDataOffersAdapter(list) }
     private val carouselAdapter: CaraouselPagerAdapter by lazy { CaraouselPagerAdapter(carouselList, viewPager) }
-    private lateinit var factory: ViewModelFactoryForDummy
+    private lateinit var factory: ViewModelFactory
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -85,7 +90,7 @@ class HomeFragment : Fragment() {
         binding.rvRecommendation.adapter = adapter
         adapter.setOnItemClickCallback(object :
             TravelDataRecommendationsAdapter.OnItemClickCallback {
-            override fun onItemClicked(data: TravelDataDummyResponse) {
+            override fun onItemClicked(data: RecomItem) {
                 val intent = Intent(requireActivity(), DetailActivity::class.java)
                 startActivity(intent)
             }
@@ -106,13 +111,22 @@ class HomeFragment : Fragment() {
     }
 
     private fun setupViewModel() {
-        factory = ViewModelFactoryForDummy.getInstance(requireActivity())
+        factory = ViewModelFactory.getInstance(requireActivity())
         mainViewModel = ViewModelProvider(requireActivity(), factory)[HomeViewModel::class.java]
     }
 
     private fun listDataTravel() {
-        val dataList = mainViewModel.getAllData()
-        adapter.setData(dataList)
+        mainViewModel.getRecomendation().observe(requireActivity()) { data ->
+            if (data != null) {
+                when (data) {
+                    Result.Loading -> Log.e("TAG", "listDataTravel: Loading.." )
+                    is Result.Success -> {
+                        adapter.setData(data.data.data)
+                    }
+                    is Result.Error -> TODO()
+                }
+            }
+        }
     }
 
     private fun listDataCarousel() {

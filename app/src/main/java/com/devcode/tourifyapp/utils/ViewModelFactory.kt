@@ -5,11 +5,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.devcode.tourifyapp.data.local.datastore.UserPreference
 import com.devcode.tourifyapp.data.repository.DestinationRepository
+import com.devcode.tourifyapp.data.repository.DummyDataRepository
 import com.devcode.tourifyapp.data.repository.UserRepository
 import com.devcode.tourifyapp.di.Injection
 import com.devcode.tourifyapp.ui.detail.DetailViewModel
 import com.devcode.tourifyapp.ui.explore.ExploreViewModel
 import com.devcode.tourifyapp.ui.favourite.FavoriteViewModel
+import com.devcode.tourifyapp.ui.home.HomeViewModel
 import com.devcode.tourifyapp.ui.login.LoginViewModel
 import com.devcode.tourifyapp.ui.register.RegisterViewModel
 import com.devcode.tourifyapp.ui.splashscreen.SplashScreenViewModel
@@ -17,7 +19,8 @@ import com.devcode.tourifyapp.ui.splashscreen.SplashScreenViewModel
 class ViewModelFactory private constructor(
     private val userRepository: UserRepository,
     private val destinationRepository: DestinationRepository,
-    private val userPreference: UserPreference
+    private val userPreference: UserPreference,
+    private val dummyDataRepository: DummyDataRepository
 ) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
@@ -34,6 +37,8 @@ class ViewModelFactory private constructor(
             return DetailViewModel(destinationRepository) as T
         } else if (modelClass.isAssignableFrom(FavoriteViewModel::class.java)) {
             return FavoriteViewModel(destinationRepository) as T
+        } else if (modelClass.isAssignableFrom(HomeViewModel::class.java)) {
+            return HomeViewModel(dummyDataRepository, destinationRepository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
     }
@@ -46,7 +51,8 @@ class ViewModelFactory private constructor(
                 instance ?: ViewModelFactory(
                     Injection.provideUserRepository(),
                     Injection.provideDestinationRepository(context),
-                    Injection.provideDataStore(context)
+                    Injection.provideDataStore(context),
+                    Injection.provideDummyDataRepository()
                 )
             }.also { instance = it }
     }

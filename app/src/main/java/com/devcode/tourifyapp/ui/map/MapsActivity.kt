@@ -89,9 +89,22 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun defaultMarker() {
-        val indonesia = LatLng(EXTRA_LATITUDE, EXTRA_LONGITUDE)
-        mMap.addMarker(MarkerOptions().position(indonesia).title("Indonesia"))
-        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(indonesia, 4f))
+        val lat = intent.getStringExtra(EXTRA_LATITUDE)
+        val long = intent.getStringExtra(EXTRA_LONGITUDE)
+
+        if (lat != null && long != null) {
+            val dicodingSpace = LatLng(lat.toDouble(), long.toDouble())
+            mMap.addMarker(
+                MarkerOptions()
+                    .position(dicodingSpace)
+                    .title("Dicoding Space")
+                    .snippet("Batik Kumeli No.50")
+            )
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(dicodingSpace, 15f))
+        }
+//        val indonesia = LatLng(EXTRA_LATITUDE, EXTRA_LONGITUDE)
+//        mMap.addMarker(MarkerOptions().position(indonesia).title("Indonesia"))
+//        mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(indonesia, 4f))
     }
 
     private val requestPermissionLauncher =
@@ -172,7 +185,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 
     companion object {
         private const val TAG = "MapsActivity"
-        private const val EXTRA_LATITUDE = -2.548926
-        private const val EXTRA_LONGITUDE = 118.0148634
+        private const val EXTRA_LATITUDE = "LAT"
+        private const val EXTRA_LONGITUDE = "LONG"
     }
 }

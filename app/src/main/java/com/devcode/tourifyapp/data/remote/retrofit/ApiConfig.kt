@@ -31,6 +31,21 @@ object ApiConfig {
             .build()
         val retrofit = Retrofit.Builder()
             .baseUrl("http://34.71.57.166:3000/v1/")
+//            .baseUrl("https://newapi.thisiswasyrof.works/v1/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .client(client)
+            .build()
+        return retrofit.create(ApiService::class.java)
+    }
+
+    fun getApiServiceMl(): ApiService {
+        val loggingInterceptor = HttpLoggingInterceptor()
+            .setLevel(HttpLoggingInterceptor.Level.BODY)
+        val client: OkHttpClient = OkHttpClient.Builder()
+            .addInterceptor(loggingInterceptor)
+            .build()
+        val retrofit = Retrofit.Builder()
+            .baseUrl("https://thisiswlab.tech/")
             .addConverterFactory(GsonConverterFactory.create())
             .client(client)
             .build()

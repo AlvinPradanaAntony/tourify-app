@@ -56,12 +56,10 @@ class OnBoardingActivity : AppCompatActivity() {
                 viewPager.currentItem += 1
             } else {
                 startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
-                finish()
             }
         }
         binding.skipButton.setOnClickListener {
-            startActivity(Intent(this@OnBoardingActivity, MainActivity::class.java))
-            finish()
+            startActivity(Intent(this@OnBoardingActivity, LoginActivity::class.java))
         }
     }
 

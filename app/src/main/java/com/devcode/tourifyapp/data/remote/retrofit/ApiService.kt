@@ -4,6 +4,7 @@ import com.devcode.tourifyapp.data.model.RegisterResponse
 import com.devcode.tourifyapp.data.remote.response.DestinationResponse
 import com.devcode.tourifyapp.data.remote.response.DetailResponse
 import com.devcode.tourifyapp.data.remote.response.LoginResponse
+import com.devcode.tourifyapp.data.remote.response.RecomendationResponse
 import com.devcode.tourifyapp.data.remote.response.SearchResponse
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
@@ -41,4 +42,7 @@ interface ApiService {
     suspend fun getDetailDestination(
         @Path("id") id: String
     ) : DetailResponse
+
+    @GET("recomendation")
+    suspend fun getRecomendation() : RecomendationResponse
 }

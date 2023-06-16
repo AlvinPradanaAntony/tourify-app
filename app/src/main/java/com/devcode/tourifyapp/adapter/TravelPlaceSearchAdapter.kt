@@ -25,6 +25,7 @@ class TravelPlaceSearchAdapter(private val listData: List<SearchItem>): Recycler
         val name = listData[position].name
         val img = listData[position].picture
         holder.binding.tvPlaceName.text = name
+        holder.binding.tvPlaceDetail.text = listData[position].address
         Glide.with(holder.itemView.context)
             .load(img)
             .placeholder(R.drawable.ic_placeholder_photo)

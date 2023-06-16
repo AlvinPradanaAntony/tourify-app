@@ -25,9 +25,10 @@ object Injection {
 
     fun provideDestinationRepository(context: Context): DestinationRepository {
         val apiService = ApiConfig.getApiService()
+        val apiMachineLearning = ApiConfig.getApiServiceMl()
         val database = DestinationDatabase.getInstance(context)
         val dao = database.destinationDao()
-        return DestinationRepository.getInstance(apiService, dao)
+        return DestinationRepository.getInstance(apiService, apiMachineLearning, dao)
     }
 
     fun provideDataStore(context: Context): UserPreference {

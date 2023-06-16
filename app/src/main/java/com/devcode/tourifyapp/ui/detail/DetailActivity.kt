@@ -1,16 +1,18 @@
 package com.devcode.tourifyapp.ui.detail
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
+import android.view.ViewGroup
+import android.view.WindowManager
 import android.widget.FrameLayout
 import androidx.activity.viewModels
 import androidx.annotation.StringRes
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.marginTop
 import androidx.viewpager2.widget.ViewPager2
+import com.bumptech.glide.Glide
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.ContentPagerOnDetailAdapter
-import com.devcode.tourifyapp.data.local.entity.DestinationEntity
 import com.devcode.tourifyapp.data.remote.response.DataDestination
 import com.devcode.tourifyapp.databinding.ActivityDetailBinding
 import com.devcode.tourifyapp.utils.Result
@@ -29,7 +31,6 @@ class DetailActivity : AppCompatActivity() {
 
         setupViewModel()
         setupView()
-        tabLayout()
         getDataDestination(id)
     }
 
@@ -41,6 +42,7 @@ class DetailActivity : AppCompatActivity() {
                     is Result.Success -> {
                         Log.e("TAG", "getDataDestination: ${response.data.data}" )
                         setDataDestination(response.data.data)
+                        tabLayout(response.data.data.id)
                     }
                     is Result.Error -> TODO()
                 }
@@ -49,37 +51,13 @@ class DetailActivity : AppCompatActivity() {
     }
 
     private fun setDataDestination(data: DataDestination) {
-        checkFavorite(data.id, data)
             binding.apply {
                 tvPostTitle.text = data.name
-            }
-    }
-
-    private fun checkFavorite(id: String, data: DataDestination) {
-            viewModel.checkFavorite(id)
-            viewModel.isExists.observe(this){
-                if (it != null) {
-                    binding.apply {
-                        btnFavourite.apply {
-                            setImageResource(R.drawable.ic_favourite)
-                            setOnClickListener {
-                                viewModel.deleteFavorite(DestinationEntity(data.id, data.name, data.picture))
-                                viewModel.checkFavorite(id)
-                            }
-                        }
-
-                    }
-                } else {
-                    binding.apply {
-                        btnFavourite.apply {
-                            setImageResource(R.drawable.ic_favourite_border)
-                            setOnClickListener {
-                                viewModel.addFavorite(DestinationEntity(data.id, data.name, data.picture))
-                                viewModel.checkFavorite(id)
-                            }
-                        }
-                    }
-                }
+                Glide.with(this@DetailActivity)
+                    .load(data.picture)
+                    .placeholder(R.drawable.ic_placeholder_photo)
+                    .error(R.drawable.ic_placeholder_photo)
+                    .into(ivPostImage)
             }
     }
 
@@ -115,8 +93,8 @@ class DetailActivity : AppCompatActivity() {
         supportActionBar?.title = ""
     }
 
-    private fun tabLayout() {
-        val sectionsPagerAdapter = ContentPagerOnDetailAdapter(this)
+    private fun tabLayout(id: String) {
+        val sectionsPagerAdapter = ContentPagerOnDetailAdapter(this, id)
         val viewPager: ViewPager2 = binding.viewPagerContentOnDetail
         val indikator = binding.indicator
         var indicatorWidth = 0

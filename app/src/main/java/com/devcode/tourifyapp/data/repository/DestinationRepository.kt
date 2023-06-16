@@ -6,12 +6,14 @@ import com.devcode.tourifyapp.data.local.entity.DestinationEntity
 import com.devcode.tourifyapp.data.local.room.DestinationDao
 import com.devcode.tourifyapp.data.remote.response.DestinationResponse
 import com.devcode.tourifyapp.data.remote.response.DetailResponse
+import com.devcode.tourifyapp.data.remote.response.RecomendationResponse
 import com.devcode.tourifyapp.data.remote.response.SearchResponse
 import com.devcode.tourifyapp.data.remote.retrofit.ApiService
 import com.devcode.tourifyapp.utils.Result
 
 class DestinationRepository(
     private val apiService: ApiService,
+    private val apiMachineLearning: ApiService,
     private val destinationDao: DestinationDao
 ) {
 
@@ -45,6 +47,16 @@ class DestinationRepository(
         }
     }
 
+    fun getRecomendation() : LiveData<Result<RecomendationResponse>> = liveData {
+        emit(Result.Loading)
+        try {
+            val response = apiMachineLearning.getRecomendation()
+            emit(Result.Success(response))
+        } catch (e: java.lang.Exception) {
+            emit(Result.Error(e.message.toString()))
+        }
+    }
+
     suspend fun addFavorite(data: DestinationEntity) = destinationDao.addFavorite(data)
 
     fun getFavorite() : LiveData<List<DestinationEntity>> = destinationDao.getFavorite()
@@ -58,10 +70,11 @@ class DestinationRepository(
         private var instance: DestinationRepository? = null
         fun getInstance(
             apiServices: ApiService,
+            apiMachineLearning: ApiService,
             destinationDao: DestinationDao
         ): DestinationRepository =
             instance ?: synchronized(this) {
-                instance ?: DestinationRepository(apiServices, destinationDao)
+                instance ?: DestinationRepository(apiServices, apiMachineLearning, destinationDao)
             }.also { instance = it }
     }
 }

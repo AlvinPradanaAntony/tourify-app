@@ -1,4 +1,4 @@
-package com.devcode.tourifyapp.ui.tabfragment
+package com.devcode.tourifyapp.ui.detail.tabfragment
 
 import android.content.Intent
 import android.os.Bundle

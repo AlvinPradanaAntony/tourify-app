@@ -13,7 +13,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
-import com.devcode.tourifyapp.data.model.UserPreferencesModel
 import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
 import com.devcode.tourifyapp.utils.Result
@@ -86,10 +85,13 @@ class LoginActivity : AppCompatActivity() {
                 when (response) {
                     Result.Loading -> showLoading(true)
                     is Result.Success -> {
-                        showLoading(false);
+                        showLoading(false)
                         Toast.makeText(this, "Login Success, ${response.data.name}", Toast.LENGTH_SHORT).show()
                         viewModel.saveUserPreference(response.data)
-                        startActivity(Intent(this, MainActivity::class.java))
+                        val i = Intent(this, MainActivity::class.java)
+                        i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        startActivity(i)
                         finish()
                     }
                     is Result.Error -> TODO()

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.tabfragment.OverviewFragment">
+    tools:context=".ui.detail.tabfragment.OverviewFragment">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -71,13 +71,13 @@
                 android:layout_height="18dp"
                 android:contentDescription="@string/icon_item_1"
                 android:src="@drawable/ic_category"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_item1_txt1"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_category"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_item1_txt1"
-                android:layout_width="0dp"
+                android:id="@+id/tv_category"
+                android:layout_width="95dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:fontFamily="@font/fo_nunito_sans_bold"
@@ -94,8 +94,8 @@
                 android:text="@string/name_item_1"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_item1_txt1"
-                app:layout_constraintTop_toBottomOf="@+id/tv_item1_txt1" />
+                app:layout_constraintStart_toStartOf="@+id/tv_category"
+                app:layout_constraintTop_toBottomOf="@+id/tv_category" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -113,13 +113,13 @@
                 android:contentDescription="@string/icon_item_2"
                 android:rotation="90"
                 android:src="@drawable/ic_price_tag"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_item2_txt1"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_price"
                 app:layout_constraintHorizontal_chainStyle="spread"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_item2_txt1"
+                android:id="@+id/tv_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -137,8 +137,8 @@
                 android:text="@string/name_item_2"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_item2_txt1"
-                app:layout_constraintTop_toBottomOf="@+id/tv_item2_txt1" />
+                app:layout_constraintStart_toStartOf="@+id/tv_price"
+                app:layout_constraintTop_toBottomOf="@+id/tv_price" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -158,13 +158,13 @@
                 android:layout_width="18dp"
                 android:layout_height="18dp"
                 android:contentDescription="@string/icon_item_3"
-                android:src="@drawable/ic_date"
-                app:layout_constraintBottom_toBottomOf="@+id/tv_item3_txt1"
+                android:src="@drawable/ic_location"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_address"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/tv_item3_txt1"
+                android:id="@+id/tv_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
@@ -182,8 +182,8 @@
                 android:text="@string/name_item_3"
                 android:textColor="@color/textColorCaption2"
                 android:textSize="12sp"
-                app:layout_constraintStart_toStartOf="@+id/tv_item3_txt1"
-                app:layout_constraintTop_toBottomOf="@+id/tv_item3_txt1" />
+                app:layout_constraintStart_toStartOf="@+id/tv_address"
+                app:layout_constraintTop_toBottomOf="@+id/tv_address" />
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 

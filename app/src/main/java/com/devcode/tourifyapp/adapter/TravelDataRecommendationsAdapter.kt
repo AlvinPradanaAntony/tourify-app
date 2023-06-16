@@ -6,10 +6,11 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.devcode.tourifyapp.R
+import com.devcode.tourifyapp.data.remote.response.RecomItem
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.ItemsRecommendationTravelBinding
 
-class TravelDataRecommendationsAdapter(private val listData: ArrayList<TravelDataDummyResponse>): RecyclerView.Adapter<TravelDataRecommendationsAdapter.ViewHolder>() {
+class TravelDataRecommendationsAdapter(private val listData: ArrayList<RecomItem>): RecyclerView.Adapter<TravelDataRecommendationsAdapter.ViewHolder>() {
     private lateinit var onItemClickCallback: OnItemClickCallback
 
     class ViewHolder(var binding: ItemsRecommendationTravelBinding) : RecyclerView.ViewHolder(binding.root)
@@ -26,9 +27,10 @@ class TravelDataRecommendationsAdapter(private val listData: ArrayList<TravelDat
     override fun getItemCount() = listData.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val name = listData[position].name
-        val img = listData[position].image
+        val name = listData[position].nama
+        val img = "listData[position].image"
         holder.binding.tvPlaceName.text = name
+        holder.binding.tvPlaceDetail.text = listData[position].address
         Glide.with(holder.itemView.context)
             .load(img)
             .placeholder(R.drawable.ic_placeholder_photo)
@@ -38,13 +40,13 @@ class TravelDataRecommendationsAdapter(private val listData: ArrayList<TravelDat
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun setData(dataTravel: List<TravelDataDummyResponse>) {
+    fun setData(dataTravel: List<RecomItem>) {
         listData.clear()
         listData.addAll(dataTravel)
         notifyDataSetChanged()
     }
 
     interface OnItemClickCallback {
-        fun onItemClicked(data: TravelDataDummyResponse)
+        fun onItemClicked(data: RecomItem)
     }
 }

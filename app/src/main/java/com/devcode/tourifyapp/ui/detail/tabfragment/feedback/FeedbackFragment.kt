@@ -1,6 +1,5 @@
-package com.devcode.tourifyapp.ui.detail.tabfragment
+package com.devcode.tourifyapp.ui.detail.tabfragment.feedback
 
-import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,13 +8,8 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.devcode.tourifyapp.adapter.FeedBackAdapter
-import com.devcode.tourifyapp.adapter.TravelDataRecommendationsAdapter
 import com.devcode.tourifyapp.data.remote.response.ReviewsResponse
-import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
 import com.devcode.tourifyapp.databinding.FragmentFeedbackBinding
-import com.devcode.tourifyapp.ui.customView.CustomDialog
-import com.devcode.tourifyapp.ui.detail.DetailActivity
-import com.devcode.tourifyapp.ui.home.HomeViewModel
 import com.devcode.tourifyapp.utils.ViewModelFactoryForDummy
 
 

@@ -3,12 +3,15 @@ package com.devcode.tourifyapp.utils
 import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.devcode.tourifyapp.data.local.datastore.UserPreference
 import com.devcode.tourifyapp.data.repository.DummyDataRepository
 import com.devcode.tourifyapp.di.Injection
-import com.devcode.tourifyapp.ui.home.HomeViewModel
-import com.devcode.tourifyapp.ui.detail.tabfragment.FeedbackViewModel
+import com.devcode.tourifyapp.ui.detail.tabfragment.feedback.FeedbackViewModel
 
-class ViewModelFactoryForDummy private constructor(private val dummyDataRepository: DummyDataRepository) : ViewModelProvider.NewInstanceFactory() {
+class ViewModelFactoryForDummy private constructor(
+    private val dummyDataRepository: DummyDataRepository,
+    private val userPreference: UserPreference
+) : ViewModelProvider.NewInstanceFactory() {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
@@ -17,7 +20,7 @@ class ViewModelFactoryForDummy private constructor(private val dummyDataReposito
 //                HomeViewModel(dummyDataRepository) as T
 //            }
             modelClass.isAssignableFrom(FeedbackViewModel::class.java) -> {
-                FeedbackViewModel(dummyDataRepository) as T
+                FeedbackViewModel(dummyDataRepository, userPreference) as T
             }
             else -> throw IllegalArgumentException("Unknown ViewModel class: " + modelClass.name)
         }
@@ -29,7 +32,8 @@ class ViewModelFactoryForDummy private constructor(private val dummyDataReposito
         fun getInstance(context: Context): ViewModelFactoryForDummy =
             instance ?: synchronized(this) {
                 instance ?: ViewModelFactoryForDummy(
-                    Injection.provideDummyDataRepository()
+                    Injection.provideDummyDataRepository(),
+                    Injection.provideDataStore(context)
                 )
             }.also { instance = it }
     }

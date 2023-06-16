@@ -102,6 +102,7 @@ class HomeFragment : Fragment() {
             TravelDataRecommendationsAdapter.OnItemClickCallback {
             override fun onItemClicked(data: RecomItem) {
                 val intent = Intent(requireActivity(), DetailActivity::class.java)
+                intent.putExtra("id", data.id)
                 startActivity(intent)
             }
         })

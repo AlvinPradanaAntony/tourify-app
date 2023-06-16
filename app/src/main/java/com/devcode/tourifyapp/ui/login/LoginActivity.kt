@@ -6,18 +6,15 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivityLoginBinding
 import com.devcode.tourifyapp.ui.register.RegisterActivity
 import com.devcode.tourifyapp.utils.Result
 import com.devcode.tourifyapp.utils.ViewModelFactory
-import com.google.android.material.internal.ViewUtils.hideKeyboard
 
 class LoginActivity : AppCompatActivity() {
     private lateinit var binding: ActivityLoginBinding

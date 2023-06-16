@@ -11,6 +11,8 @@ class DummyDataRepository {
     fun getAllDataBanner(): List<TravelBanner> = DummyData.dummyBanner
     fun getAllDataReviews(): List<ReviewsResponse> = DummyData.dummyDataReviews
 
+    fun addReviews(data: ReviewsResponse) = DummyData.dummyDataReviews.add(data)
+
     companion object {
         @Volatile
         private var instance: DummyDataRepository? = null

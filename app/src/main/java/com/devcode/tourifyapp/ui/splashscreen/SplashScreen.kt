@@ -1,7 +1,6 @@
 package com.devcode.tourifyapp.ui.splashscreen
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.Matrix
@@ -15,19 +14,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.constraintlayout.motion.widget.MotionLayout
 import androidx.core.content.ContextCompat
-import androidx.datastore.core.DataStore
-import androidx.datastore.preferences.core.Preferences
-import androidx.datastore.preferences.preferencesDataStore
-import androidx.lifecycle.ViewModelProvider
 import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.OnBoardingActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivitySplashScreenBinding
 import com.devcode.tourifyapp.databinding.FragmentSettingsBinding
-import com.devcode.tourifyapp.ui.settings.SettingsViewModel
-import com.devcode.tourifyapp.utils.ThemesPreferences
 import com.devcode.tourifyapp.utils.ViewModelFactory
-import com.devcode.tourifyapp.utils.ViewModelFactoryForThemes
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
@@ -60,10 +52,6 @@ class SplashScreen : AppCompatActivity() {
                 binding2.switchTheme.isChecked = false
             }
         }
-    }
-
-    private fun setupView() {
-
     }
 
     private fun playAnimation() {

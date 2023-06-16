@@ -1,29 +1,24 @@
-package com.devcode.tourifyapp.ui.home
+package com.devcode.tourifyapp.ui.detail.tabfragment.feedback
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-
 import androidx.lifecycle.asLiveData
 import com.devcode.tourifyapp.data.local.datastore.UserPreference
 import com.devcode.tourifyapp.data.model.UserPreferencesModel
-import com.devcode.tourifyapp.data.remote.response.TravelBanner
-import com.devcode.tourifyapp.data.repository.DummyDataRepository
+import com.devcode.tourifyapp.data.remote.response.ReviewsResponse
 import com.devcode.tourifyapp.data.remote.response.TravelDataDummyResponse
-import com.devcode.tourifyapp.data.repository.DestinationRepository
+import com.devcode.tourifyapp.data.repository.DummyDataRepository
 
-class HomeViewModel(
+class FeedbackViewModel(
     private val repository: DummyDataRepository,
-    private val destinationRepository: DestinationRepository,
     private val userPreference: UserPreference
-    ): ViewModel() {
-    fun getAllData(): List<TravelDataDummyResponse> = repository.getAllData()
+): ViewModel() {
+    fun getAllData(): List<ReviewsResponse> = repository.getAllDataReviews()
 
-    fun getRecomendation() = destinationRepository.getRecomendation()
+    fun addReview(data: ReviewsResponse) = repository.addReviews(data)
 
     fun getUserPreferences(): LiveData<UserPreferencesModel> {
         val pref =  userPreference.getUserPreferences()
         return pref.asLiveData()
     }
-    fun getAllDataBanner(): List<TravelBanner> = repository.getAllDataBanner()
-
 }

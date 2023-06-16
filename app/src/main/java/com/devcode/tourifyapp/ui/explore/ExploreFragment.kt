@@ -1,7 +1,6 @@
 package com.devcode.tourifyapp.ui.explore
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -118,9 +117,5 @@ class ExploreFragment : Fragment() {
         Snackbar.make(
             binding.rvList, value, Snackbar.LENGTH_SHORT
         ).show()
-    }
-
-    companion object {
-
     }
 }

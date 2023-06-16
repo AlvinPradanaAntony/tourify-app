@@ -36,6 +36,5 @@ class OnBoardingScreen : Fragment() {
 
     companion object {
         const val ARG_SECTION_NUMBER = "section_number"
-        private const val TAG = "ViewPagerFollows"
     }
 }

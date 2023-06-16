@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.customView.CustomDialog">
+    tools:context=".ui.detail.tabfragment.feedback.CustomDialog">
 
     <androidx.cardview.widget.CardView
         android:layout_width="365dp"

@@ -1,14 +1,12 @@
 package com.devcode.tourifyapp.ui.favourite
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.adapter.FavoritePlaceAdapter
 import com.devcode.tourifyapp.databinding.FragmentFavouriteBinding
 import com.devcode.tourifyapp.utils.ViewModelFactory
@@ -37,7 +35,6 @@ class FavouriteFragment : Fragment() {
 
     private fun getData() {
         viewModel.listFavorite.observe(requireActivity()) { data ->
-            Log.e("TAG", "getData: $data", )
             adapter.setData(data)
         }
     }
@@ -57,9 +54,5 @@ class FavouriteFragment : Fragment() {
                 LinearLayoutManager(requireActivity(), LinearLayoutManager.VERTICAL, false)
             rvList.adapter = adapter
         }
-    }
-
-    companion object {
-
     }
 }

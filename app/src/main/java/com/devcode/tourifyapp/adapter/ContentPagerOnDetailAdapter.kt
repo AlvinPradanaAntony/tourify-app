@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.devcode.tourifyapp.ui.detail.tabfragment.FeedbackFragment
+import com.devcode.tourifyapp.ui.detail.tabfragment.feedback.FeedbackFragment
 import com.devcode.tourifyapp.ui.detail.tabfragment.OverviewFragment
 
 class ContentPagerOnDetailAdapter(activity: AppCompatActivity, private val id: String) : FragmentStateAdapter(activity) {

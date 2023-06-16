@@ -63,6 +63,7 @@ class OverviewFragment : Fragment() {
                 val intent = Intent(requireActivity(), MapsActivity::class.java)
                 intent.putExtra(EXTRA_LATITUDE, data.latitude)
                 intent.putExtra(EXTRA_LONGITUDE, data.longitude)
+                intent.putExtra(NAME, data.name)
                 startActivity(intent)
             }
         }
@@ -105,6 +106,6 @@ class OverviewFragment : Fragment() {
         private const val ID = "id"
         private const val EXTRA_LATITUDE = "LAT"
         private const val EXTRA_LONGITUDE = "LONG"
-
+        private const val NAME = "name"
     }
 }

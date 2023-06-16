@@ -1,4 +1,4 @@
-package com.devcode.tourifyapp.ui.customView
+package com.devcode.tourifyapp.ui.detail.tabfragment.feedback
 
 import android.app.Dialog
 import android.graphics.Color
@@ -9,15 +9,20 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.Window
 import android.widget.Toast
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.DialogFragment
-import com.devcode.tourifyapp.R
+import androidx.lifecycle.ViewModelProvider
+import com.devcode.tourifyapp.data.remote.response.ReviewsResponse
 import com.devcode.tourifyapp.databinding.FragmentCustomDialogBinding
+import com.devcode.tourifyapp.utils.ViewModelFactoryForDummy
 
 
 class CustomDialog : DialogFragment() {
     private var _binding: FragmentCustomDialogBinding? = null
     private val binding get() = _binding!!
+    private var userName: String? = null
+    private lateinit var factory: ViewModelFactoryForDummy
+    private lateinit var feedbackViewModel: FeedbackViewModel
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +36,19 @@ class CustomDialog : DialogFragment() {
         super.onViewCreated(view, savedInstanceState)
         setupAction()
         captureRatingNFeedback()
+        setupViewModel()
+        getUser()
+    }
+
+    private fun getUser() {
+        feedbackViewModel.getUserPreferences().observe(requireActivity()) {
+            userName = it.name
+        }
+    }
+
+    private fun setupViewModel() {
+        factory = ViewModelFactoryForDummy.getInstance(requireActivity())
+        feedbackViewModel = ViewModelProvider(requireActivity(), factory)[FeedbackViewModel::class.java]
     }
 
     private fun setupAction() {
@@ -60,8 +78,18 @@ class CustomDialog : DialogFragment() {
 
         binding.btnSubmit.setOnClickListener {
             if (binding.edAddDescription.text!!.isNotEmpty()) {
-                Toast.makeText(requireActivity(), "Rating ($userRating/5.0) And \n Feedback ${binding.edAddDescription.text}", Toast.LENGTH_SHORT)
-                    .show()
+                feedbackViewModel.addReview(
+                    ReviewsResponse(
+                    1,
+                    393,
+                    userRating.toDouble(),
+                        binding.edAddDescription.text.toString(),
+                    "2021-08-01T00:00:00.000Z",
+                    userName.toString(),
+                    "https://i.pravatar.cc/150?img=1"
+                )
+                )
+                dialog?.dismiss()
             } else {
                 binding.edAddDescription.error = "can't be blank"
             }

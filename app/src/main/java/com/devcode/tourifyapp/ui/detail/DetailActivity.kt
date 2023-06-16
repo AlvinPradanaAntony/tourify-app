@@ -41,7 +41,6 @@ class DetailActivity : AppCompatActivity() {
                 when (response) {
                     Result.Loading -> Log.e("TAG", "getDataDestination: Loading..." )
                     is Result.Success -> {
-                        Log.e("TAG", "getDataDestination: ${response.data.data}" )
                         setDataDestination(response.data.data)
                         tabLayout(response.data.data.id.toString())
                     }

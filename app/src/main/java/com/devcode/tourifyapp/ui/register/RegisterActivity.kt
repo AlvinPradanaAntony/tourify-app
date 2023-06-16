@@ -6,12 +6,9 @@ import android.os.Bundle
 import android.util.Patterns
 import android.view.View
 import android.view.inputmethod.InputMethodManager
-import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat
-import androidx.core.content.ContextCompat.getSystemService
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.ActivityRegisterBinding
 import com.devcode.tourifyapp.ui.login.LoginActivity
@@ -99,12 +96,12 @@ class RegisterActivity : AppCompatActivity() {
                 when (response) {
                     Result.Loading -> showLoading(true)
                     is Result.Success -> {
-                        showLoading(false);
+                        showLoading(false)
                         showSnackBar(response.data.message)
                         finish()
                     }
                     is Result.Error -> {
-                        showLoading(false);
+                        showLoading(false)
                         AlertDialog.Builder(this).apply {
                             setTitle("Oops!")
                             setMessage(response.error)

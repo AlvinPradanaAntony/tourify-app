@@ -11,7 +11,6 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.devcode.tourifyapp.MainActivity
 import com.devcode.tourifyapp.R
 import com.devcode.tourifyapp.databinding.FragmentSettingsBinding
 import com.devcode.tourifyapp.ui.customView.CustomDialogChangetPass

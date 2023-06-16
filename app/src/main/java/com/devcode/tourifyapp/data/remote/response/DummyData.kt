@@ -49,7 +49,7 @@ object DummyData {
             "Monumen Tugu Pahlawan merupakan salah satu tempat wisata yang ada di Kota Surabaya. Monumen ini berada di Jalan Pahlawan, Kelurahan Embong Kaliasin, Kecamatan Genteng, Kota Surabaya. Monumen ini merupakan salah satu tempat wisata yang ada di Kota Surabaya. Monumen ini berada di Jalan Pahlawan, Kelurahan Embong Kaliasin, Kecamatan Genteng, Kota Surabaya.",
         )
     )
-    val dummyDataReviews = listOf(
+    val dummyDataReviews = mutableListOf(
         ReviewsResponse(
             1,
             393,

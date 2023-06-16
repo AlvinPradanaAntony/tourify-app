@@ -91,14 +91,14 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private fun defaultMarker() {
         val lat = intent.getStringExtra(EXTRA_LATITUDE)
         val long = intent.getStringExtra(EXTRA_LONGITUDE)
+        val name = intent.getStringExtra(NAME)
 
         if (lat != null && long != null) {
             val dicodingSpace = LatLng(lat.toDouble(), long.toDouble())
             mMap.addMarker(
                 MarkerOptions()
                     .position(dicodingSpace)
-                    .title("Dicoding Space")
-                    .snippet("Batik Kumeli No.50")
+                    .title(name)
             )
             mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(dicodingSpace, 15f))
         }
@@ -187,5 +187,6 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         private const val TAG = "MapsActivity"
         private const val EXTRA_LATITUDE = "LAT"
         private const val EXTRA_LONGITUDE = "LONG"
+        private const val NAME = "name"
     }
 }
